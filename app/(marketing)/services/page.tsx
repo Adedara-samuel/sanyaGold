@@ -4,7 +4,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { ServicesGrid } from "@/components/sections/services-grid";
-import { CtaButtons, JsonLd, PageHero, SectionHeading } from "@/components/shared";
+import { CtaButtons, JsonLd, PageHero, QueryBoundary, SectionHeading } from "@/components/shared";
 import { prefetchQueries } from "@/lib/prefetch";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
@@ -36,7 +36,9 @@ export default async function ServicesPage() {
       </PageHero>
 
       <section className="container-page pb-20" aria-label="Our services">
-        <ServicesGrid />
+        <QueryBoundary className="h-[32rem]">
+          <ServicesGrid />
+        </QueryBoundary>
       </section>
 
       <section className="section bg-secondary/40 border-y" aria-labelledby="how-title">

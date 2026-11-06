@@ -12,7 +12,7 @@ import { StatsBar } from "@/components/sections/stats";
 import { TeamGrid } from "@/components/sections/team";
 import { TestimonialsCarousel } from "@/components/sections/testimonials";
 import { WhyUs } from "@/components/sections/why-us";
-import { CtaButtons, JsonLd, SectionHeading } from "@/components/shared";
+import { CtaButtons, JsonLd, QueryBoundary, SectionHeading } from "@/components/shared";
 import { Button } from "@/components/ui/button";
 import { prefetchQueries } from "@/lib/prefetch";
 import { faqJsonLd } from "@/lib/seo";
@@ -34,7 +34,9 @@ export default async function HomePage() {
             description="Four core services, each with its own team and process, so you get exactly the help you need."
           />
           <div className="mt-14">
-            <ServicesGrid />
+            <QueryBoundary className="h-[32rem]">
+              <ServicesGrid />
+            </QueryBoundary>
           </div>
           <Reveal className="mt-10 flex justify-center">
             <Button asChild variant="outline" size="lg" className="group">
@@ -82,7 +84,9 @@ export default async function HomePage() {
         <div className="container-page">
           <SectionHeading eyebrow="Client stories" title={<span id="testimonials-title">What our clients say</span>} />
           <div className="mt-12">
-            <TestimonialsCarousel />
+            <QueryBoundary className="mx-auto h-80 max-w-3xl">
+              <TestimonialsCarousel />
+            </QueryBoundary>
           </div>
         </div>
       </section>
@@ -101,7 +105,9 @@ export default async function HomePage() {
             </Reveal>
           </div>
           <Reveal>
-            <FaqPreview />
+            <QueryBoundary className="h-80">
+              <FaqPreview />
+            </QueryBoundary>
           </Reveal>
         </div>
       </section>

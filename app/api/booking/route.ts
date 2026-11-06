@@ -1,14 +1,8 @@
-import { sendNotificationEmail } from "@/lib/email";
+import { isBookable, whenLabel } from "@/lib/booking";
+import { inboxAddress, sendMail } from "@/lib/email";
+import { bookingConfirmation, bookingNotification } from "@/lib/email-templates";
 import { clientIp, rateLimit } from "@/lib/rate-limit";
-import { bookingSchema, zodIssuesToRecord } from "@/lib/validators";
-
-const orgLabels: Record<string, string> = {
-  nonprofit: "Nonprofit",
-  "small-business": "Small business",
-  "professional-services": "Professional services",
-  individual: "Individual",
-  other: "Other",
-};
+import { bookingSchema, organizationTypeLabels, zodIssuesToRecord } from "@/lib/validators";
 
 export async function POST(request: Request) {
   const limit = rateLimit(`booking:${clientIp(request)}`, { limit: 5, windowMs: 60_000 });
@@ -36,24 +30,40 @@ export async function POST(request: Request) {
   }
 
   const data = parsed.data;
-  try {
-    await sendNotificationEmail({
-      subject: `Consultation request from ${data.name}`,
-      replyTo: data.email,
-      text: [
-        `Name: ${data.name}`,
-        `Email: ${data.email}`,
-        `Phone: ${data.phone || "—"}`,
-        `Organization type: ${orgLabels[data.organizationType] ?? data.organizationType}`,
-        `Preferred times: ${data.preferredTime}`,
-        "",
-        data.topic || "(no topic provided)",
-      ].join("\n"),
-    });
-  } catch (error) {
-    console.error("[booking] email delivery failed", error instanceof Error ? error.message : error);
-    return Response.json({ error: "We couldn't send your request. Please call us instead." }, { status: 502 });
+
+  // Re-check the slot on the server: open weekday, not in the past (Minnesota time), within range.
+  if (!isBookable(data.date, data.time)) {
+    return Response.json(
+      { error: "That time is no longer available. Please choose another.", issues: { time: ["Please choose another time."] } },
+      { status: 422 },
+    );
   }
 
-  return Response.json({ ok: true });
+  const emailData = {
+    when: whenLabel(data.date, data.time),
+    name: data.name,
+    email: data.email,
+    phone: data.phone,
+    organizationType: organizationTypeLabels[data.organizationType],
+    topic: data.topic,
+  };
+
+  // TODO(portal): persist the request (and block the slot globally) once a database exists.
+  try {
+    await sendMail({ to: inboxAddress(), replyTo: data.email, ...bookingNotification(emailData) });
+  } catch (error) {
+    console.error("[booking] notification failed:", error instanceof Error ? error.message : "unknown error");
+    return Response.json(
+      { error: "We couldn't send your request right now. Please call or email us directly." },
+      { status: 502 },
+    );
+  }
+
+  try {
+    await sendMail({ to: data.email, replyTo: inboxAddress(), ...bookingConfirmation(emailData) });
+  } catch (error) {
+    console.warn("[booking] confirmation failed:", error instanceof Error ? error.message : "unknown error");
+  }
+
+  return Response.json({ ok: true, when: emailData.when });
 }

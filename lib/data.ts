@@ -47,7 +47,11 @@ export async function getFaqGroups(): Promise<FaqGroup[]> {
 export async function getPosts(): Promise<PostSummary[]> {
   return [...posts]
     .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
-    .map(({ body: _body, ...summary }) => summary);
+    .map((post) => {
+      const summary: PostSummary & { body?: unknown } = { ...post };
+      delete summary.body;
+      return summary;
+    });
 }
 
 export async function getPost(slug: string): Promise<Post | null> {

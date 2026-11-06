@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { BOOKING_SLOTS } from "@/lib/booking";
 
 /** Shared by the client form AND the /api/contact route handler. */
 export const contactSchema = z.object({
@@ -32,8 +33,10 @@ export const contactDefaults: ContactInput = {
   website: "",
 };
 
-/** Fallback booking request when the scheduling embed is not configured or not wanted. */
+/** Consultation request from the built-in scheduler (date + time slot + details). */
 export const bookingSchema = z.object({
+  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Please choose a day."),
+  time: z.enum(BOOKING_SLOTS as unknown as [string, ...string[]], { error: "Please choose a time." }),
   name: z.string().trim().min(2, "Please enter your name.").max(100),
   email: z.email("Please enter a valid email address.").max(200),
   phone: z
@@ -44,21 +47,27 @@ export const bookingSchema = z.object({
   organizationType: z.enum(["nonprofit", "small-business", "professional-services", "individual", "other"], {
     error: "Please choose one.",
   }),
-  preferredTime: z.string().trim().min(2, "Let us know a few days or times that work.").max(200),
   topic: z.string().trim().max(1000),
   website: z.string().max(0),
 });
 
 export type BookingInput = z.infer<typeof bookingSchema>;
 
-export const bookingDefaults: BookingInput = {
+export const bookingDetailDefaults: Omit<BookingInput, "date" | "time"> = {
   name: "",
   email: "",
   phone: "",
   organizationType: "small-business",
-  preferredTime: "",
   topic: "",
   website: "",
+};
+
+export const organizationTypeLabels: Record<BookingInput["organizationType"], string> = {
+  "small-business": "Small business",
+  nonprofit: "Nonprofit",
+  "professional-services": "Professional services firm",
+  individual: "Individual / business owner",
+  other: "Other",
 };
 
 export const MAX_UPLOAD_BYTES = 25 * 1024 * 1024;

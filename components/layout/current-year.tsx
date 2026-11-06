@@ -1,9 +1,12 @@
-"use client";
+import { cacheLife } from "next/cache";
 
 /**
- * Renders the current year. A Client Component so the year is computed at
- * view time (Cache Components disallows `new Date()` in the prerendered shell).
+ * Current year for the footer, computed on the server instead of hard-coded.
+ * Cache Components only allows reading the clock inside a cached scope; the cache
+ * refreshes daily, so the year rolls over automatically on January 1.
  */
-export function CurrentYear() {
-  return <span suppressHydrationWarning>{new Date().getFullYear()}</span>;
+export async function CurrentYear() {
+  "use cache";
+  cacheLife("days");
+  return <span>{new Date().getFullYear()}</span>;
 }

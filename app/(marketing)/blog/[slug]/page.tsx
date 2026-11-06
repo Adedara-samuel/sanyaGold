@@ -3,7 +3,7 @@ import { HydrationBoundary } from "@tanstack/react-query";
 import { posts } from "@/content/posts";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { PostArticle } from "@/components/sections/post-article";
-import { JsonLd } from "@/components/shared";
+import { JsonLd, QueryBoundary } from "@/components/shared";
 import { getPost } from "@/lib/data";
 import { prefetchQueries } from "@/lib/prefetch";
 import { articleJsonLd, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
@@ -28,7 +28,9 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
 
   return (
     <HydrationBoundary state={state}>
-      <PostArticle slug={slug} />
+      <QueryBoundary className="container-page my-16 h-[40rem] max-w-3xl">
+        <PostArticle slug={slug} />
+      </QueryBoundary>
       <CtaBanner title="Want advice for your situation?" />
       <JsonLd
         data={[

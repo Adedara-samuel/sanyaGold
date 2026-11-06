@@ -1,8 +1,8 @@
-import { CheckCircle2 } from "lucide-react";
-import { BookingForm } from "@/components/forms/booking-form";
+import { CheckCircle2, Mail, Phone } from "lucide-react";
+import { BookingScheduler } from "@/components/forms/booking-scheduler";
 import { Reveal } from "@/components/motion/reveal";
-import { BookingEmbed } from "@/components/sections/booking-embed";
 import { JsonLd, PageHero } from "@/components/shared";
+import { siteConfig } from "@/lib/site-config";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -23,42 +23,45 @@ export default function BookPage() {
     <>
       <PageHero
         eyebrow="Free consultation"
-        title="Book a free consultation"
-        description="Pick a time that suits you. We'll talk about your organization, your goals and how we can help."
+        title="Pick a time. Let's talk."
+        description="Choose a day and time that suits you. We'll confirm by email within one business day."
       />
 
-      <section className="container-page grid gap-10 pb-16 lg:grid-cols-[0.8fr_1.2fr]">
+      <section className="container-page pb-16" aria-label="Consultation scheduler">
         <Reveal>
-          <h2 className="text-2xl font-semibold">What to expect</h2>
-          <ul className="mt-6 space-y-4">
+          <BookingScheduler />
+        </Reveal>
+      </section>
+
+      <section className="container-page grid gap-6 pb-24 md:grid-cols-2" aria-label="About your consultation">
+        <Reveal className="bg-card rounded-3xl border p-7">
+          <h2 className="font-sans text-base font-semibold">What to expect</h2>
+          <ul className="mt-5 space-y-3">
             {expectations.map((item) => (
-              <li key={item} className="flex gap-3">
-                <CheckCircle2 className="text-success mt-0.5 size-5 shrink-0" aria-hidden="true" />
+              <li key={item} className="flex gap-3 text-sm">
+                <CheckCircle2 className="text-success mt-0.5 size-4 shrink-0" aria-hidden="true" />
                 <span>{item}</span>
               </li>
             ))}
           </ul>
-          <p className="text-muted-foreground mt-8 text-sm">
-            Have last year&apos;s financial statements or tax return handy if you can. It helps us give better advice, but it&apos;s
-            not required.
-          </p>
         </Reveal>
-        <Reveal delay={0.1}>
-          <BookingEmbed />
-        </Reveal>
-      </section>
-
-      <section className="container-page pb-24" aria-labelledby="request-title">
-        <Reveal className="bg-card mx-auto max-w-3xl rounded-3xl border p-6 shadow-sm sm:p-10">
-          <h2 id="request-title" className="text-2xl font-semibold">
-            Or request a time
-          </h2>
+        <Reveal delay={0.08} className="bg-card rounded-3xl border p-7">
+          <h2 className="font-sans text-base font-semibold">Prefer to talk now?</h2>
           <p className="text-muted-foreground mt-2 text-sm">
-            Tell us when works for you and we&apos;ll confirm by email within one business day.
+            Can&apos;t find a time that works? Get in touch and we&apos;ll find one together.
           </p>
-          <div className="mt-8">
-            <BookingForm />
-          </div>
+          <ul className="mt-5 space-y-3 text-sm">
+            <li>
+              <a href={siteConfig.contact.phoneHref} className="hover:text-gold-ink inline-flex items-center gap-3">
+                <Phone className="text-gold-ink size-4" aria-hidden="true" /> {siteConfig.contact.phone}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-gold-ink inline-flex items-center gap-3">
+                <Mail className="text-gold-ink size-4" aria-hidden="true" /> {siteConfig.contact.email}
+              </a>
+            </li>
+          </ul>
         </Reveal>
       </section>
       <JsonLd

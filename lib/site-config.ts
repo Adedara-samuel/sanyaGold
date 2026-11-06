@@ -53,9 +53,15 @@ export const siteConfig = {
     googleReviews: "https://g.page/r/[GOOGLE_PLACE_ID]/review",
   },
 
+  // Built-in consultation scheduler (calendar + time slots, confirmed by email).
   booking: {
-    // Set NEXT_PUBLIC_BOOKING_URL to a Cal.com or Calendly scheduling link.
-    url: process.env.NEXT_PUBLIC_BOOKING_URL ?? "",
+    timeZone: "America/Chicago", // Minnesota
+    timeZoneLabel: "Central Time",
+    durationMinutes: 30,
+    // 24h start times offered each open day. Keep in sync with `hours` above.
+    slots: ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00"],
+    closedWeekdays: [0, 6], // Sunday, Saturday
+    maxDaysAhead: 60,
   },
 
   cta: {

@@ -1,7 +1,7 @@
 import { HydrationBoundary } from "@tanstack/react-query";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { PostList } from "@/components/sections/post-list";
-import { JsonLd, PageHero } from "@/components/shared";
+import { JsonLd, PageHero, QueryBoundary } from "@/components/shared";
 import { prefetchQueries } from "@/lib/prefetch";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
@@ -22,7 +22,9 @@ export default async function BlogPage() {
         description="Short, practical reads on tax, compliance and running a healthy organization in Minnesota."
       />
       <section className="container-page pb-20" aria-label="Articles">
-        <PostList />
+        <QueryBoundary className="h-96">
+          <PostList />
+        </QueryBoundary>
       </section>
       <CtaBanner />
       <JsonLd

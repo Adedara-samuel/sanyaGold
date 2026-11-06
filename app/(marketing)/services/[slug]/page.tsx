@@ -3,7 +3,7 @@ import { HydrationBoundary } from "@tanstack/react-query";
 import { services } from "@/content/services";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { ServiceDetail } from "@/components/sections/service-detail";
-import { JsonLd } from "@/components/shared";
+import { JsonLd, QueryBoundary } from "@/components/shared";
 import { getService } from "@/lib/data";
 import { prefetchQueries } from "@/lib/prefetch";
 import { breadcrumbJsonLd, faqJsonLd, pageMetadata, serviceJsonLd } from "@/lib/seo";
@@ -32,7 +32,9 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
 
   return (
     <HydrationBoundary state={state}>
-      <ServiceDetail slug={slug} />
+      <QueryBoundary className="container-page my-16 h-[40rem]">
+        <ServiceDetail slug={slug} />
+      </QueryBoundary>
       <CtaBanner title={`Talk to us about ${service.shortTitle.toLowerCase()}`} />
       <JsonLd
         data={[

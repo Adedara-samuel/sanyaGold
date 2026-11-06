@@ -1,6 +1,14 @@
-import { sendNotificationEmail } from "@/lib/email";
+import { inboxAddress, sendMail } from "@/lib/email";
+import { contactConfirmation, contactNotification } from "@/lib/email-templates";
 import { clientIp, rateLimit } from "@/lib/rate-limit";
 import { contactSchema, zodIssuesToRecord } from "@/lib/validators";
+
+const serviceLabels: Record<string, string> = {
+  tax: "Tax services",
+  accounting: "Accounting & bookkeeping",
+  "audit-assurance": "Audit & review",
+  consulting: "Business consulting",
+};
 
 export async function POST(request: Request) {
   // Basic in-memory rate limit (see TODO in lib/rate-limit.ts).
@@ -33,25 +41,25 @@ export async function POST(request: Request) {
     );
   }
 
-  const { name, email, phone, organization, service, message } = parsed.data;
+  const data = { ...parsed.data, service: serviceLabels[parsed.data.service] ?? "Not sure yet" };
 
+  // 1) Notify the firm's inbox. Reply-To is the visitor, so "Reply" goes straight to them.
   try {
-    await sendNotificationEmail({
-      subject: `New website enquiry from ${name}`,
-      replyTo: email,
-      text: [
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Phone: ${phone || "—"}`,
-        `Organization: ${organization || "—"}`,
-        `Service: ${service || "—"}`,
-        "",
-        message,
-      ].join("\n"),
-    });
+    await sendMail({ to: inboxAddress(), replyTo: data.email, ...contactNotification(data) });
   } catch (error) {
-    console.error("[contact] email delivery failed", error instanceof Error ? error.message : error);
-    return Response.json({ error: "We couldn't send your message. Please call us instead." }, { status: 502 });
+    console.error("[contact] notification failed:", error instanceof Error ? error.message : "unknown error");
+    return Response.json(
+      { error: "We couldn't send your message right now. Please call or email us directly." },
+      { status: 502 },
+    );
+  }
+
+  // 2) Courtesy confirmation to the visitor. Replies reach the firm's inbox.
+  //    A failure here must not fail the request: the firm already has the message.
+  try {
+    await sendMail({ to: data.email, replyTo: inboxAddress(), ...contactConfirmation(data) });
+  } catch (error) {
+    console.warn("[contact] confirmation failed:", error instanceof Error ? error.message : "unknown error");
   }
 
   return Response.json({ ok: true });

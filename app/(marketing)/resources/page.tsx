@@ -6,7 +6,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { FaqTabs } from "@/components/sections/faq";
-import { JsonLd, PageHero, SectionHeading } from "@/components/shared";
+import { JsonLd, PageHero, QueryBoundary, SectionHeading } from "@/components/shared";
 import { prefetchQueries } from "@/lib/prefetch";
 import { faqJsonLd, pageMetadata } from "@/lib/seo";
 
@@ -59,7 +59,9 @@ export default async function ResourcesPage() {
         <div className="container-page max-w-3xl">
           <SectionHeading eyebrow="FAQs" title={<span id="faqs-title">Frequently asked questions</span>} />
           <Reveal className="mt-12">
-            <FaqTabs />
+            <QueryBoundary className="h-96">
+              <FaqTabs />
+            </QueryBoundary>
           </Reveal>
         </div>
       </section>

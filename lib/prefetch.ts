@@ -1,5 +1,6 @@
 import "server-only";
 
+import { cacheLife } from "next/cache";
 import { dehydrate } from "@tanstack/react-query";
 import { getFaqGroups, getPost, getPosts, getService, getServices, getTestimonials } from "@/lib/data";
 import { makeQueryClient } from "@/lib/query-client";
@@ -17,8 +18,15 @@ type PrefetchTarget =
  * Prefetches queries on the server (calling the data layer directly, not HTTP)
  * and returns dehydrated state for <HydrationBoundary>. The client hooks use the
  * same query keys, so they render instantly from cache and stay indexable.
+ *
+ * `"use cache"` lets the page prerender: TanStack timestamps data with Date.now(),
+ * which Cache Components only allows inside a cached scope. Refresh cadence is set
+ * by cacheLife — when a CMS is connected, add cacheTag() and revalidate on publish.
  */
 export async function prefetchQueries(targets: PrefetchTarget[]) {
+  "use cache";
+  cacheLife("hours");
+
   const queryClient = makeQueryClient();
 
   await Promise.all(

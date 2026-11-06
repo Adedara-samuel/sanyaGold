@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
@@ -85,6 +86,21 @@ export function JsonLd({ data }: { data: Record<string, unknown> | Record<string
       // JSON-LD guide: escape "<" so content can never break out of the script tag.
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
     />
+  );
+}
+
+/**
+ * Suspense boundary for React Query client sections. Under Cache Components,
+ * useQuery reads the clock during render, so these sections stream in at request
+ * time (still server-rendered HTML, hydrated from the server-prefetched cache).
+ */
+export function QueryBoundary({ children, className }: { children: React.ReactNode; className?: string }) {
+  return (
+    <Suspense
+      fallback={<div aria-hidden="true" className={cn("bg-muted/70 min-h-40 animate-pulse rounded-2xl", className)} />}
+    >
+      {children}
+    </Suspense>
   );
 }
 

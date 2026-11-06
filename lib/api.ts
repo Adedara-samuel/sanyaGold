@@ -72,7 +72,7 @@ export const api = {
   },
   booking: {
     request: (data: BookingInput) =>
-      request<{ ok: true }>("/api/booking", { method: "POST", body: JSON.stringify(data) }),
+      request<{ ok: true; when?: string }>("/api/booking", { method: "POST", body: JSON.stringify(data) }),
   },
   documents: {
     list: () => request<PortalDocument[]>("/api/documents"),
