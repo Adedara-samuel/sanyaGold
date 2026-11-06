@@ -33,7 +33,7 @@ export function Hero() {
                 {index === 2 ? (
                   <>
                     and small businesses{" "}
-                    <span className="relative whitespace-nowrap">
+                    <span className="relative sm:whitespace-nowrap">
                       <span className="relative z-10">grow with confidence.</span>
                       <motion.span
                         aria-hidden="true"
