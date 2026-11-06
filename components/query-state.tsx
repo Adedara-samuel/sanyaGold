@@ -18,10 +18,13 @@ export function ErrorState({
   return (
     <div
       role="alert"
-      className={cn("bg-card flex flex-col items-center gap-4 rounded-2xl border border-dashed p-8 text-center", className)}
+      className={cn(
+        "flex flex-col items-center gap-4 rounded-2xl border border-dashed bg-card p-8 text-center",
+        className,
+      )}
     >
-      <AlertCircle className="text-destructive size-6" aria-hidden="true" />
-      <p className="text-muted-foreground text-sm">{message}</p>
+      <AlertCircle className="size-6 text-destructive" aria-hidden="true" />
+      <p className="text-sm text-muted-foreground">{message}</p>
       {onRetry && (
         <Button variant="outline" size="sm" onClick={onRetry} disabled={isRetrying}>
           <RotateCw className={cn(isRetrying && "animate-spin")} />

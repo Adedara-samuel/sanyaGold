@@ -33,7 +33,7 @@ function FooterColumn({ title, links }: { title: string; links: readonly { label
       <ul className="mt-4 space-y-3">
         {links.map((link) => (
           <li key={link.href}>
-            <Link href={link.href} className="text-muted-foreground hover:text-foreground text-sm transition-colors">
+            <Link href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
               {link.label}
             </Link>
           </li>
@@ -45,11 +45,11 @@ function FooterColumn({ title, links }: { title: string; links: readonly { label
 
 export function SiteFooter() {
   return (
-    <footer className="bg-secondary/50 border-t">
+    <footer className="border-t bg-secondary/50">
       <div className="container-page grid gap-12 py-16 lg:grid-cols-[1.3fr_2fr]">
         <div className="max-w-sm space-y-5">
           <Logo />
-          <p className="text-muted-foreground text-sm leading-relaxed">
+          <p className="text-sm leading-relaxed text-muted-foreground">
             Accounting, tax and advisory for Minnesota nonprofits and small businesses.
           </p>
           <ul className="flex gap-2" aria-label="Social media">
@@ -59,7 +59,7 @@ export function SiteFooter() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-background text-muted-foreground hover:text-foreground hover:border-accent inline-flex size-10 items-center justify-center rounded-full border transition-colors"
+                  className="inline-flex size-10 items-center justify-center rounded-full border bg-background text-muted-foreground transition-colors hover:border-accent hover:text-foreground"
                 >
                   <Icon className="size-4" />
                   <span className="sr-only">{label} (opens in a new tab)</span>
@@ -75,11 +75,14 @@ export function SiteFooter() {
           <FooterColumn title="Resources" links={siteConfig.footer.resources} />
           <div className="col-span-2 sm:col-span-3 xl:col-span-1">
             <h2 className="font-sans text-sm font-semibold tracking-wide">Contact</h2>
-            <address className="text-muted-foreground mt-4 space-y-3 text-sm not-italic">
-              <a href={siteConfig.contact.phoneHref} className="hover:text-foreground flex items-start gap-2">
+            <address className="mt-4 space-y-3 text-sm text-muted-foreground not-italic">
+              <a href={siteConfig.contact.phoneHref} className="flex items-start gap-2 hover:text-foreground">
                 <Phone className="mt-0.5 size-4 shrink-0" /> {siteConfig.contact.phone}
               </a>
-              <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-foreground flex items-start gap-2 break-all">
+              <a
+                href={`mailto:${siteConfig.contact.email}`}
+                className="flex items-start gap-2 break-all hover:text-foreground"
+              >
                 <Mail className="mt-0.5 size-4 shrink-0" /> {siteConfig.contact.email}
               </a>
               <p className="flex items-start gap-2">
@@ -91,7 +94,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t">
-        <div className="container-page text-muted-foreground flex flex-col gap-3 py-6 text-xs sm:flex-row sm:items-center sm:justify-between">
+        <div className="container-page flex flex-col gap-3 py-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>
             © <CurrentYear /> {siteConfig.legalName}. All rights reserved. Licensed by the{" "}
             {siteConfig.licensing.licensingBoard}. {siteConfig.licensing.firmPermit}
@@ -100,7 +103,7 @@ export function SiteFooter() {
             <ul className="flex gap-5">
               {siteConfig.footer.legal.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="hover:text-foreground underline-offset-4 hover:underline">
+                  <Link href={link.href} className="underline-offset-4 hover:text-foreground hover:underline">
                     {link.label}
                   </Link>
                 </li>

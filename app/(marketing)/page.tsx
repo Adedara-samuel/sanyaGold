@@ -49,7 +49,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <div className="bg-secondary/40 border-y">
+      <div className="border-y bg-secondary/40">
         <WhyUs />
       </div>
 
@@ -59,7 +59,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="section bg-secondary/40 border-y" aria-labelledby="team-title">
+      <section className="section border-y bg-secondary/40" aria-labelledby="team-title">
         <div className="container-page">
           <SectionHeading
             eyebrow="Our team"
@@ -91,7 +91,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="section bg-secondary/40 border-y" aria-labelledby="faq-title">
+      <section className="section border-y bg-secondary/40" aria-labelledby="faq-title">
         <div className="container-page grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <SectionHeading

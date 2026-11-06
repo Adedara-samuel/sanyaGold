@@ -6,8 +6,7 @@ export const services: Service[] = [
     title: "Tax Services",
     shortTitle: "Tax",
     icon: "receipt",
-    summary:
-      "Year-round tax planning and accurate filings, so there are no surprises in April.",
+    summary: "Year-round tax planning and accurate filings, so there are no surprises in April.",
     description:
       "We prepare and file federal and Minnesota returns for small businesses, their owners and tax-exempt organizations, and we plan ahead with you during the year so you keep more of what you earn and stay in good standing with the IRS and the Minnesota Department of Revenue.",
     idealFor: [
@@ -43,8 +42,14 @@ export const services: Service[] = [
     ],
     process: [
       { step: "Free consultation", description: "We learn about your situation and what you need from a tax partner." },
-      { step: "Secure document collection", description: "You share documents through our client portal or a guided checklist." },
-      { step: "Preparation and review", description: "A CPA prepares your return and walks you through it before filing." },
+      {
+        step: "Secure document collection",
+        description: "You share documents through our client portal or a guided checklist.",
+      },
+      {
+        step: "Preparation and review",
+        description: "A CPA prepares your return and walks you through it before filing.",
+      },
       { step: "Plan for next year", description: "We set reminders and a plan, so next year is even easier." },
     ],
     faqs: [
@@ -64,8 +69,7 @@ export const services: Service[] = [
     title: "Accounting & Bookkeeping",
     shortTitle: "Accounting",
     icon: "book",
-    summary:
-      "Clean, up-to-date books and clear monthly reports you can actually use to make decisions.",
+    summary: "Clean, up-to-date books and clear monthly reports you can actually use to make decisions.",
     description:
       "We keep your books accurate and current every month, reconcile your accounts and deliver simple financial reports, so you always know where your organization stands and are ready for tax time, lenders, boards and grantmakers.",
     idealFor: [
@@ -108,7 +112,8 @@ export const services: Service[] = [
     faqs: [
       {
         question: "Which accounting software do you work with?",
-        answer: "We most often work in QuickBooks Online, and we can work with other common platforms. [Confirm supported software]",
+        answer:
+          "We most often work in QuickBooks Online, and we can work with other common platforms. [Confirm supported software]",
       },
       {
         question: "Can you help if my books are months behind?",
@@ -121,8 +126,7 @@ export const services: Service[] = [
     title: "Audit & Review",
     shortTitle: "Audit & Review",
     icon: "shield",
-    summary:
-      "Independent audits, reviews and compilations that give boards, lenders and funders confidence.",
+    summary: "Independent audits, reviews and compilations that give boards, lenders and funders confidence.",
     description:
       "When a funder, lender or board needs independent assurance on your financial statements, we provide audits, reviews and compilations with clear communication at every step, so the process is predictable and your team is never left guessing.",
     idealFor: [
@@ -180,8 +184,7 @@ export const services: Service[] = [
     title: "Business Consulting",
     shortTitle: "Consulting",
     icon: "compass",
-    summary:
-      "Budgets, forecasts and outsourced CFO support to help you plan with confidence and grow.",
+    summary: "Budgets, forecasts and outsourced CFO support to help you plan with confidence and grow.",
     description:
       "Beyond compliance, we help you understand your numbers and plan ahead, from budgets and cash flow forecasts to pricing, entity structure and board-ready reporting, as an extension of your leadership team.",
     idealFor: [
@@ -228,7 +231,8 @@ export const services: Service[] = [
       },
       {
         question: "How is consulting priced?",
-        answer: "Most projects are priced at a fixed fee after a free consultation, so you know the cost up front. [Confirm pricing approach]",
+        answer:
+          "Most projects are priced at a fixed fee after a free consultation, so you know the cost up front. [Confirm pricing approach]",
       },
     ],
   },

@@ -41,7 +41,7 @@ export default async function ServicesPage() {
         </QueryBoundary>
       </section>
 
-      <section className="section bg-secondary/40 border-y" aria-labelledby="how-title">
+      <section className="section border-y bg-secondary/40" aria-labelledby="how-title">
         <div className="container-page">
           <SectionHeading
             eyebrow="How it works"
@@ -50,20 +50,22 @@ export default async function ServicesPage() {
           />
           <Stagger as="ol" className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (
-              <StaggerItem as="li" key={step.title} className="bg-card relative rounded-2xl border p-6">
-                <span className="text-gold-ink font-serif text-3xl font-semibold">0{index + 1}</span>
+              <StaggerItem as="li" key={step.title} className="relative rounded-2xl border bg-card p-6">
+                <span className="font-serif text-3xl font-semibold text-gold-ink">0{index + 1}</span>
                 <h3 className="mt-3 font-sans text-base font-semibold">{step.title}</h3>
-                <p className="text-muted-foreground mt-2 text-sm leading-relaxed">{step.description}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.description}</p>
               </StaggerItem>
             ))}
           </Stagger>
-          <Reveal className="text-muted-foreground mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
-            {["No long-term contracts required", "Fixed, transparent fees", "Serving clients across Minnesota"].map((point) => (
-              <span key={point} className="inline-flex items-center gap-2">
-                <CheckCircle2 className="text-success size-4" aria-hidden="true" />
-                {point}
-              </span>
-            ))}
+          <Reveal className="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+            {["No long-term contracts required", "Fixed, transparent fees", "Serving clients across Minnesota"].map(
+              (point) => (
+                <span key={point} className="inline-flex items-center gap-2">
+                  <CheckCircle2 className="size-4 text-success" aria-hidden="true" />
+                  {point}
+                </span>
+              ),
+            )}
           </Reveal>
         </div>
       </section>

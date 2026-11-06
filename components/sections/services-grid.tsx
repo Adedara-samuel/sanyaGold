@@ -44,24 +44,29 @@ export function ServiceCard({ service }: { service: Service }) {
     <motion.div
       whileHover={{ y: -4 }}
       transition={{ type: "spring", stiffness: 300, damping: 24 }}
-      className="group bg-card hover:border-accent/60 relative flex h-full flex-col rounded-2xl border p-7 shadow-sm transition-[border-color,box-shadow] duration-300 hover:shadow-[0_24px_50px_-24px_color-mix(in_oklch,var(--accent)_55%,transparent)]"
+      className="group relative flex h-full flex-col rounded-2xl border bg-card p-7 shadow-sm transition-[border-color,box-shadow] duration-300 hover:border-accent/60 hover:shadow-[0_24px_50px_-24px_color-mix(in_oklch,var(--accent)_55%,transparent)]"
     >
       <div className="flex items-start justify-between">
-        <span className="bg-accent-soft text-gold-ink grid size-12 place-items-center rounded-2xl transition-transform duration-300 group-hover:scale-105">
+        <span className="grid size-12 place-items-center rounded-2xl bg-accent-soft text-gold-ink transition-transform duration-300 group-hover:scale-105">
           <Icon className="size-5.5" aria-hidden="true" />
         </span>
         <ArrowUpRight
           aria-hidden="true"
-          className="text-muted-foreground group-hover:text-foreground size-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          className="size-5 text-muted-foreground transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground"
         />
       </div>
       <h3 className="mt-6 text-xl font-semibold">
-        <Link href={`/services/${service.slug}`} className="after:absolute after:inset-0 after:rounded-2xl focus-visible:outline-none">
+        <Link
+          href={`/services/${service.slug}`}
+          className="after:absolute after:inset-0 after:rounded-2xl focus-visible:outline-none"
+        >
           {service.title}
         </Link>
       </h3>
-      <p className="text-muted-foreground mt-3 leading-relaxed">{service.summary}</p>
-      <p className="text-gold-ink mt-auto pt-6 text-sm font-medium">Learn more about {service.shortTitle.toLowerCase()}</p>
+      <p className="mt-3 leading-relaxed text-muted-foreground">{service.summary}</p>
+      <p className="mt-auto pt-6 text-sm font-medium text-gold-ink">
+        Learn more about {service.shortTitle.toLowerCase()}
+      </p>
     </motion.div>
   );
 }

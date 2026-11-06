@@ -12,7 +12,14 @@ interface StaggerProps extends HTMLMotionProps<"div"> {
 }
 
 /** Parent that reveals its <StaggerItem> children one after another. */
-export function Stagger({ stagger = 0.08, delay = 0, immediate = false, as = "div", children, ...props }: StaggerProps) {
+export function Stagger({
+  stagger = 0.08,
+  delay = 0,
+  immediate = false,
+  as = "div",
+  children,
+  ...props
+}: StaggerProps) {
   const reduce = useReducedMotion();
   const variants: Variants = {
     hidden: {},

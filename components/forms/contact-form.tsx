@@ -73,7 +73,7 @@ export function ContactForm() {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>
-                  Phone <span className="text-muted-foreground font-normal">(optional)</span>
+                  Phone <span className="font-normal text-muted-foreground">(optional)</span>
                 </FormLabel>
                 <FormControl>
                   <Input type="tel" autoComplete="tel" {...field} />
@@ -88,7 +88,7 @@ export function ContactForm() {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>
-                  Organization <span className="text-muted-foreground font-normal">(optional)</span>
+                  Organization <span className="font-normal text-muted-foreground">(optional)</span>
                 </FormLabel>
                 <FormControl>
                   <Input autoComplete="organization" {...field} />
@@ -108,7 +108,7 @@ export function ContactForm() {
               <FormControl>
                 <select
                   {...field}
-                  className="border-input bg-card focus-visible:border-ring focus-visible:ring-ring/40 h-11 w-full rounded-xl border px-3.5 text-base shadow-xs outline-none focus-visible:ring-[3px] md:text-sm"
+                  className="h-11 w-full rounded-xl border border-input bg-card px-3.5 text-base shadow-xs outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/40 md:text-sm"
                 >
                   {serviceOptions.map((option) => (
                     <option key={option.value} value={option.value}>
@@ -129,7 +129,11 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>Message</FormLabel>
               <FormControl>
-                <Textarea rows={5} placeholder="Tell us a little about your organization and what you need." {...field} />
+                <Textarea
+                  rows={5}
+                  placeholder="Tell us a little about your organization and what you need."
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -138,7 +142,7 @@ export function ContactForm() {
 
         <HoneypotField register={form.register("website")} />
 
-        <p className="text-muted-foreground text-xs">
+        <p className="text-xs text-muted-foreground">
           Please don&apos;t include Social Security numbers, bank details or other sensitive information in this form.
         </p>
 

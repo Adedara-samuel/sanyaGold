@@ -25,12 +25,7 @@ import {
 } from "@/lib/booking";
 import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
-import {
-  bookingDetailDefaults,
-  bookingSchema,
-  organizationTypeLabels,
-  type BookingInput,
-} from "@/lib/validators";
+import { bookingDetailDefaults, bookingSchema, organizationTypeLabels, type BookingInput } from "@/lib/validators";
 
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const STORAGE_KEY = "sanyagold:requested-slots";
@@ -48,7 +43,11 @@ function readRequested(): string[] {
 
 export function BookingScheduler() {
   // "Today" depends on the visitor's clock, so it's read on the client only (avoids hydration mismatch).
-  const todayKey = useSyncExternalStore(noopSubscribe, () => todayKeyInFirmZone(), () => null);
+  const todayKey = useSyncExternalStore(
+    noopSubscribe,
+    () => todayKeyInFirmZone(),
+    () => null,
+  );
   if (!todayKey) return <SchedulerSkeleton />;
   return <Scheduler todayKey={todayKey} />;
 }
@@ -76,7 +75,10 @@ function Scheduler({ todayKey }: { todayKey: string }) {
   const cells = useMemo(() => {
     const lead = new Date(year, month, 1).getDay();
     const count = new Date(year, month + 1, 0).getDate();
-    return [...Array<null>(lead).fill(null), ...Array.from({ length: count }, (_, i) => toDateKey(new Date(year, month, i + 1)))];
+    return [
+      ...Array<null>(lead).fill(null),
+      ...Array.from({ length: count }, (_, i) => toDateKey(new Date(year, month, i + 1))),
+    ];
   }, [year, month]);
 
   const firstMonth = new Date(today.getFullYear(), today.getMonth(), 1);
@@ -131,7 +133,7 @@ function Scheduler({ todayKey }: { todayKey: string }) {
   return (
     <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
       {/* Step 1 — calendar */}
-      <section aria-labelledby="calendar-title" className="bg-card rounded-3xl border p-5 shadow-sm sm:p-7">
+      <section aria-labelledby="calendar-title" className="rounded-3xl border bg-card p-5 shadow-sm sm:p-7">
         <div className="mb-5 flex items-center justify-between gap-3">
           <h2 id="calendar-title" className="font-serif text-2xl font-semibold" aria-live="polite">
             {view.toLocaleDateString("en-US", { month: "long", year: "numeric" })}
@@ -160,7 +162,7 @@ function Scheduler({ todayKey }: { todayKey: string }) {
           </div>
         </div>
 
-        <div className="text-muted-foreground grid grid-cols-7 gap-1 text-center text-[0.6875rem] font-medium tracking-wider uppercase">
+        <div className="grid grid-cols-7 gap-1 text-center text-[0.6875rem] font-medium tracking-wider text-muted-foreground uppercase">
           {WEEKDAYS.map((day) => (
             <span key={day} className="py-2" aria-hidden="true">
               {day}
@@ -185,23 +187,26 @@ function Scheduler({ todayKey }: { todayKey: string }) {
                   setConfirmed(null);
                 }}
                 className={cn(
-                  "focus-visible:ring-ring/50 relative aspect-square rounded-xl text-sm tabular-nums transition-colors outline-none focus-visible:ring-[3px] sm:text-base",
+                  "relative aspect-square rounded-xl text-sm tabular-nums transition-colors outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 sm:text-base",
                   selected
-                    ? "bg-primary text-primary-foreground font-semibold shadow-sm"
+                    ? "bg-primary font-semibold text-primary-foreground shadow-sm"
                     : closed
-                      ? "text-muted-foreground/40 cursor-not-allowed"
-                      : "hover:bg-accent-soft font-medium",
+                      ? "cursor-not-allowed text-muted-foreground/40"
+                      : "font-medium hover:bg-accent-soft",
                 )}
               >
                 {fromDateKey(key).getDate()}
                 {key === todayKey && (
-                  <span aria-hidden="true" className="absolute bottom-1.5 left-1/2 size-1 -translate-x-1/2 rounded-full bg-current" />
+                  <span
+                    aria-hidden="true"
+                    className="absolute bottom-1.5 left-1/2 size-1 -translate-x-1/2 rounded-full bg-current"
+                  />
                 )}
               </button>
             );
           })}
         </div>
-        <p className="text-muted-foreground mt-5 flex items-center gap-2 text-xs">
+        <p className="mt-5 flex items-center gap-2 text-xs text-muted-foreground">
           <Clock className="size-3.5" aria-hidden="true" />
           {siteConfig.booking.durationMinutes}-minute consultations, Monday to Friday. Times shown in{" "}
           {siteConfig.booking.timeZoneLabel} (Minnesota).
@@ -209,29 +214,41 @@ function Scheduler({ todayKey }: { todayKey: string }) {
       </section>
 
       {/* Steps 2 & 3 — time and details */}
-      <section aria-label="Choose a time and add your details" className="bg-card rounded-3xl border p-5 shadow-sm sm:p-7">
+      <section
+        aria-label="Choose a time and add your details"
+        className="rounded-3xl border bg-card p-5 shadow-sm sm:p-7"
+      >
         <AnimatePresence mode="wait" initial={false}>
           {confirmed ? (
-            <motion.div key="sent" {...fade} className="flex h-full min-h-80 flex-col items-center justify-center text-center" role="status">
-              <span className="bg-success/15 text-success grid size-14 place-items-center rounded-full">
+            <motion.div
+              key="sent"
+              {...fade}
+              className="flex h-full min-h-80 flex-col items-center justify-center text-center"
+              role="status"
+            >
+              <span className="grid size-14 place-items-center rounded-full bg-success/15 text-success">
                 <Check className="size-7" aria-hidden="true" />
               </span>
               <h3 className="mt-6 text-2xl font-semibold">Request sent</h3>
-              <p className="text-muted-foreground mt-3 max-w-sm text-sm leading-relaxed">
-                You asked for <strong className="text-foreground">{confirmed.when}</strong>. We&apos;ve emailed a copy to{" "}
-                {confirmed.email} and will confirm the time within one business day.
+              <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
+                You asked for <strong className="text-foreground">{confirmed.when}</strong>. We&apos;ve emailed a copy
+                to {confirmed.email} and will confirm the time within one business day.
               </p>
               <Button variant="outline" className="mt-8" onClick={startOver}>
                 Request another time
               </Button>
             </motion.div>
           ) : !date ? (
-            <motion.div key="empty" {...fade} className="flex h-full min-h-80 flex-col items-center justify-center text-center">
-              <span className="bg-accent-soft text-gold-ink grid size-14 place-items-center rounded-2xl">
+            <motion.div
+              key="empty"
+              {...fade}
+              className="flex h-full min-h-80 flex-col items-center justify-center text-center"
+            >
+              <span className="grid size-14 place-items-center rounded-2xl bg-accent-soft text-gold-ink">
                 <CalendarDays className="size-6" aria-hidden="true" />
               </span>
               <p className="eyebrow mt-6">Step 1 of 3</p>
-              <p className="text-muted-foreground mt-2">Choose a day on the calendar.</p>
+              <p className="mt-2 text-muted-foreground">Choose a day on the calendar.</p>
             </motion.div>
           ) : (
             <motion.div key={date} {...fade}>
@@ -252,11 +269,11 @@ function Scheduler({ todayKey }: { todayKey: string }) {
                       aria-label={`${slotLabel(slot)}${taken ? ", already requested" : past ? ", unavailable" : ""}`}
                       onClick={() => setTime(slot)}
                       className={cn(
-                        "focus-visible:ring-ring/50 rounded-xl border py-2.5 text-xs font-medium tabular-nums transition-colors outline-none focus-visible:ring-[3px] sm:text-sm",
+                        "rounded-xl border py-2.5 text-xs font-medium tabular-nums transition-colors outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 sm:text-sm",
                         time === slot
                           ? "border-primary bg-primary text-primary-foreground"
                           : unavailable
-                            ? "text-muted-foreground/50 cursor-not-allowed line-through"
+                            ? "cursor-not-allowed text-muted-foreground/50 line-through"
                             : "hover:border-accent hover:bg-accent-soft",
                       )}
                     >
@@ -302,7 +319,7 @@ function Scheduler({ todayKey }: { todayKey: string }) {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>
-                              Phone <span className="text-muted-foreground font-normal">(optional)</span>
+                              Phone <span className="font-normal text-muted-foreground">(optional)</span>
                             </FormLabel>
                             <FormControl>
                               <Input type="tel" autoComplete="tel" {...field} />
@@ -320,7 +337,7 @@ function Scheduler({ todayKey }: { todayKey: string }) {
                             <FormControl>
                               <select
                                 {...field}
-                                className="border-input bg-card focus-visible:border-ring focus-visible:ring-ring/40 h-11 w-full rounded-xl border px-3.5 text-base shadow-xs outline-none focus-visible:ring-[3px] md:text-sm"
+                                className="h-11 w-full rounded-xl border border-input bg-card px-3.5 text-base shadow-xs outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/40 md:text-sm"
                               >
                                 {Object.entries(organizationTypeLabels).map(([value, label]) => (
                                   <option key={value} value={value}>
@@ -340,7 +357,8 @@ function Scheduler({ todayKey }: { todayKey: string }) {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>
-                            What would you like to discuss? <span className="text-muted-foreground font-normal">(optional)</span>
+                            What would you like to discuss?{" "}
+                            <span className="font-normal text-muted-foreground">(optional)</span>
                           </FormLabel>
                           <FormControl>
                             <Textarea rows={3} className="min-h-24" {...field} />
@@ -368,7 +386,7 @@ function Scheduler({ todayKey }: { todayKey: string }) {
                         )}
                       </Button>
                     </div>
-                    <p className="text-muted-foreground text-xs">
+                    <p className="text-xs text-muted-foreground">
                       We&apos;ll confirm by email. Please don&apos;t include Social Security numbers or bank details.
                     </p>
                   </form>

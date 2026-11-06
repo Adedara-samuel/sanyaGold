@@ -5,7 +5,11 @@ import { CalendarCheck, CheckCircle2, FileCheck2, MapPin } from "lucide-react";
 import { LogoMark } from "@/components/layout/logo";
 import { CtaButtons } from "@/components/shared";
 
-const headline = ["Accounting, tax and advisory", "that helps Minnesota nonprofits", "and small businesses grow with confidence."];
+const headline = [
+  "Accounting, tax and advisory",
+  "that helps Minnesota nonprofits",
+  "and small businesses grow with confidence.",
+];
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -22,8 +26,11 @@ export function Hero() {
 
       <div className="container-page grid items-center gap-14 pt-10 pb-20 sm:pt-16 lg:grid-cols-[1.15fr_0.85fr] lg:pt-20 lg:pb-28">
         <div>
-          <motion.p {...item(0)} className="bg-card/70 text-muted-foreground inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-xs font-medium backdrop-blur">
-            <MapPin className="text-gold-ink size-3.5" aria-hidden="true" />
+          <motion.p
+            {...item(0)}
+            className="inline-flex items-center gap-2 rounded-full border bg-card/70 px-3.5 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur"
+          >
+            <MapPin className="size-3.5 text-gold-ink" aria-hidden="true" />
             Minnesota CPA firm · Nonprofits &amp; small businesses
           </motion.p>
 
@@ -40,7 +47,7 @@ export function Hero() {
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: 1 }}
                         transition={{ duration: reduce ? 0.01 : 0.7, delay: reduce ? 0 : 0.7, ease }}
-                        className="bg-accent/45 absolute inset-x-0 bottom-1 -z-0 h-3 origin-left rounded-sm sm:bottom-2"
+                        className="absolute inset-x-0 bottom-1 -z-0 h-3 origin-left rounded-sm bg-accent/45 sm:bottom-2"
                       />
                     </span>
                   </>
@@ -52,18 +59,18 @@ export function Hero() {
           </h1>
 
           <motion.p {...item(0.42)} className="text-lead mt-6 max-w-xl">
-            Stay compliant, understand your numbers and plan ahead, with a CPA team that explains things in plain English
-            and answers when you call.
+            Stay compliant, understand your numbers and plan ahead, with a CPA team that explains things in plain
+            English and answers when you call.
           </motion.p>
 
           <motion.div {...item(0.52)}>
             <CtaButtons className="mt-9" />
           </motion.div>
 
-          <motion.ul {...item(0.62)} className="text-muted-foreground mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <motion.ul {...item(0.62)} className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
             {["Free first consultation", "Clear, fixed-fee pricing", "Secure document upload"].map((point) => (
               <li key={point} className="flex items-center gap-2">
-                <CheckCircle2 className="text-success size-4" aria-hidden="true" />
+                <CheckCircle2 className="size-4 text-success" aria-hidden="true" />
                 {point}
               </li>
             ))}
@@ -80,9 +87,9 @@ function HeroBackdrop() {
   return (
     <div aria-hidden="true" className="absolute inset-0 -z-10">
       <div className="bg-grain absolute inset-0 [mask-image:radial-gradient(ellipse_at_30%_20%,black,transparent_70%)]" />
-      <div className="animate-gradient bg-accent/30 dark:bg-accent/12 absolute -top-40 -left-32 size-[34rem] rounded-full blur-3xl" />
-      <div className="animate-gradient bg-brand-mauve/20 absolute top-20 -right-40 size-[30rem] rounded-full blur-3xl [animation-delay:-6s]" />
-      <div className="from-background absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t to-transparent" />
+      <div className="absolute -top-40 -left-32 size-[34rem] animate-gradient rounded-full bg-accent/30 blur-3xl dark:bg-accent/12" />
+      <div className="absolute top-20 -right-40 size-[30rem] animate-gradient rounded-full bg-brand-mauve/20 blur-3xl [animation-delay:-6s]" />
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </div>
   );
 }
@@ -93,7 +100,12 @@ function HeroVisual() {
   const ease = [0.22, 1, 0.36, 1] as const;
   const cards = [
     { icon: FileCheck2, title: "Form 990 filed", meta: "Nonprofit · on time", className: "top-6 -left-4 sm:-left-10" },
-    { icon: CalendarCheck, title: "Q3 estimates scheduled", meta: "Small business", className: "bottom-24 -right-2 sm:-right-8" },
+    {
+      icon: CalendarCheck,
+      title: "Q3 estimates scheduled",
+      meta: "Small business",
+      className: "bottom-24 -right-2 sm:-right-8",
+    },
     { icon: CheckCircle2, title: "Books closed for October", meta: "Monthly close", className: "-bottom-4 left-6" },
   ];
 
@@ -103,11 +115,11 @@ function HeroVisual() {
         initial={{ opacity: 0, scale: reduce ? 1 : 0.92 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: reduce ? 0.01 : 0.8, delay: reduce ? 0 : 0.2, ease }}
-        className="bg-card/80 absolute inset-8 grid place-items-center rounded-[2.5rem] border shadow-[0_30px_80px_-30px_rgba(15,27,45,0.35)] backdrop-blur"
+        className="absolute inset-8 grid place-items-center rounded-[2.5rem] border bg-card/80 shadow-[0_30px_80px_-30px_rgba(15,27,45,0.35)] backdrop-blur"
       >
         <div className="absolute inset-0 overflow-hidden rounded-[2.5rem]">
-          <div className="from-accent-soft absolute inset-0 bg-gradient-to-br via-transparent to-transparent" />
-          <svg className="text-border absolute inset-0 size-full" viewBox="0 0 400 400" fill="none">
+          <div className="absolute inset-0 bg-gradient-to-br from-accent-soft via-transparent to-transparent" />
+          <svg className="absolute inset-0 size-full text-border" viewBox="0 0 400 400" fill="none">
             {[60, 110, 160].map((r) => (
               <polygon
                 key={r}
@@ -119,7 +131,7 @@ function HeroVisual() {
             ))}
           </svg>
         </div>
-        <div className="animate-float relative">
+        <div className="relative animate-float">
           <LogoMark className="h-32 drop-shadow-[0_14px_24px_rgba(164,116,127,0.35)] sm:h-36" />
         </div>
       </motion.div>
@@ -130,14 +142,14 @@ function HeroVisual() {
           initial={{ opacity: 0, y: reduce ? 0 : 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: reduce ? 0.01 : 0.5, delay: reduce ? 0 : 0.6 + index * 0.15, ease }}
-          className={`bg-card absolute flex items-center gap-3 rounded-2xl border px-4 py-3 shadow-lg ${card.className}`}
+          className={`absolute flex items-center gap-3 rounded-2xl border bg-card px-4 py-3 shadow-lg ${card.className}`}
         >
-          <span className="bg-accent-soft text-gold-ink grid size-9 place-items-center rounded-xl">
+          <span className="grid size-9 place-items-center rounded-xl bg-accent-soft text-gold-ink">
             <card.icon className="size-4.5" />
           </span>
           <span className="text-left">
             <span className="block text-sm font-medium">{card.title}</span>
-            <span className="text-muted-foreground block text-xs">{card.meta}</span>
+            <span className="block text-xs text-muted-foreground">{card.meta}</span>
           </span>
         </motion.div>
       ))}

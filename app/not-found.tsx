@@ -9,7 +9,7 @@ export default function NotFound() {
         <LogoMark className="mx-auto h-16" />
         <p className="eyebrow mt-8">404</p>
         <h1 className="mt-3 text-4xl font-semibold">We couldn&apos;t find that page</h1>
-        <p className="text-muted-foreground mt-4">The page may have moved, or the link may be out of date.</p>
+        <p className="mt-4 text-muted-foreground">The page may have moved, or the link may be out of date.</p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <Button asChild>
             <Link href="/">Back to home</Link>

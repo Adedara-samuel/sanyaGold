@@ -6,7 +6,15 @@ import { Menu, Phone } from "lucide-react";
 import { Logo } from "@/components/layout/logo";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
@@ -45,10 +53,14 @@ export function MobileNav({ pathname }: { pathname: string | null }) {
                   {item.label}
                 </Link>
                 {"children" in item && (
-                  <ul className="border-border mt-1 mb-2 ml-3 space-y-0.5 border-l pl-3">
+                  <ul className="mt-1 mb-2 ml-3 space-y-0.5 border-l border-border pl-3">
                     {item.children.map((child) => (
                       <li key={child.href}>
-                        <Link href={child.href} onClick={close} className={cn(linkClass(child.href), "py-2 text-[0.9375rem]")}>
+                        <Link
+                          href={child.href}
+                          onClick={close}
+                          className={cn(linkClass(child.href), "py-2 text-[0.9375rem]")}
+                        >
                           {child.label}
                         </Link>
                       </li>
@@ -67,7 +79,10 @@ export function MobileNav({ pathname }: { pathname: string | null }) {
             </Link>
           </Button>
           <Separator className="my-1" />
-          <a href={siteConfig.contact.phoneHref} className="text-muted-foreground inline-flex items-center gap-2 text-sm">
+          <a
+            href={siteConfig.contact.phoneHref}
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground"
+          >
             <Phone className="size-4" /> {siteConfig.contact.phone}
           </a>
         </SheetFooter>

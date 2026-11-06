@@ -15,7 +15,10 @@ export function HoneypotField({ register }: { register: UseFormRegisterReturn })
 }
 
 /** Maps server-side zod issues back onto react-hook-form fields. */
-export function applyServerIssues<T extends FieldValues>(setError: UseFormSetError<T>, issues: Record<string, string[]>) {
+export function applyServerIssues<T extends FieldValues>(
+  setError: UseFormSetError<T>,
+  issues: Record<string, string[]>,
+) {
   for (const [field, messages] of Object.entries(issues)) {
     if (field === "form" || !messages[0]) continue;
     setError(field as Path<T>, { type: "server", message: messages[0] });

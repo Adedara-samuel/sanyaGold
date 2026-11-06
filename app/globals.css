@@ -147,7 +147,7 @@
     -webkit-text-size-adjust: 100%;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background font-sans text-foreground antialiased;
     font-feature-settings: "ss01", "cv11";
   }
   h1,
@@ -179,10 +179,10 @@
     @apply py-20 sm:py-28;
   }
   .eyebrow {
-    @apply text-gold-ink text-xs font-semibold tracking-[0.18em] uppercase;
+    @apply text-xs font-semibold tracking-[0.18em] text-gold-ink uppercase;
   }
   .text-lead {
-    @apply text-muted-foreground text-lg leading-relaxed sm:text-xl;
+    @apply text-lg leading-relaxed text-muted-foreground sm:text-xl;
   }
   .bg-grain {
     background-image: radial-gradient(color-mix(in oklch, var(--foreground) 7%, transparent) 1px, transparent 1px);

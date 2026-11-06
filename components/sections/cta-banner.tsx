@@ -14,10 +14,16 @@ export function CtaBanner({
   return (
     <section className="container-page section" aria-labelledby="cta-title">
       <Reveal>
-        <div className="bg-primary text-primary-foreground relative overflow-hidden rounded-[2rem] px-6 py-14 text-center sm:px-14 sm:py-20">
-          <div aria-hidden="true" className="animate-gradient bg-accent/30 absolute -top-28 -left-20 size-80 rounded-full blur-3xl" />
-          <div aria-hidden="true" className="bg-brand-mauve/30 absolute -right-24 -bottom-28 size-80 rounded-full blur-3xl" />
-          <LogoMark className="text-primary-foreground/10 pointer-events-none absolute -right-6 -bottom-10 h-56" />
+        <div className="relative overflow-hidden rounded-[2rem] bg-primary px-6 py-14 text-center text-primary-foreground sm:px-14 sm:py-20">
+          <div
+            aria-hidden="true"
+            className="absolute -top-28 -left-20 size-80 animate-gradient rounded-full bg-accent/30 blur-3xl"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute -right-24 -bottom-28 size-80 rounded-full bg-brand-mauve/30 blur-3xl"
+          />
+          <LogoMark className="pointer-events-none absolute -right-6 -bottom-10 h-56 text-primary-foreground/10" />
           <div className="relative mx-auto max-w-2xl">
             <h2 id="cta-title" className="text-3xl font-semibold sm:text-4xl">
               {title}
@@ -29,7 +35,10 @@ export function CtaBanner({
             />
             <p className="mt-6 text-sm opacity-80">
               Prefer to talk?{" "}
-              <a href={siteConfig.contact.phoneHref} className="inline-flex items-center gap-1 font-medium underline underline-offset-4">
+              <a
+                href={siteConfig.contact.phoneHref}
+                className="inline-flex items-center gap-1 font-medium underline underline-offset-4"
+              >
                 <Phone className="size-3.5" aria-hidden="true" />
                 {siteConfig.contact.phone}
               </a>

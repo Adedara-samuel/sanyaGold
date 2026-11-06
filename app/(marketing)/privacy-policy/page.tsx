@@ -23,16 +23,16 @@ export default function PrivacyPolicyPage() {
       <h2>Information we collect</h2>
       <ul>
         <li>
-          <strong>Information you give us:</strong> your name, email, phone number, organization and message when you use our
-          contact or consultation request forms.
+          <strong>Information you give us:</strong> your name, email, phone number, organization and message when you
+          use our contact or consultation request forms.
         </li>
         <li>
-          <strong>Documents you upload:</strong> files you share through the client portal once it is available, used only to
-          provide the services you engage us for.
+          <strong>Documents you upload:</strong> files you share through the client portal once it is available, used
+          only to provide the services you engage us for.
         </li>
         <li>
-          <strong>Usage information:</strong> if analytics is enabled, basic, aggregated information such as pages visited and
-          device type. [Update to name your analytics provider, if any.]
+          <strong>Usage information:</strong> if analytics is enabled, basic, aggregated information such as pages
+          visited and device type. [Update to name your analytics provider, if any.]
         </li>
       </ul>
 
@@ -46,28 +46,28 @@ export default function PrivacyPolicyPage() {
 
       <h2>How we share information</h2>
       <p>
-        We do not sell your personal information. We share it only with service providers that help us run our business (for
-        example, email delivery and scheduling tools) under appropriate confidentiality terms, or when required by law or
-        professional standards.
+        We do not sell your personal information. We share it only with service providers that help us run our business
+        (for example, email delivery and scheduling tools) under appropriate confidentiality terms, or when required by
+        law or professional standards.
       </p>
 
       <h2>Client confidentiality</h2>
       <p>
-        As a CPA firm, we are bound by professional rules on the confidentiality of client information, in addition to this
-        policy.
+        As a CPA firm, we are bound by professional rules on the confidentiality of client information, in addition to
+        this policy.
       </p>
 
       <h2>Keeping information secure</h2>
       <p>
-        We use reasonable administrative, technical and physical safeguards to protect information. No method of transmission
-        over the internet is completely secure, so please don&apos;t send Social Security numbers or bank details through our
-        website forms or by regular email.
+        We use reasonable administrative, technical and physical safeguards to protect information. No method of
+        transmission over the internet is completely secure, so please don&apos;t send Social Security numbers or bank
+        details through our website forms or by regular email.
       </p>
 
       <h2>Your choices</h2>
       <p>
-        You can ask us to access, correct or delete personal information you have given us, subject to our record-keeping
-        obligations. Contact us using the details below.
+        You can ask us to access, correct or delete personal information you have given us, subject to our
+        record-keeping obligations. Contact us using the details below.
       </p>
 
       <h2>Contact us</h2>

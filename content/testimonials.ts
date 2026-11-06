@@ -32,8 +32,7 @@ export const testimonials: Testimonial[] = [
     name: "[Client Name]",
     role: "[Managing Partner]",
     organization: "[Professional Services Firm]",
-    quote:
-      "[Sample testimonial] Replace with a real quote about consulting, forecasting or entity planning.",
+    quote: "[Sample testimonial] Replace with a real quote about consulting, forecasting or entity planning.",
     rating: 5,
     isPlaceholder: true,
   },

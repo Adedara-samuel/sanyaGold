@@ -47,11 +47,11 @@ export function WhyUs() {
             <StaggerItem
               as="li"
               key={reason.title}
-              className="bg-card rounded-2xl border p-6 transition-shadow duration-300 hover:shadow-md"
+              className="rounded-2xl border bg-card p-6 transition-shadow duration-300 hover:shadow-md"
             >
-              <reason.icon className="text-gold-ink size-6" aria-hidden="true" />
+              <reason.icon className="size-6 text-gold-ink" aria-hidden="true" />
               <h3 className="mt-4 font-sans text-base font-semibold">{reason.title}</h3>
-              <p className="text-muted-foreground mt-2 text-sm leading-relaxed">{reason.description}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{reason.description}</p>
             </StaggerItem>
           ))}
         </Stagger>

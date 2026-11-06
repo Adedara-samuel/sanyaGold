@@ -41,14 +41,14 @@ export default function PortalDashboardPage() {
         <h1 className="text-3xl font-semibold">Welcome back</h1>
         <Badge variant="warning">Demo data</Badge>
       </div>
-      <p className="text-muted-foreground mt-2">Here&apos;s what you can do in your client portal.</p>
+      <p className="mt-2 text-muted-foreground">Here&apos;s what you can do in your client portal.</p>
 
       <ul className="mt-10 grid gap-5 md:grid-cols-3">
         {cards.map((card) => (
-          <li key={card.title} className="bg-card flex flex-col rounded-2xl border p-6">
-            <card.icon className="text-gold-ink size-6" aria-hidden="true" />
+          <li key={card.title} className="flex flex-col rounded-2xl border bg-card p-6">
+            <card.icon className="size-6 text-gold-ink" aria-hidden="true" />
             <h2 className="mt-4 font-sans text-base font-semibold">{card.title}</h2>
-            <p className="text-muted-foreground mt-2 flex-1 text-sm">{card.description}</p>
+            <p className="mt-2 flex-1 text-sm text-muted-foreground">{card.description}</p>
             <Button asChild variant="outline" size="sm" className="mt-5 w-fit">
               <Link href={card.href}>{card.cta}</Link>
             </Button>
@@ -56,17 +56,17 @@ export default function PortalDashboardPage() {
         ))}
       </ul>
 
-      <section className="bg-card mt-10 rounded-2xl border p-6" aria-labelledby="coming-title">
+      <section className="mt-10 rounded-2xl border bg-card p-6" aria-labelledby="coming-title">
         <h2 id="coming-title" className="font-sans text-base font-semibold">
           Coming soon to your portal
         </h2>
-        <ul className="text-muted-foreground mt-3 grid gap-2 text-sm sm:grid-cols-2">
+        <ul className="mt-3 grid gap-2 text-sm text-muted-foreground sm:grid-cols-2">
           <li>• Deadlines and filing status</li>
           <li>• Secure messaging with your accountant</li>
           <li>• Invoices and online payments</li>
           <li>• E-signature for engagement letters and returns</li>
         </ul>
-        <p className="text-muted-foreground mt-4 text-xs">
+        <p className="mt-4 text-xs text-muted-foreground">
           Questions? Call {siteConfig.contact.phone} or email {siteConfig.contact.email}.
         </p>
       </section>

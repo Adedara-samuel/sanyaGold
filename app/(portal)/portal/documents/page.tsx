@@ -9,7 +9,7 @@ export default function PortalDocumentsPage() {
   return (
     <PortalShell>
       <h1 className="text-3xl font-semibold">Documents</h1>
-      <p className="text-muted-foreground mt-2 max-w-2xl">
+      <p className="mt-2 max-w-2xl text-muted-foreground">
         Upload files for your accountant. Accepted formats: PDF, JPG, PNG, CSV, Excel and Word, up to 25 MB each.
       </p>
       <QueryBoundary className="mt-8 h-96">

@@ -11,7 +11,7 @@ export function LogoMark({ className, title }: { className?: string; title?: str
   return (
     <svg
       viewBox="-400 -440 800 880"
-      className={cn("text-brand-mauve h-8 w-auto", className)}
+      className={cn("h-8 w-auto text-brand-mauve", className)}
       role={title ? "img" : undefined}
       aria-hidden={title ? undefined : true}
       aria-label={title}
@@ -34,7 +34,12 @@ export function Logo({ className, markClassName, wordClassName, href = "/" }: Lo
   const content = (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
       <LogoMark className={markClassName} />
-      <span className={cn("text-logo-word font-serif text-[1.375rem] leading-none font-semibold tracking-tight", wordClassName)}>
+      <span
+        className={cn(
+          "font-serif text-[1.375rem] leading-none font-semibold tracking-tight text-logo-word",
+          wordClassName,
+        )}
+      >
         {siteConfig.name}
       </span>
     </span>

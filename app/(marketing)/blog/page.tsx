@@ -7,7 +7,8 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Blog",
-  description: "Plain-English guides on tax, nonprofit compliance and small business finance from Sanyagold, a Minnesota CPA firm.",
+  description:
+    "Plain-English guides on tax, nonprofit compliance and small business finance from Sanyagold, a Minnesota CPA firm.",
   path: "/blog",
 });
 

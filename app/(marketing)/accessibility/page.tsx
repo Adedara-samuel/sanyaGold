@@ -17,8 +17,8 @@ export default function AccessibilityPage() {
     >
       <h2>Our commitment</h2>
       <p>
-        We aim to meet the Web Content Accessibility Guidelines (WCAG) 2.2 at Level AA. We consider accessibility when we design,
-        build and update this site.
+        We aim to meet the Web Content Accessibility Guidelines (WCAG) 2.2 at Level AA. We consider accessibility when
+        we design, build and update this site.
       </p>
 
       <h2>What we&apos;ve done</h2>
@@ -33,14 +33,14 @@ export default function AccessibilityPage() {
 
       <h2>Known limitations</h2>
       <p>
-        Some third-party tools, such as embedded scheduling calendars, are provided by other companies and may not be fully
-        accessible. If you have trouble using them, contact us and we&apos;ll schedule with you directly.
+        Some third-party tools, such as embedded scheduling calendars, are provided by other companies and may not be
+        fully accessible. If you have trouble using them, contact us and we&apos;ll schedule with you directly.
       </p>
 
       <h2>Need help or have feedback?</h2>
       <p>
-        If you have difficulty using any part of this site, or need information in another format, please contact us. We aim to
-        respond within two business days.
+        If you have difficulty using any part of this site, or need information in another format, please contact us. We
+        aim to respond within two business days.
       </p>
       <p>
         Phone: <a href={siteConfig.contact.phoneHref}>{siteConfig.contact.phone}</a>

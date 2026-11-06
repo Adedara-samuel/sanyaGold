@@ -10,7 +10,11 @@ const subscribe = () => () => {};
 export function ThemeToggle({ className }: { className?: string }) {
   const { resolvedTheme, setTheme } = useTheme();
   // Avoid a hydration mismatch: the theme is only known on the client.
-  const mounted = useSyncExternalStore(subscribe, () => true, () => false);
+  const mounted = useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false,
+  );
   const isDark = mounted && resolvedTheme === "dark";
 
   return (

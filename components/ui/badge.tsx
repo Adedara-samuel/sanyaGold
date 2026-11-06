@@ -12,7 +12,8 @@ const badgeVariants = cva(
         secondary: "bg-secondary text-secondary-foreground border-transparent",
         gold: "bg-accent-soft text-foreground border-accent/40",
         outline: "text-foreground bg-card/60",
-        warning: "border-amber-300 bg-amber-50 text-amber-900 dark:border-amber-700 dark:bg-amber-950 dark:text-amber-100",
+        warning:
+          "border-amber-300 bg-amber-50 text-amber-900 dark:border-amber-700 dark:bg-amber-950 dark:text-amber-100",
       },
     },
     defaultVariants: { variant: "default" },

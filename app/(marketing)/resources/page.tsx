@@ -12,15 +12,36 @@ import { faqJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Resources & FAQs",
-  description: "Answers to common questions, plain-English guides and client tools from Sanyagold, a Minnesota CPA firm.",
+  description:
+    "Answers to common questions, plain-English guides and client tools from Sanyagold, a Minnesota CPA firm.",
   path: "/resources",
 });
 
 const tools = [
-  { icon: BookOpen, title: "Blog & guides", description: "Plain-English articles on tax, nonprofits and small business finance.", href: "/blog" },
-  { icon: Upload, title: "Send documents", description: "Upload files for your accountant through the client portal.", href: "/portal/documents" },
-  { icon: Lock, title: "Client portal", description: "Sign in to see your documents and requests.", href: "/portal/login" },
-  { icon: CalendarCheck, title: "Book a consultation", description: "Find a time that works for a free first conversation.", href: "/book" },
+  {
+    icon: BookOpen,
+    title: "Blog & guides",
+    description: "Plain-English articles on tax, nonprofits and small business finance.",
+    href: "/blog",
+  },
+  {
+    icon: Upload,
+    title: "Send documents",
+    description: "Upload files for your accountant through the client portal.",
+    href: "/portal/documents",
+  },
+  {
+    icon: Lock,
+    title: "Client portal",
+    description: "Sign in to see your documents and requests.",
+    href: "/portal/login",
+  },
+  {
+    icon: CalendarCheck,
+    title: "Book a consultation",
+    description: "Find a time that works for a free first conversation.",
+    href: "/book",
+  },
 ];
 
 export default async function ResourcesPage() {
@@ -40,22 +61,25 @@ export default async function ResourcesPage() {
             <StaggerItem
               as="li"
               key={tool.title}
-              className="group bg-card relative rounded-2xl border p-6 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-md"
+              className="group relative rounded-2xl border bg-card p-6 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-md"
             >
-              <tool.icon className="text-gold-ink size-6" aria-hidden="true" />
+              <tool.icon className="size-6 text-gold-ink" aria-hidden="true" />
               <h2 className="mt-4 font-sans text-base font-semibold">
                 <Link href={tool.href} className="after:absolute after:inset-0 after:rounded-2xl">
                   {tool.title}
                 </Link>
               </h2>
-              <p className="text-muted-foreground mt-2 text-sm leading-relaxed">{tool.description}</p>
-              <ArrowRight className="text-muted-foreground mt-4 size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{tool.description}</p>
+              <ArrowRight
+                className="mt-4 size-4 text-muted-foreground transition-transform group-hover:translate-x-1"
+                aria-hidden="true"
+              />
             </StaggerItem>
           ))}
         </Stagger>
       </section>
 
-      <section id="faqs" className="section bg-secondary/40 border-y" aria-labelledby="faqs-title">
+      <section id="faqs" className="section border-y bg-secondary/40" aria-labelledby="faqs-title">
         <div className="container-page max-w-3xl">
           <SectionHeading eyebrow="FAQs" title={<span id="faqs-title">Frequently asked questions</span>} />
           <Reveal className="mt-12">
@@ -66,7 +90,10 @@ export default async function ResourcesPage() {
         </div>
       </section>
 
-      <CtaBanner title="Still have questions?" description="We're happy to talk it through. Book a free consultation or send us a message." />
+      <CtaBanner
+        title="Still have questions?"
+        description="We're happy to talk it through. Book a free consultation or send us a message."
+      />
       <JsonLd data={faqJsonLd(allFaqs)} />
     </HydrationBoundary>
   );

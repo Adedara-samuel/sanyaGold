@@ -37,7 +37,8 @@ export function TestimonialsCarousel() {
   }, [paused, reduce, count, go]);
 
   if (isPending) return <Skeleton className="mx-auto h-72 max-w-3xl rounded-3xl" />;
-  if (isError) return <ErrorState message="We couldn't load testimonials." onRetry={() => refetch()} isRetrying={isRefetching} />;
+  if (isError)
+    return <ErrorState message="We couldn't load testimonials." onRetry={() => refetch()} isRetrying={isRefetching} />;
   if (!count) return null;
 
   const current = data[index]!;
@@ -57,8 +58,8 @@ export function TestimonialsCarousel() {
         if (event.key === "ArrowLeft") go(-1);
       }}
     >
-      <div className="bg-card relative overflow-hidden rounded-3xl border p-8 shadow-sm sm:p-12">
-        <Quote aria-hidden="true" className="text-accent/50 absolute top-6 right-6 size-16" />
+      <div className="relative overflow-hidden rounded-3xl border bg-card p-8 shadow-sm sm:p-12">
+        <Quote aria-hidden="true" className="absolute top-6 right-6 size-16 text-accent/50" />
         <div aria-live={paused ? "polite" : "off"} className="relative min-h-[15rem]">
           <AnimatePresence mode="wait" initial={false} custom={direction}>
             <motion.figure
@@ -96,7 +97,7 @@ export function TestimonialsCarousel() {
                 </Avatar>
                 <div>
                   <p className="font-medium">{current.name}</p>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-sm text-muted-foreground">
                     {current.role}, {current.organization}
                   </p>
                 </div>
@@ -124,7 +125,7 @@ export function TestimonialsCarousel() {
                 aria-current={i === index}
                 className={cn(
                   "h-2.5 rounded-full transition-all duration-300",
-                  i === index ? "bg-primary w-7" : "bg-border hover:bg-muted-foreground/40 w-2.5",
+                  i === index ? "w-7 bg-primary" : "w-2.5 bg-border hover:bg-muted-foreground/40",
                 )}
               />
             ))}

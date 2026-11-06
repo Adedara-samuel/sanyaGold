@@ -74,10 +74,26 @@ export const siteConfig = {
       label: "Services",
       href: "/services",
       children: [
-        { label: "Tax Services", href: "/services/tax", description: "Planning, preparation and filings for businesses and nonprofits." },
-        { label: "Accounting & Bookkeeping", href: "/services/accounting", description: "Clean monthly books, payroll support and reporting." },
-        { label: "Audit & Review", href: "/services/audit-assurance", description: "Independent audits, reviews and compilations." },
-        { label: "Business Consulting", href: "/services/consulting", description: "Budgeting, forecasting and outsourced CFO support." },
+        {
+          label: "Tax Services",
+          href: "/services/tax",
+          description: "Planning, preparation and filings for businesses and nonprofits.",
+        },
+        {
+          label: "Accounting & Bookkeeping",
+          href: "/services/accounting",
+          description: "Clean monthly books, payroll support and reporting.",
+        },
+        {
+          label: "Audit & Review",
+          href: "/services/audit-assurance",
+          description: "Independent audits, reviews and compilations.",
+        },
+        {
+          label: "Business Consulting",
+          href: "/services/consulting",
+          description: "Budgeting, forecasting and outsourced CFO support.",
+        },
       ],
     },
     { label: "Industries", href: "/industries" },

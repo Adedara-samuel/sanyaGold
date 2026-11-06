@@ -30,14 +30,20 @@ export function SectionHeading({
   );
 }
 
-export function CtaButtons({ className, secondary = siteConfig.cta.secondary }: { className?: string; secondary?: { label: string; href: string } | null }) {
+export function CtaButtons({
+  className,
+  secondary = siteConfig.cta.secondary,
+}: {
+  className?: string;
+  secondary?: { label: string; href: string } | null;
+}) {
   return (
     <div className={cn("flex flex-col gap-3 sm:flex-row", className)}>
       <Button asChild size="lg" variant="accent" className="group">
         <Link href={siteConfig.cta.primary.href}>
           <span
             aria-hidden="true"
-            className="animate-shine pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/40 to-transparent"
+            className="pointer-events-none absolute inset-y-0 left-0 w-1/3 animate-shine bg-gradient-to-r from-transparent via-white/40 to-transparent"
           />
           {siteConfig.cta.primary.label}
           <ArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
@@ -66,10 +72,13 @@ export function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden">
-      <div aria-hidden="true" className="bg-grain absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
       <div
         aria-hidden="true"
-        className="bg-accent/25 absolute -top-32 left-1/2 h-72 w-[42rem] -translate-x-1/2 rounded-full blur-3xl dark:bg-accent/10"
+        className="bg-grain absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute -top-32 left-1/2 h-72 w-[42rem] -translate-x-1/2 rounded-full bg-accent/25 blur-3xl dark:bg-accent/10"
       />
       <div className="container-page relative pt-14 pb-16 sm:pt-20 sm:pb-20">
         <SectionHeading as="h1" eyebrow={eyebrow} title={title} description={description} />
@@ -97,7 +106,7 @@ export function JsonLd({ data }: { data: Record<string, unknown> | Record<string
 export function QueryBoundary({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <Suspense
-      fallback={<div aria-hidden="true" className={cn("bg-muted/70 min-h-40 animate-pulse rounded-2xl", className)} />}
+      fallback={<div aria-hidden="true" className={cn("min-h-40 animate-pulse rounded-2xl bg-muted/70", className)} />}
     >
       {children}
     </Suspense>
@@ -106,7 +115,7 @@ export function QueryBoundary({ children, className }: { children: React.ReactNo
 
 export function PlaceholderNote({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <p className={cn("text-muted-foreground text-xs italic", className)}>
+    <p className={cn("text-xs text-muted-foreground italic", className)}>
       <span className="sr-only">Note: </span>
       {children}
     </p>

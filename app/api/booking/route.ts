@@ -34,7 +34,10 @@ export async function POST(request: Request) {
   // Re-check the slot on the server: open weekday, not in the past (Minnesota time), within range.
   if (!isBookable(data.date, data.time)) {
     return Response.json(
-      { error: "That time is no longer available. Please choose another.", issues: { time: ["Please choose another time."] } },
+      {
+        error: "That time is no longer available. Please choose another.",
+        issues: { time: ["Please choose another time."] },
+      },
       { status: 422 },
     );
   }

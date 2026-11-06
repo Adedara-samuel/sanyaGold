@@ -9,7 +9,7 @@ import type { Faq } from "@/lib/types";
 
 export function FaqList({ items }: { items: Faq[] }) {
   return (
-    <Accordion type="single" collapsible className="bg-card rounded-2xl border px-6">
+    <Accordion type="single" collapsible className="rounded-2xl border bg-card px-6">
       {items.map((faq) => (
         <AccordionItem key={faq.question} value={faq.question}>
           <AccordionTrigger>{faq.question}</AccordionTrigger>
@@ -34,7 +34,8 @@ function FaqSkeleton() {
 export function FaqPreview({ limit = 5 }: { limit?: number }) {
   const { data, isPending, isError, refetch, isRefetching } = useFaqs();
   if (isPending) return <FaqSkeleton />;
-  if (isError) return <ErrorState message="We couldn't load FAQs." onRetry={() => refetch()} isRetrying={isRefetching} />;
+  if (isError)
+    return <ErrorState message="We couldn't load FAQs." onRetry={() => refetch()} isRetrying={isRefetching} />;
   return <FaqList items={data.flatMap((group) => group.items).slice(0, limit)} />;
 }
 
@@ -42,7 +43,8 @@ export function FaqPreview({ limit = 5 }: { limit?: number }) {
 export function FaqTabs() {
   const { data, isPending, isError, refetch, isRefetching } = useFaqs();
   if (isPending) return <FaqSkeleton />;
-  if (isError) return <ErrorState message="We couldn't load FAQs." onRetry={() => refetch()} isRetrying={isRefetching} />;
+  if (isError)
+    return <ErrorState message="We couldn't load FAQs." onRetry={() => refetch()} isRetrying={isRefetching} />;
 
   return (
     <Tabs defaultValue={data[0]?.category}>

@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 // Clerk or Supabase Auth). Check the session in proxy.ts or here and redirect
 // unauthenticated visitors to /portal/login.
 export default function PortalGroupLayout({ children }: { children: React.ReactNode }) {
-  return <div className="bg-secondary/30 flex flex-1 flex-col">{children}</div>;
+  return <div className="flex flex-1 flex-col bg-secondary/30">{children}</div>;
 }

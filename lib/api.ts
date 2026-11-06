@@ -1,12 +1,4 @@
-import type {
-  ApiError,
-  FaqGroup,
-  PortalDocument,
-  Post,
-  PostSummary,
-  Service,
-  Testimonial,
-} from "@/lib/types";
+import type { ApiError, FaqGroup, PortalDocument, Post, PostSummary, Service, Testimonial } from "@/lib/types";
 import type { BookingInput, ContactInput } from "@/lib/validators";
 
 /** Error thrown by the typed fetch helpers; carries field-level issues when present. */
@@ -27,9 +19,7 @@ async function request<T>(input: string, init?: RequestInit): Promise<T> {
     ...init,
     headers: {
       Accept: "application/json",
-      ...(init?.body && !(init.body instanceof FormData)
-        ? { "Content-Type": "application/json" }
-        : {}),
+      ...(init?.body && !(init.body instanceof FormData) ? { "Content-Type": "application/json" } : {}),
       ...init?.headers,
     },
   });
@@ -67,8 +57,7 @@ export const api = {
     get: (slug: string) => request<Post>(`/api/posts/${encodeURIComponent(slug)}`),
   },
   contact: {
-    send: (data: ContactInput) =>
-      request<{ ok: true }>("/api/contact", { method: "POST", body: JSON.stringify(data) }),
+    send: (data: ContactInput) => request<{ ok: true }>("/api/contact", { method: "POST", body: JSON.stringify(data) }),
   },
   booking: {
     request: (data: BookingInput) =>
@@ -76,7 +65,6 @@ export const api = {
   },
   documents: {
     list: () => request<PortalDocument[]>("/api/documents"),
-    upload: (formData: FormData) =>
-      request<PortalDocument>("/api/documents", { method: "POST", body: formData }),
+    upload: (formData: FormData) => request<PortalDocument>("/api/documents", { method: "POST", body: formData }),
   },
 };

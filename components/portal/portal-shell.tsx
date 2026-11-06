@@ -17,7 +17,7 @@ const portalNav = [
 export function PortalShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-dvh flex-col">
-      <header className="bg-background/80 sticky top-0 z-30 border-b backdrop-blur-xl">
+      <header className="sticky top-0 z-30 border-b bg-background/80 backdrop-blur-xl">
         <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
           <div className="flex items-center gap-3">
             <Logo href="/portal/dashboard" markClassName="h-7" wordClassName="text-xl" />
@@ -30,7 +30,7 @@ export function PortalShell({ children }: { children: React.ReactNode }) {
               <Link
                 key={item.href}
                 href={item.href}
-                className="hover:bg-secondary inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium"
+                className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium hover:bg-secondary"
               >
                 <item.icon className="size-4" aria-hidden="true" />
                 <span className="hidden sm:inline">{item.label}</span>
@@ -39,7 +39,7 @@ export function PortalShell({ children }: { children: React.ReactNode }) {
             <ThemeToggle />
             <Link
               href="/portal/login"
-              className="text-muted-foreground hover:bg-secondary inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm"
+              className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm text-muted-foreground hover:bg-secondary"
             >
               <LogOut className="size-4" aria-hidden="true" />
               <span className="sr-only sm:not-sr-only">Sign out</span>
@@ -50,7 +50,7 @@ export function PortalShell({ children }: { children: React.ReactNode }) {
       <main id="main" tabIndex={-1} className="mx-auto w-full max-w-6xl flex-1 px-4 py-10 focus:outline-none sm:px-6">
         {children}
       </main>
-      <footer className="text-muted-foreground border-t py-6 text-center text-xs">
+      <footer className="border-t py-6 text-center text-xs text-muted-foreground">
         <Link href="/" className="inline-flex items-center gap-1.5 hover:underline">
           <ArrowLeft className="size-3.5" aria-hidden="true" /> Back to sanyagold.com
         </Link>

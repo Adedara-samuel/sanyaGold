@@ -54,8 +54,8 @@ export function DocumentUpload() {
         <div className="flex gap-3 rounded-2xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-950 dark:border-amber-700 dark:bg-amber-950/60 dark:text-amber-100">
           <AlertTriangle className="mt-0.5 size-5 shrink-0" aria-hidden="true" />
           <p>
-            <strong>Preview:</strong> secure storage isn&apos;t connected yet, so files are <strong>not saved</strong>. Please
-            don&apos;t upload real client documents until this notice is removed.
+            <strong>Preview:</strong> secure storage isn&apos;t connected yet, so files are <strong>not saved</strong>.
+            Please don&apos;t upload real client documents until this notice is removed.
           </p>
         </div>
 
@@ -65,7 +65,7 @@ export function DocumentUpload() {
             id={`${inputId}-category`}
             value={category}
             onChange={(event) => setCategory(event.target.value)}
-            className="border-input bg-card focus-visible:border-ring focus-visible:ring-ring/40 h-11 rounded-xl border px-3.5 text-sm shadow-xs outline-none focus-visible:ring-[3px]"
+            className="h-11 rounded-xl border border-input bg-card px-3.5 text-sm shadow-xs outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/40"
           >
             {documentCategories.map((option) => (
               <option key={option}>{option}</option>
@@ -86,18 +86,18 @@ export function DocumentUpload() {
             handleFiles(event.dataTransfer.files);
           }}
           className={cn(
-            "bg-card focus-within:ring-ring/50 flex cursor-pointer flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed p-10 text-center transition-colors focus-within:ring-[3px]",
+            "flex cursor-pointer flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed bg-card p-10 text-center transition-colors focus-within:ring-[3px] focus-within:ring-ring/50",
             dragging ? "border-accent bg-accent-soft" : "hover:border-accent/60",
           )}
         >
           <motion.span
             animate={dragging ? { y: -4, scale: 1.05 } : { y: 0, scale: 1 }}
-            className="bg-accent-soft text-gold-ink grid size-14 place-items-center rounded-2xl"
+            className="grid size-14 place-items-center rounded-2xl bg-accent-soft text-gold-ink"
           >
             <UploadCloud className="size-6" aria-hidden="true" />
           </motion.span>
           <span className="font-medium">Drag files here or click to browse</span>
-          <span className="text-muted-foreground text-xs">PDF, JPG, PNG, CSV, XLS(X), DOCX · max 25 MB</span>
+          <span className="text-xs text-muted-foreground">PDF, JPG, PNG, CSV, XLS(X), DOCX · max 25 MB</span>
           <input
             ref={inputRef}
             id={inputId}
@@ -110,7 +110,7 @@ export function DocumentUpload() {
         </label>
 
         {errors.length > 0 && (
-          <ul role="alert" className="text-destructive space-y-1 text-sm">
+          <ul role="alert" className="space-y-1 text-sm text-destructive">
             {errors.map((error) => (
               <li key={error}>{error}</li>
             ))}
@@ -123,7 +123,7 @@ export function DocumentUpload() {
         </Button>
       </section>
 
-      <section aria-labelledby="files-title" className="bg-card rounded-2xl border p-6">
+      <section aria-labelledby="files-title" className="rounded-2xl border bg-card p-6">
         <div className="flex items-center justify-between gap-3">
           <h2 id="files-title" className="font-sans text-base font-semibold">
             Your documents
@@ -145,7 +145,7 @@ export function DocumentUpload() {
             isRetrying={documents.isRefetching}
           />
         ) : documents.data.length === 0 ? (
-          <p className="text-muted-foreground mt-5 text-sm">No documents yet.</p>
+          <p className="mt-5 text-sm text-muted-foreground">No documents yet.</p>
         ) : (
           <ul className="mt-5 divide-y" aria-live="polite">
             <AnimatePresence initial={false}>
@@ -161,10 +161,10 @@ export function DocumentUpload() {
                     exit={{ opacity: 0 }}
                     className="flex items-center gap-3 py-3"
                   >
-                    <FileText className="text-muted-foreground size-5 shrink-0" aria-hidden="true" />
+                    <FileText className="size-5 shrink-0 text-muted-foreground" aria-hidden="true" />
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium">{doc.name}</p>
-                      <p className="text-muted-foreground text-xs">
+                      <p className="text-xs text-muted-foreground">
                         {doc.category} · {formatBytes(doc.sizeBytes)}
                       </p>
                     </div>

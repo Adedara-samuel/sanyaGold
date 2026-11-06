@@ -14,15 +14,7 @@ import { industries } from "@/content/industries";
 import { posts } from "@/content/posts";
 import { services } from "@/content/services";
 import { testimonials } from "@/content/testimonials";
-import type {
-  FaqGroup,
-  Industry,
-  PortalDocument,
-  Post,
-  PostSummary,
-  Service,
-  Testimonial,
-} from "@/lib/types";
+import type { FaqGroup, Industry, PortalDocument, Post, PostSummary, Service, Testimonial } from "@/lib/types";
 
 export async function getServices(): Promise<Service[]> {
   return services;

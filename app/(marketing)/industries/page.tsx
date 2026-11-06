@@ -28,7 +28,7 @@ export default function IndustriesPage() {
         <IndustriesFeatured showHeading={false} />
       </section>
 
-      <section className="section bg-secondary/40 border-y" aria-labelledby="also-title">
+      <section className="section border-y bg-secondary/40" aria-labelledby="also-title">
         <div className="container-page">
           <SectionHeading
             eyebrow="Also serving"
@@ -39,8 +39,12 @@ export default function IndustriesPage() {
             {otherIndustries.map((industry) => {
               const Icon = icons[industry.icon];
               return (
-                <StaggerItem as="li" key={industry.slug} className="bg-card flex items-center gap-4 rounded-2xl border p-5">
-                  <span className="bg-accent-soft text-gold-ink grid size-10 place-items-center rounded-xl">
+                <StaggerItem
+                  as="li"
+                  key={industry.slug}
+                  className="flex items-center gap-4 rounded-2xl border bg-card p-5"
+                >
+                  <span className="grid size-10 place-items-center rounded-xl bg-accent-soft text-gold-ink">
                     <Icon className="size-5" aria-hidden="true" />
                   </span>
                   <span className="font-medium">{industry.name}</span>

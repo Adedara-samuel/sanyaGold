@@ -30,7 +30,11 @@ export function todayKeyInFirmZone(now = new Date()) {
 /** Current hour (0–23) in the firm's time zone. */
 function currentHourInFirmZone(now = new Date()) {
   return Number(
-    new Intl.DateTimeFormat("en-US", { timeZone: siteConfig.booking.timeZone, hour: "2-digit", hourCycle: "h23" }).format(now),
+    new Intl.DateTimeFormat("en-US", {
+      timeZone: siteConfig.booking.timeZone,
+      hour: "2-digit",
+      hourCycle: "h23",
+    }).format(now),
   );
 }
 

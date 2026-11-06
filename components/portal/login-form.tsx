@@ -42,8 +42,8 @@ export function LoginForm() {
       <Button type="submit" size="lg" className="mt-2">
         <LogIn /> Sign in
       </Button>
-      <p className="bg-accent-soft text-foreground flex gap-2 rounded-xl p-3 text-xs leading-relaxed">
-        <Info className="text-gold-ink mt-0.5 size-4 shrink-0" aria-hidden="true" />
+      <p className="flex gap-2 rounded-xl bg-accent-soft p-3 text-xs leading-relaxed text-foreground">
+        <Info className="mt-0.5 size-4 shrink-0 text-gold-ink" aria-hidden="true" />
         Preview only: sign-in isn&apos;t connected yet. Any email and password will open a demo dashboard.
       </p>
     </form>

@@ -45,7 +45,7 @@ export function SiteHeader({ pathname }: { pathname: string | null }) {
       className={cn(
         "sticky top-0 z-40 w-full border-b transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300",
         scrolled
-          ? "bg-background/80 border-border/70 shadow-[0_4px_24px_-16px_rgba(15,27,45,0.25)] backdrop-blur-xl"
+          ? "border-border/70 bg-background/80 shadow-[0_4px_24px_-16px_rgba(15,27,45,0.25)] backdrop-blur-xl"
           : "border-transparent bg-transparent",
       )}
     >
@@ -62,14 +62,16 @@ export function SiteHeader({ pathname }: { pathname: string | null }) {
             {siteConfig.nav.map((item) =>
               "children" in item ? (
                 <NavigationMenuItem key={item.href}>
-                  <NavigationMenuTrigger data-active={isActive(pathname, item.href)}>{item.label}</NavigationMenuTrigger>
+                  <NavigationMenuTrigger data-active={isActive(pathname, item.href)}>
+                    {item.label}
+                  </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[min(92vw,520px)] gap-1 p-1 sm:grid-cols-2">
                       <li className="sm:col-span-2">
                         <NavigationMenuLink asChild>
                           <Link href={item.href} className="bg-secondary/60">
                             <span className="font-medium">All {item.label.toLowerCase()}</span>
-                            <span className="text-muted-foreground text-xs">Overview</span>
+                            <span className="text-xs text-muted-foreground">Overview</span>
                           </Link>
                         </NavigationMenuLink>
                       </li>
@@ -78,7 +80,7 @@ export function SiteHeader({ pathname }: { pathname: string | null }) {
                           <NavigationMenuLink asChild active={isActive(pathname, child.href)}>
                             <Link href={child.href}>
                               <span className="font-medium">{child.label}</span>
-                              <span className="text-muted-foreground line-clamp-2 text-xs leading-relaxed">
+                              <span className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
                                 {child.description}
                               </span>
                             </Link>

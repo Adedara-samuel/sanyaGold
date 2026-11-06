@@ -39,18 +39,21 @@ export function ServiceDetail({ slug }: { slug: string }) {
   return (
     <>
       <section className="relative overflow-hidden">
-        <div aria-hidden="true" className="bg-grain absolute inset-0 [mask-image:radial-gradient(ellipse_at_top_left,black,transparent_65%)]" />
-        <div aria-hidden="true" className="bg-accent/20 absolute -top-24 -left-24 size-96 rounded-full blur-3xl" />
+        <div
+          aria-hidden="true"
+          className="bg-grain absolute inset-0 [mask-image:radial-gradient(ellipse_at_top_left,black,transparent_65%)]"
+        />
+        <div aria-hidden="true" className="absolute -top-24 -left-24 size-96 rounded-full bg-accent/20 blur-3xl" />
         <div className="container-page relative grid gap-12 pt-12 pb-16 sm:pt-16 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
           <Reveal>
             <Link
               href="/services"
-              className="text-muted-foreground hover:text-foreground inline-flex items-center gap-1.5 text-sm transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               <ArrowLeft className="size-4" aria-hidden="true" /> All services
             </Link>
             <div className="mt-6 flex items-center gap-3">
-              <span className="bg-accent-soft text-gold-ink grid size-12 place-items-center rounded-2xl">
+              <span className="grid size-12 place-items-center rounded-2xl bg-accent-soft text-gold-ink">
                 <Icon className="size-5.5" aria-hidden="true" />
               </span>
               <p className="eyebrow">Minnesota {service.shortTitle}</p>
@@ -59,12 +62,12 @@ export function ServiceDetail({ slug }: { slug: string }) {
             <p className="text-lead mt-5 max-w-2xl">{service.description}</p>
             <CtaButtons className="mt-8" secondary={{ label: "Ask a question", href: "/contact" }} />
           </Reveal>
-          <Reveal delay={0.15} className="bg-card rounded-2xl border p-6">
+          <Reveal delay={0.15} className="rounded-2xl border bg-card p-6">
             <h2 className="font-sans text-sm font-semibold">A great fit for</h2>
             <ul className="mt-4 space-y-3 text-sm">
               {service.idealFor.map((item) => (
                 <li key={item} className="flex gap-2.5">
-                  <Check className="text-success mt-0.5 size-4 shrink-0" aria-hidden="true" />
+                  <Check className="mt-0.5 size-4 shrink-0 text-success" aria-hidden="true" />
                   {item}
                 </li>
               ))}
@@ -83,17 +86,17 @@ export function ServiceDetail({ slug }: { slug: string }) {
               <StaggerItem
                 as="li"
                 key={offering.title}
-                className="bg-card rounded-2xl border p-6 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-md"
+                className="rounded-2xl border bg-card p-6 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-md"
               >
                 <h3 className="font-sans text-base font-semibold">{offering.title}</h3>
-                <p className="text-muted-foreground mt-2 text-sm leading-relaxed">{offering.description}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{offering.description}</p>
               </StaggerItem>
             ))}
           </Stagger>
         </div>
       </section>
 
-      <section className="section bg-secondary/40 border-y" aria-labelledby="process-title">
+      <section className="section border-y bg-secondary/40" aria-labelledby="process-title">
         <div className="container-page grid gap-12 lg:grid-cols-2">
           <div>
             <h2 id="process-title" className="text-3xl font-semibold">
@@ -102,12 +105,12 @@ export function ServiceDetail({ slug }: { slug: string }) {
             <Stagger as="ol" className="mt-10 space-y-6">
               {service.process.map((step, index) => (
                 <StaggerItem as="li" key={step.step} className="flex gap-5">
-                  <span className="bg-primary text-primary-foreground grid size-10 shrink-0 place-items-center rounded-full font-serif font-semibold">
+                  <span className="grid size-10 shrink-0 place-items-center rounded-full bg-primary font-serif font-semibold text-primary-foreground">
                     {index + 1}
                   </span>
                   <div>
                     <h3 className="font-sans text-base font-semibold">{step.step}</h3>
-                    <p className="text-muted-foreground mt-1 text-sm leading-relaxed">{step.description}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{step.description}</p>
                   </div>
                 </StaggerItem>
               ))}

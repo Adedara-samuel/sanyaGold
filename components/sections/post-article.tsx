@@ -18,7 +18,7 @@ function Block({ block }: { block: PostBlock }) {
       return <p className="mt-5 leading-relaxed">{block.text}</p>;
     case "ul":
       return (
-        <ul className="marker:text-gold-ink mt-5 list-disc space-y-2 pl-6 leading-relaxed">
+        <ul className="mt-5 list-disc space-y-2 pl-6 leading-relaxed marker:text-gold-ink">
           {block.items.map((item) => (
             <li key={item}>{item}</li>
           ))}
@@ -26,8 +26,8 @@ function Block({ block }: { block: PostBlock }) {
       );
     case "callout":
       return (
-        <aside className="bg-accent-soft border-accent/40 mt-8 flex gap-3 rounded-2xl border p-5 text-sm leading-relaxed">
-          <Info className="text-gold-ink mt-0.5 size-5 shrink-0" aria-hidden="true" />
+        <aside className="mt-8 flex gap-3 rounded-2xl border border-accent/40 bg-accent-soft p-5 text-sm leading-relaxed">
+          <Info className="mt-0.5 size-5 shrink-0 text-gold-ink" aria-hidden="true" />
           <p>{block.text}</p>
         </aside>
       );
@@ -57,7 +57,10 @@ export function PostArticle({ slug }: { slug: string }) {
   return (
     <article className="container-page max-w-3xl pt-12 pb-20 sm:pt-16">
       <Reveal>
-        <Link href="/blog" className="text-muted-foreground hover:text-foreground inline-flex items-center gap-1.5 text-sm transition-colors">
+        <Link
+          href="/blog"
+          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+        >
           <ArrowLeft className="size-4" aria-hidden="true" /> All articles
         </Link>
         <div className="mt-6 flex flex-wrap items-center gap-3 text-sm">
@@ -65,13 +68,13 @@ export function PostArticle({ slug }: { slug: string }) {
           <time dateTime={post.publishedAt} className="text-muted-foreground">
             {formatDate(post.publishedAt)}
           </time>
-          <span className="text-muted-foreground inline-flex items-center gap-1">
+          <span className="inline-flex items-center gap-1 text-muted-foreground">
             <Clock className="size-3.5" aria-hidden="true" /> {post.readingMinutes} min read
           </span>
         </div>
         <h1 className="mt-5 text-4xl leading-tight font-semibold sm:text-5xl">{post.title}</h1>
         <p className="text-lead mt-5">{post.excerpt}</p>
-        <p className="text-muted-foreground mt-4 text-sm">By {post.author}</p>
+        <p className="mt-4 text-sm text-muted-foreground">By {post.author}</p>
       </Reveal>
 
       <Reveal delay={0.1} className="border-t pt-4 text-[1.0625rem]">
@@ -80,9 +83,9 @@ export function PostArticle({ slug }: { slug: string }) {
         ))}
       </Reveal>
 
-      <p className="text-muted-foreground mt-12 border-t pt-6 text-xs leading-relaxed">
-        This article is general information, not tax, legal or accounting advice for your specific situation. Please talk with a
-        qualified professional before acting on it.
+      <p className="mt-12 border-t pt-6 text-xs leading-relaxed text-muted-foreground">
+        This article is general information, not tax, legal or accounting advice for your specific situation. Please
+        talk with a qualified professional before acting on it.
       </p>
     </article>
   );
