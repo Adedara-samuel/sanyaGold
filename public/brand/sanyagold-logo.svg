@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3400 880" role="img" aria-label="Sanyagold">
+  <title>Sanyagold</title>
+  <g transform="translate(400 440)" fill="#A4747F">
+    <path d="M-30 -428L-390 -220L-390 220L-185 338L200 116L200 -33L89 -33L89 50L-185 208L-277 155L-277 -155L26 -330Z"/>
+    <path d="M30 428L390 220L390 -220L185 -338L-200 -116L-200 33L-89 33L-89 -50L185 -208L277 -155L277 155L-26 330Z"/>
+  </g>
+  <text x="960" y="600" fill="#8E9A98" font-family="Lora, Georgia, 'Times New Roman', serif" font-size="520" font-weight="600" letter-spacing="-8">Sanyagold</text>
+</svg>

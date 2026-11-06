@@ -1,0 +1,121 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { motion, useMotionValueEvent, useScroll } from "motion/react";
+import { ArrowRight } from "lucide-react";
+import { Logo } from "@/components/layout/logo";
+import { MobileNav } from "@/components/layout/mobile-nav";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
+import { Button } from "@/components/ui/button";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import { siteConfig } from "@/lib/site-config";
+import { cn } from "@/lib/utils";
+
+function isActive(pathname: string | null, href: string) {
+  if (!pathname) return false;
+  const base = href.split("#")[0] ?? href;
+  if (base === "/") return pathname === "/";
+  return pathname === base || pathname.startsWith(`${base}/`);
+}
+
+/** Reads the pathname (must sit inside <Suspense> under Cache Components). */
+export function HeaderWithPathname() {
+  const pathname = usePathname();
+  return <SiteHeader pathname={pathname} />;
+}
+
+/** Sticky header that shrinks and gains a blurred background once the page scrolls. */
+export function SiteHeader({ pathname }: { pathname: string | null }) {
+  const { scrollY } = useScroll();
+  const [scrolled, setScrolled] = useState(false);
+  useMotionValueEvent(scrollY, "change", (latest) => setScrolled(latest > 12));
+
+  return (
+    <motion.header
+      className={cn(
+        "sticky top-0 z-40 w-full border-b transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300",
+        scrolled
+          ? "bg-background/80 border-border/70 shadow-[0_4px_24px_-16px_rgba(15,27,45,0.25)] backdrop-blur-xl"
+          : "border-transparent bg-transparent",
+      )}
+    >
+      <div
+        className={cn(
+          "container-page flex items-center justify-between gap-4 transition-[height] duration-300",
+          scrolled ? "h-16" : "h-20",
+        )}
+      >
+        <Logo markClassName={cn("transition-[height] duration-300", scrolled ? "h-7" : "h-8")} />
+
+        <NavigationMenu className="hidden lg:flex" aria-label="Main">
+          <NavigationMenuList>
+            {siteConfig.nav.map((item) =>
+              "children" in item ? (
+                <NavigationMenuItem key={item.href}>
+                  <NavigationMenuTrigger data-active={isActive(pathname, item.href)}>{item.label}</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[min(92vw,520px)] gap-1 p-1 sm:grid-cols-2">
+                      <li className="sm:col-span-2">
+                        <NavigationMenuLink asChild>
+                          <Link href={item.href} className="bg-secondary/60">
+                            <span className="font-medium">All {item.label.toLowerCase()}</span>
+                            <span className="text-muted-foreground text-xs">Overview</span>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      {item.children.map((child) => (
+                        <li key={child.href}>
+                          <NavigationMenuLink asChild active={isActive(pathname, child.href)}>
+                            <Link href={child.href}>
+                              <span className="font-medium">{child.label}</span>
+                              <span className="text-muted-foreground line-clamp-2 text-xs leading-relaxed">
+                                {child.description}
+                              </span>
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              ) : (
+                <NavigationMenuItem key={item.href}>
+                  <NavigationMenuLink asChild active={isActive(pathname, item.href)}>
+                    <Link
+                      href={item.href}
+                      aria-current={isActive(pathname, item.href) ? "page" : undefined}
+                      className={cn(navigationMenuTriggerStyle(), "data-[active=true]:bg-secondary")}
+                    >
+                      {item.label}
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ),
+            )}
+          </NavigationMenuList>
+        </NavigationMenu>
+
+        <div className="flex items-center gap-1.5">
+          <ThemeToggle />
+          <Button asChild size="sm" variant="accent" className="group hidden sm:inline-flex">
+            <Link href="/book">
+              Book a Consultation
+              <ArrowRight className="transition-transform duration-200 group-hover:translate-x-0.5" />
+            </Link>
+          </Button>
+          <MobileNav pathname={pathname} />
+        </div>
+      </div>
+    </motion.header>
+  );
+}
