@@ -15,11 +15,15 @@ export function TeamGrid({ members = team, detailed = false }: { members?: TeamM
           <div className="p-6">
             <h3 className="text-lg font-semibold">{member.name}</h3>
             <p className="text-sm text-muted-foreground">{member.title}</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              <Badge variant="gold">{member.credentials}</Badge>
-              {detailed && <Badge variant="outline">License: {member.licenseNumber}</Badge>}
-            </div>
-            {detailed && <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{member.bio}</p>}
+            {(member.credentials || (detailed && member.licenseNumber)) && (
+              <div className="mt-3 flex flex-wrap gap-2">
+                {member.credentials && <Badge variant="gold">{member.credentials}</Badge>}
+                {detailed && member.licenseNumber && <Badge variant="outline">License: {member.licenseNumber}</Badge>}
+              </div>
+            )}
+            {detailed && member.bio && (
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{member.bio}</p>
+            )}
           </div>
         </StaggerItem>
       ))}

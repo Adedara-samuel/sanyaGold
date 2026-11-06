@@ -1,11 +1,10 @@
 import { BadgeCheck, Clock, HeartHandshake, MapPin, Scale, Target } from "lucide-react";
-import { LogoMark } from "@/components/layout/logo";
+import Image from "next/image";
 import { Reveal } from "@/components/motion/reveal";
 import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { TeamGrid } from "@/components/sections/team";
-import { JsonLd, PageHero, PlaceholderNote, SectionHeading } from "@/components/shared";
-import { formattedAddress, siteConfig } from "@/lib/site-config";
+import { JsonLd, PageHero, SectionHeading } from "@/components/shared";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -18,18 +17,21 @@ export const metadata = pageMetadata({
 const values = [
   {
     icon: HeartHandshake,
-    title: "Relationships first",
-    description: "We get to know your organization, not just your numbers.",
+    title: "Integrity",
+    description:
+      "Our team is committed to integrity, transparency, and the highest standards of professionalism.",
   },
   {
     icon: Target,
-    title: "Clarity over jargon",
-    description: "Every report and recommendation comes with a plain-English explanation.",
+    title: "Transparency",
+    description:
+      "We deliver solutions that are accurate, reliable, and tailored to the specific needs of each client.",
   },
   {
     icon: Scale,
-    title: "Integrity always",
-    description: "Independent, objective advice held to professional standards.",
+    title: "Professionalism",
+    description:
+      "We help clients grow, thrive, and stay compliant in an ever-changing business landscape.",
   },
 ];
 
@@ -38,8 +40,8 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About Sanyagold"
-        title="A boutique CPA firm built around the people we serve"
-        description="We started Sanyagold to give Minnesota nonprofits and small businesses the kind of attentive, expert support usually reserved for much larger organizations."
+        title="Expert Financial Services Provider"
+        description="At Sanyagold, we are driven by a passion for helping businesses succeed through expert financial guidance and unparalleled services."
       />
 
       <section
@@ -48,34 +50,44 @@ export default function AboutPage() {
       >
         <Reveal>
           <h2 id="story-title" className="text-3xl font-semibold">
-            Our story
+            Our Firm&apos;s Story
           </h2>
           <div className="mt-6 space-y-4 leading-relaxed text-muted-foreground">
             <p>
-              [Founding story placeholder: when and why Sanyagold was founded, the founder&apos;s background, and the
-              gap you saw in how small organizations were being served.]
+              Founded with a vision to provide comprehensive auditing, accounting, taxation, financial and business
+              consultancy services, our firm has grown into a trusted partner for companies across various industries.
             </p>
             <p>
-              Today we help organizations across Minnesota keep accurate books, file on time and make confident
-              decisions, with the responsiveness of a small team and the standards of a licensed CPA firm.
+              With years of experience and a deep understanding of the unique challenges faced by businesses, we have
+              built a reputation for delivering solutions that are not only accurate and reliable but also tailored to
+              the specific needs of each client. Our team is committed to integrity, transparency, and the highest
+              standards of professionalism, ensuring that every decision we make helps our clients grow, thrive, and
+              stay compliant in an ever-changing business landscape.
+            </p>
+            <p>
+              At Sanyagold, we don&apos;t just view ourselves as service providers—we see ourselves as partners in your
+              business journey. Whether you&apos;re a small startup or a large corporation, we are dedicated to helping
+              you navigate your financial challenges and achieve long-term success.
             </p>
           </div>
         </Reveal>
-        {/* PHOTO SLOT: replace this panel with a real office or team photo (next/image, ~1200×900). */}
         <Reveal
           delay={0.1}
-          className="relative grid aspect-[4/3] place-items-center overflow-hidden rounded-3xl border bg-gradient-to-br from-accent-soft to-secondary"
+          className="relative aspect-[4/3] overflow-hidden rounded-3xl border bg-gradient-to-br from-accent-soft to-secondary"
         >
-          <LogoMark className="h-28 opacity-90" />
-          <span className="absolute bottom-4 left-4 text-xs text-muted-foreground">
-            Team / office photo coming soon
-          </span>
+          <Image
+            src="/about/teamwork.jpg"
+            alt="Diverse team joining hands in unity, representing teamwork and collaboration at SanyaGold CPA"
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover"
+          />
         </Reveal>
       </section>
 
       <section className="section border-y bg-secondary/40" aria-labelledby="values-title">
         <div className="container-page">
-          <SectionHeading eyebrow="What we value" title={<span id="values-title">How we work</span>} />
+          <SectionHeading eyebrow="What we value" title={<span id="values-title">Our Team</span>} />
           <Stagger as="ul" className="mt-12 grid gap-5 md:grid-cols-3">
             {values.map((value) => (
               <StaggerItem as="li" key={value.title} className="rounded-2xl border bg-card p-6">
@@ -92,75 +104,40 @@ export default function AboutPage() {
         <div className="container-page">
           <SectionHeading
             eyebrow="Our team"
-            title={<span id="team-title">The people behind Sanyagold</span>}
-            description="Licensed professionals who'll know your name and your organization."
+            title={<span id="team-title">Our Team</span>}
+            description="At Sanyagold, we have dedicated team members committed to meeting clients needs with accuracy, integrity and timeliness."
           />
           <div className="mt-12">
             <TeamGrid detailed />
           </div>
-          <PlaceholderNote className="mt-6 text-center">
-            Team names, bios, photos and license numbers are placeholders. Update them in content/team.ts.
-          </PlaceholderNote>
         </div>
       </section>
 
-      <section className="section border-y bg-secondary/40" aria-labelledby="credentials-title">
+      <section className="section border-y bg-secondary/40" aria-labelledby="services-title">
         <div className="container-page grid gap-6 md:grid-cols-3">
           <Reveal className="rounded-2xl border bg-card p-6">
             <BadgeCheck className="size-6 text-gold-ink" aria-hidden="true" />
-            <h2 id="credentials-title" className="mt-4 font-sans text-base font-semibold">
-              Licensing
+            <h2 id="services-title" className="mt-4 font-sans text-base font-semibold">
+              Expert Financial Services
             </h2>
-            <dl className="mt-3 space-y-2 text-sm text-muted-foreground">
-              <div>
-                <dt className="font-medium text-foreground">Firm permit</dt>
-                <dd>{siteConfig.licensing.firmPermit}</dd>
-              </div>
-              <div>
-                <dt className="font-medium text-foreground">Licensed by</dt>
-                <dd>
-                  <a
-                    href={siteConfig.licensing.licensingBoardUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline underline-offset-4"
-                  >
-                    {siteConfig.licensing.licensingBoard}
-                    <span className="sr-only"> (opens in a new tab)</span>
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="font-medium text-foreground">States</dt>
-                <dd>{siteConfig.licensing.states.join(", ")}</dd>
-              </div>
-            </dl>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              We provide comprehensive auditing, accounting, taxation, financial and business consultancy services.
+            </p>
           </Reveal>
           <Reveal delay={0.08} className="rounded-2xl border bg-card p-6">
             <MapPin className="size-6 text-gold-ink" aria-hidden="true" />
-            <h2 className="mt-4 font-sans text-base font-semibold">Office</h2>
-            <address className="mt-3 text-sm text-muted-foreground not-italic">
-              {formattedAddress}
-              <br />
-              <a
-                href={siteConfig.contact.phoneHref}
-                className="mt-2 inline-block text-foreground underline underline-offset-4"
-              >
-                {siteConfig.contact.phone}
-              </a>
-            </address>
+            <h2 className="mt-4 font-sans text-base font-semibold">Our Clients</h2>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              We are trusted partners for companies across various industries, from small startups to large
+              corporations.
+            </p>
           </Reveal>
           <Reveal delay={0.16} className="rounded-2xl border bg-card p-6">
             <Clock className="size-6 text-gold-ink" aria-hidden="true" />
-            <h2 className="mt-4 font-sans text-base font-semibold">Hours</h2>
-            <dl className="mt-3 space-y-2 text-sm text-muted-foreground">
-              {siteConfig.hours.map((row) => (
-                <div key={row.days} className="flex justify-between gap-4">
-                  <dt>{row.days}</dt>
-                  <dd className="text-foreground">{row.time}</dd>
-                </div>
-              ))}
-            </dl>
+            <h2 className="mt-4 font-sans text-base font-semibold">Our Commitment</h2>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              We are dedicated to helping clients navigate financial challenges and achieve long-term success.
+            </p>
           </Reveal>
         </div>
       </section>
