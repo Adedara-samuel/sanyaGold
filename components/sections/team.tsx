@@ -8,13 +8,13 @@ import type { TeamMember } from "@/lib/types";
 
 export function TeamGrid({ members = team, detailed = false }: { members?: TeamMember[]; detailed?: boolean }) {
   return (
-    <Stagger as="ul" className="grid auto-cols-[minmax(16rem,1fr)] grid-flow-col gap-6 overflow-x-auto pb-2">
+    <Stagger as="ul" className="grid min-w-0 grid-cols-4 gap-2 sm:gap-6">
       {members.map((member) => (
-        <StaggerItem as="li" key={member.id} className="group overflow-hidden rounded-2xl border bg-card">
+        <StaggerItem as="li" key={member.id} className="group min-w-0 overflow-hidden rounded-2xl border bg-card">
           <TeamPhoto member={member} />
-          <div className="p-6">
-            <h3 className="text-lg font-semibold">{member.name}</h3>
-            <p className="text-sm text-muted-foreground">{member.title}</p>
+          <div className="p-2 sm:p-6">
+            <h3 className="break-words text-xs font-semibold sm:text-lg">{member.name}</h3>
+            <p className="break-words text-[0.65rem] text-muted-foreground sm:text-sm">{member.title}</p>
             {(member.credentials || (detailed && member.licenseNumber)) && (
               <div className="mt-3 flex flex-wrap gap-2">
                 {member.credentials && <Badge variant="gold">{member.credentials}</Badge>}

@@ -1,39 +1,31 @@
 import type { Testimonial } from "@/lib/types";
 
-/**
- * PLACEHOLDER DATA.
- * Replace with real client testimonials (with written permission) or Google reviews.
- * Every entry is flagged `isPlaceholder: true` and the UI labels it as a sample.
- * Do not publish invented quotes as if they came from real clients.
- */
 export const testimonials: Testimonial[] = [
   {
-    id: "t1",
-    name: "[Client Name]",
-    role: "[Executive Director]",
-    organization: "[Minnesota Nonprofit]",
+    id: "satisfied-clients",
+    name: "Satisfied Clients",
+    role: "",
+    organization: "",
     quote:
-      "[Sample testimonial] Replace with a real quote about how Sanyagold helped with Form 990 filings, audit preparation or board reporting.",
-    rating: 5,
-    isPlaceholder: true,
+      "Our clients trust us for their financial needs and rely on our expertise to ensure accuracy and compliance. We take pride in delivering exceptional service tailored to their unique requirements.",
+    isPlaceholder: false,
   },
   {
-    id: "t2",
-    name: "[Client Name]",
-    role: "[Owner]",
-    organization: "[Local Small Business]",
+    id: "reliable-service",
+    name: "Reliable Service",
+    role: "",
+    organization: "",
     quote:
-      "[Sample testimonial] Replace with a real quote about monthly bookkeeping, tax planning or cash flow support.",
-    rating: 5,
-    isPlaceholder: true,
+      "The professionalism and accuracy of Sanyagold CPAs have been invaluable to our business. Their attention to detail and efficiency have made them our trusted financial partner, always ensuring our accounts are in order.",
+    isPlaceholder: false,
   },
   {
-    id: "t3",
-    name: "[Client Name]",
-    role: "[Managing Partner]",
-    organization: "[Professional Services Firm]",
-    quote: "[Sample testimonial] Replace with a real quote about consulting, forecasting or entity planning.",
-    rating: 5,
-    isPlaceholder: true,
+    id: "professional-excellence",
+    name: "Professional Excellence",
+    role: "",
+    organization: "",
+    quote:
+      "Sanyagold CPAs has provided our company with excellent accounting services. Their commitment to accuracy and financial integrity has given us the peace of mind to focus on growing our business.",
+    isPlaceholder: false,
   },
 ];

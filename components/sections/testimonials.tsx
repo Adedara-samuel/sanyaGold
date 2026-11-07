@@ -97,9 +97,11 @@ export function TestimonialsCarousel() {
                 </Avatar>
                 <div>
                   <p className="font-medium">{current.name}</p>
-                  <p className="text-sm text-muted-foreground">
-                    {current.role}, {current.organization}
-                  </p>
+                  {(current.role || current.organization) && (
+                    <p className="text-sm text-muted-foreground">
+                      {[current.role, current.organization].filter(Boolean).join(", ")}
+                    </p>
+                  )}
                 </div>
               </figcaption>
             </motion.figure>
