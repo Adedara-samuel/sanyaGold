@@ -22,11 +22,7 @@ interface UploadVars {
   note?: string;
 }
 
-/**
- * Placeholder upload flow with an optimistic list entry.
- * TODO(portal): replace the API route with a real storage integration
- * (e.g. presigned S3/Vercel Blob uploads behind authentication, malware scanning).
- */
+/** Emails each uploaded document to the Sanyagold inbox and shows it in the current session. */
 export function useUploadDocumentMutation() {
   const queryClient = useQueryClient();
 
@@ -61,7 +57,7 @@ export function useUploadDocumentMutation() {
       queryClient.setQueryData<PortalDocument[]>(queryKeys.documents.all, (old = []) =>
         old.map((item) => (item.id === context?.optimisticId ? doc : item)),
       );
-      toast.success(`Uploaded ${doc.name}`);
+      toast.success(`Emailed ${doc.name} to Sanyagold`);
     },
   });
 }

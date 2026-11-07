@@ -10,7 +10,8 @@ export default function PortalDocumentsPage() {
     <PortalShell>
       <h1 className="text-3xl font-semibold">Documents</h1>
       <p className="mt-2 max-w-2xl text-muted-foreground">
-        Upload files for your accountant. Accepted formats: PDF, JPG, PNG, CSV, Excel and Word, up to 25 MB each.
+        Send files to your accountant as email attachments. Accepted formats: PDF, JPG, PNG, CSV, Excel and Word, up to
+        25 MB each. Files are not stored in the portal.
       </p>
       <QueryBoundary className="mt-8 h-96">
         <DocumentUpload />

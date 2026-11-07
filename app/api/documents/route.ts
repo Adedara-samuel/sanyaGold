@@ -2,16 +2,7 @@ import { getDocuments } from "@/lib/data";
 import { clientIp, rateLimit } from "@/lib/rate-limit";
 import { documentCategories, validateUploadFile } from "@/lib/validators";
 import type { PortalDocument } from "@/lib/types";
-
-/**
- * PLACEHOLDER portal document API.
- *
- * TODO(portal): before accepting real client documents this route MUST:
- *   - require an authenticated session and scope every read/write to that client
- *   - store files in private, access-controlled storage (e.g. S3 or Vercel Blob with signed URLs)
- *   - scan uploads for malware and keep an audit log
- * Today it returns sample data and DISCARDS uploaded file contents.
- */
+import { inboxAddress, isEmailConfigured, sendMail } from "@/lib/email";
 
 export async function GET() {
   // TODO(portal): read the session and return only that client's documents.
@@ -45,10 +36,37 @@ export async function POST(request: Request) {
     return Response.json({ error: "Unknown document category." }, { status: 422 });
   }
 
-  // TODO(portal): stream `file` to secure storage here. Nothing is persisted yet.
+  if (!isEmailConfigured()) {
+    return Response.json({ error: "Document email is not configured. Please try again later." }, { status: 503 });
+  }
+
+  const filename = file.name.replace(/[\\/\r\n]/g, "_").slice(0, 200) || "document";
+  try {
+    const delivery = await sendMail({
+      to: inboxAddress(),
+      subject: `New document upload: ${category}`,
+      text: `A document was submitted through the Sanyagold client portal.\n\nDocument type: ${category}\nFile name: ${filename}\nFile size: ${file.size} bytes.`,
+      html: "<p>A document was submitted through the Sanyagold client portal. The uploaded file is attached to this email.</p>",
+      attachments: [
+        {
+          filename,
+          content: Buffer.from(await file.arrayBuffer()),
+          contentType: file.type,
+        },
+      ],
+    });
+
+    if (!delivery.delivered) {
+      return Response.json({ error: "The document email could not be sent. Please try again later." }, { status: 503 });
+    }
+  } catch (error) {
+    console.error("[documents:email] Failed to deliver uploaded document.", error);
+    return Response.json({ error: "The document email could not be sent. Please try again later." }, { status: 502 });
+  }
+
   const document: PortalDocument = {
     id: crypto.randomUUID(),
-    name: file.name.slice(0, 200),
+    name: filename,
     sizeBytes: file.size,
     uploadedAt: new Date().toISOString(),
     category,

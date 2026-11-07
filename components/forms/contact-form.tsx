@@ -6,6 +6,7 @@ import { Loader2, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { useContactMutation } from "@/hooks/use-contact-mutation";
 import { contactDefaults, contactSchema, type ContactInput } from "@/lib/validators";
@@ -105,18 +106,23 @@ export function ContactForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>What can we help with?</FormLabel>
-              <FormControl>
-                <select
-                  {...field}
-                  className="h-11 w-full rounded-xl border border-input bg-card px-3.5 text-base shadow-xs outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/40 md:text-sm"
-                >
+              <Select
+                value={field.value || "not-sure"}
+                onValueChange={(value) => field.onChange(value === "not-sure" ? "" : value)}
+              >
+                <FormControl>
+                  <SelectTrigger onBlur={field.onBlur} ref={field.ref}>
+                    <SelectValue />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
                   {serviceOptions.map((option) => (
-                    <option key={option.value} value={option.value}>
+                    <SelectItem key={option.value || "not-sure"} value={option.value || "not-sure"}>
                       {option.label}
-                    </option>
+                    </SelectItem>
                   ))}
-                </select>
-              </FormControl>
+                </SelectContent>
+              </Select>
               <FormMessage />
             </FormItem>
           )}

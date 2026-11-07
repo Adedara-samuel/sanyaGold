@@ -2,11 +2,12 @@
 
 import { useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { AlertTriangle, CheckCircle2, Clock, FileText, Loader2, UploadCloud } from "lucide-react";
+import { CheckCircle2, Clock, FileText, Loader2, UploadCloud } from "lucide-react";
 import { ErrorState } from "@/components/query-state";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useDocuments, useUploadDocumentMutation } from "@/hooks/use-documents";
 import type { PortalDocument } from "@/lib/types";
@@ -50,27 +51,20 @@ export function DocumentUpload() {
           Upload files
         </h2>
 
-        {/* Honest status: this is a preview and does not store files yet. */}
-        <div className="flex gap-3 rounded-2xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-950 dark:border-amber-700 dark:bg-amber-950/60 dark:text-amber-100">
-          <AlertTriangle className="mt-0.5 size-5 shrink-0" aria-hidden="true" />
-          <p>
-            <strong>Preview:</strong> secure storage isn&apos;t connected yet, so files are <strong>not saved</strong>.
-            Please don&apos;t upload real client documents until this notice is removed.
-          </p>
-        </div>
-
         <div className="grid gap-2">
           <Label htmlFor={`${inputId}-category`}>Document type</Label>
-          <select
-            id={`${inputId}-category`}
-            value={category}
-            onChange={(event) => setCategory(event.target.value)}
-            className="h-11 rounded-xl border border-input bg-card px-3.5 text-sm shadow-xs outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/40"
-          >
-            {documentCategories.map((option) => (
-              <option key={option}>{option}</option>
-            ))}
-          </select>
+          <Select value={category} onValueChange={setCategory}>
+            <SelectTrigger id={`${inputId}-category`}>
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {documentCategories.map((option) => (
+                <SelectItem key={option} value={option}>
+                  {option}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
 
         <label
@@ -119,7 +113,7 @@ export function DocumentUpload() {
 
         <Button type="button" variant="outline" onClick={() => inputRef.current?.click()} disabled={upload.isPending}>
           {upload.isPending ? <Loader2 className="animate-spin" /> : <UploadCloud />}
-          {upload.isPending ? "Uploading…" : "Choose files"}
+          {upload.isPending ? "Sending email…" : "Choose files"}
         </Button>
       </section>
 
@@ -128,7 +122,7 @@ export function DocumentUpload() {
           <h2 id="files-title" className="font-sans text-base font-semibold">
             Your documents
           </h2>
-          <Badge variant="outline">Sample data</Badge>
+          <Badge variant="outline">Not stored</Badge>
         </div>
 
         {documents.isPending ? (

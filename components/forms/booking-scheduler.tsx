@@ -9,6 +9,7 @@ import { applyServerIssues, HoneypotField } from "@/components/forms/form-helper
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Textarea } from "@/components/ui/textarea";
 import { useBookingRequestMutation } from "@/hooks/use-booking-request-mutation";
@@ -334,18 +335,20 @@ function Scheduler({ todayKey }: { todayKey: string }) {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>I&apos;m reaching out for a…</FormLabel>
-                            <FormControl>
-                              <select
-                                {...field}
-                                className="h-11 w-full rounded-xl border border-input bg-card px-3.5 text-base shadow-xs outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/40 md:text-sm"
-                              >
+                            <Select value={field.value} onValueChange={field.onChange}>
+                              <FormControl>
+                                <SelectTrigger onBlur={field.onBlur} ref={field.ref}>
+                                  <SelectValue />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
                                 {Object.entries(organizationTypeLabels).map(([value, label]) => (
-                                  <option key={value} value={value}>
+                                  <SelectItem key={value} value={value}>
                                     {label}
-                                  </option>
+                                  </SelectItem>
                                 ))}
-                              </select>
-                            </FormControl>
+                              </SelectContent>
+                            </Select>
                             <FormMessage />
                           </FormItem>
                         )}
