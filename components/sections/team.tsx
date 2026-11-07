@@ -8,7 +8,7 @@ import type { TeamMember } from "@/lib/types";
 
 export function TeamGrid({ members = team, detailed = false }: { members?: TeamMember[]; detailed?: boolean }) {
   return (
-    <Stagger as="ul" className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <Stagger as="ul" className="grid auto-cols-[minmax(16rem,1fr)] grid-flow-col gap-6 overflow-x-auto pb-2">
       {members.map((member) => (
         <StaggerItem as="li" key={member.id} className="group overflow-hidden rounded-2xl border bg-card">
           <TeamPhoto member={member} />
