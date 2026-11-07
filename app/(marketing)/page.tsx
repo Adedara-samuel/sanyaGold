@@ -82,7 +82,7 @@ export default async function HomePage() {
 
       <section className="section" aria-labelledby="testimonials-title">
         <div className="container-page">
-          <SectionHeading eyebrow="Client stories" title={<span id="testimonials-title">What our clients say</span>} />
+          <SectionHeading eyebrow="Client stories" title={<span id="testimonials-title">Client Testimonials</span>} />
           <div className="mt-12">
             <QueryBoundary className="mx-auto h-80 max-w-3xl">
               <TestimonialsCarousel />
