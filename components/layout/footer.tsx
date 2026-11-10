@@ -149,17 +149,31 @@ export function SiteFooter() {
                 ` ${cpaFirm.name} is licensed by the ${cpaFirm.licensing.licensingBoard}. ${cpaFirm.licensing.firmPermit}`}
             </p>
           </div>
-          <nav aria-label="Legal">
-            <ul className="flex gap-5">
-              {siteConfig.footer.legal.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="underline-offset-4 hover:text-foreground hover:underline">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <div className="flex shrink-0 flex-col gap-2 sm:items-end">
+            <nav aria-label="Legal">
+              <ul className="flex gap-5">
+                {siteConfig.footer.legal.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="underline-offset-4 hover:text-foreground hover:underline">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <p>
+              Designed by{" "}
+              <a
+                href="https://sapok.vercel.app/"
+                target="_blank"
+                rel="noopener"
+                className="font-medium text-foreground underline-offset-4 hover:underline"
+              >
+                Sapok
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
