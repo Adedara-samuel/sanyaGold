@@ -3,6 +3,7 @@ import { Geist, Lora } from "next/font/google";
 import { Analytics } from "@/components/analytics";
 import { Providers } from "@/components/providers";
 import { SkipLink } from "@/components/layout/skip-link";
+import { SplashScreen, splashScript } from "@/components/layout/splash-screen";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
 
@@ -62,7 +63,12 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en-US" className={`${geistSans.variable} ${lora.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Static inline script: decides before first paint whether this session already saw the splash. */}
+        <script dangerouslySetInnerHTML={{ __html: splashScript }} />
+      </head>
       <body className="flex min-h-dvh flex-col">
+        <SplashScreen />
         <SkipLink />
         <Providers>{children}</Providers>
         <Analytics />
