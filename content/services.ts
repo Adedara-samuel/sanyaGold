@@ -11,20 +11,20 @@ export const services: Service[] = [
   {
     slug: "accounting",
     firm: "sanyagold",
-    title: "Accounting & Bookkeeping",
-    shortTitle: "Bookkeeping",
+    title: "Accounting & Book-keeping",
+    shortTitle: "Book-keeping",
     icon: "book",
     summary: "Clean, up-to-date books and clear monthly reports you can actually use to make decisions.",
     description:
       "We keep your books accurate and current every month, reconcile your accounts and deliver simple financial reports, so you always know where your organization stands and are ready for tax time, lenders, boards and grantmakers.",
     idealFor: [
-      "Growing businesses that have outgrown do-it-yourself bookkeeping",
+      "Growing businesses that have outgrown do-it-yourself book-keeping",
       "Nonprofits that need fund and grant tracking",
       "Teams that want a reliable monthly close",
     ],
     offerings: [
       {
-        title: "Monthly bookkeeping",
+        title: "Monthly book-keeping",
         description: "Transactions categorized and accounts reconciled every month.",
       },
       {
@@ -62,7 +62,7 @@ export const services: Service[] = [
       },
       {
         question: "Can you help if my books are months behind?",
-        answer: "Yes. Catch-up bookkeeping is one of the most common ways clients start working with us.",
+        answer: "Yes. Catch-up book-keeping is one of the most common ways clients start working with us.",
       },
     ],
   },
@@ -241,7 +241,7 @@ export const services: Service[] = [
     ],
     faqs: [
       {
-        question: "Do I need to be a bookkeeping client to use advisory services?",
+        question: "Do I need to be a book-keeping client to use advisory services?",
         answer: "No. Many clients start with a single advisory or consulting project.",
       },
       {

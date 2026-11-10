@@ -5,7 +5,7 @@
 
 ## Concept
 
-A hexagonal cut of gold, seen from above. Its **six crown facets** stand for the firm's six disciplines: accounting, bookkeeping, payroll, HR, business advisory and consulting. All six meet at an **evergreen centre**, the client, at the heart of everything the firm does.
+A hexagonal cut of gold, seen from above. Its **six crown facets** stand for the firm's six disciplines: accounting, book-keeping, payroll, HR, business advisory and consulting. All six meet at an **evergreen centre**, the client, at the heart of everything the firm does.
 
 Shaded in three golds like a real cut stone, the emblem speaks of value, precision and care. Its hexagon carries forward the shape of Sanyagold's existing mark, so the brand evolves rather than starts over. The service line beneath the name says plainly what the firm does.
 

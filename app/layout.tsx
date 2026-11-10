@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     "small business accounting Minnesota",
     "Form 990 preparation",
     "nonprofit audit Minnesota",
-    "bookkeeping Hanover MN",
+    "book-keeping Hanover MN",
     "tax planning Minnesota",
   ],
   openGraph: {

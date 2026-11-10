@@ -659,7 +659,7 @@ function textBlock3({ wf, word, cap, wTrack, df, desc, dTrack, dFit, dCap, gap, 
 }
 
 const SG_DESC2 = "ACCOUNTING, ADVISORY AND CONSULTING SERVICES";
-const SG_TAG2 = "BOOKKEEPING · PAYROLL · HR · BUSINESS ADVISORY";
+const SG_TAG2 = "BOOK-KEEPING · PAYROLL · HR · BUSINESS ADVISORY";
 
 function sgText2A(align) {
   return textBlock3({ wf: F.ebg500, word: "SANYAGOLD", cap: 30, wTrack: 0.2, df: F.mont500, desc: SG_DESC2, dTrack: 0.28, gap: 14, tf: F.mont500, tag: SG_TAG2, tTrack: 0.22, tCap: 5.2, tGap: 11, align });
@@ -743,7 +743,7 @@ const concepts = [
     typeNote: "All logo lettering is converted to outlines. EB Garamond and Montserrat are open-source (SIL OFL) and free for commercial use.",
     conceptTitle: "The Six-Facet Gold",
     concept:
-      "A hexagonal cut of gold, seen from above. Its six crown facets stand for the firm's six disciplines: accounting, bookkeeping, payroll, HR, business advisory and consulting. All six meet at an evergreen centre, the client, at the heart of everything the firm does. Shaded in three golds like a real cut stone, the emblem speaks of value, precision and care, and its hexagon carries forward the shape of Sanyagold's existing mark so the brand evolves rather than starts over. The service line beneath the name says plainly what the firm does.",
+      "A hexagonal cut of gold, seen from above. Its six crown facets stand for the firm's six disciplines: accounting, book-keeping, payroll, HR, business advisory and consulting. All six meet at an evergreen centre, the client, at the heart of everything the firm does. Shaded in three golds like a real cut stone, the emblem speaks of value, precision and care, and its hexagon carries forward the shape of Sanyagold's existing mark so the brand evolves rather than starts over. The service line beneath the name says plainly what the firm does.",
   },
   {
     folder: "Sanyagold/Concept-B-Ledger-Emblem",

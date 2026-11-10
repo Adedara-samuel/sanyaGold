@@ -13,7 +13,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Services",
   description:
-    "Bookkeeping, payroll, HR and business advisory from Sanyagold, plus tax, audit, review and attestation from W O Oyebamiji CPA LLC, for Minnesota nonprofits and small businesses.",
+    "Book-keeping, payroll, HR and business advisory from Sanyagold, plus tax, audit, review and attestation from W O Oyebamiji CPA LLC, for Minnesota nonprofits and small businesses.",
   path: "/services",
 });
 

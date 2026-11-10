@@ -7,12 +7,12 @@ export const faqGroups: FaqGroup[] = [
       {
         question: "How are Sanyagold and W O Oyebamiji CPA LLC related?",
         answer:
-          "They are two independent firms that complement each other. Sanyagold Accounting, Advisory and Consulting Services provides bookkeeping, payroll, HR and business advisory. W O Oyebamiji CPA LLC provides tax, audit, review and attestation services.",
+          "They are two independent firms that complement each other. Sanyagold Accounting, Advisory and Consulting Services provides book-keeping, payroll, HR and business advisory. W O Oyebamiji CPA LLC provides tax, audit, review and attestation services.",
       },
       {
         question: "Do I have to use both firms?",
         answer:
-          "No. You can engage either firm on its own. Many clients use both, for example Sanyagold for monthly bookkeeping and payroll, and W O Oyebamiji CPA LLC for tax preparation or an audit.",
+          "No. You can engage either firm on its own. Many clients use both, for example Sanyagold for monthly book-keeping and payroll, and W O Oyebamiji CPA LLC for tax preparation or an audit.",
       },
     ],
   },

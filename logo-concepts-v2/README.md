@@ -11,7 +11,7 @@ Second-round logo proposals for client review, November 2026. These are **richer
 
 Every lockup also states what the firm does:
 
-- **Sanyagold:** "Accounting, Advisory and Consulting Services" plus the service line "Bookkeeping · Payroll · HR · Business Advisory".
+- **Sanyagold:** "Accounting, Advisory and Consulting Services" plus the service line "Book-keeping · Payroll · HR · Business Advisory".
 - **W O Oyebamiji CPA LLC:** "CPA LLC" plus "Tax · Audit · Attestation".
 
 Start with each concept's **presentation board** in `presentation/` (PNG or PDF).

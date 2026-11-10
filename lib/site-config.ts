@@ -10,7 +10,7 @@ export const siteConfig = {
   legalName: "Sanyagold Accounting, Advisory and Consulting Services",
   tagline: "Accounting, tax and advisory for Minnesota nonprofits and small businesses",
   description:
-    "Two independent, complementary Minnesota firms: Sanyagold Accounting, Advisory and Consulting Services for bookkeeping, payroll, HR and business advisory, and W O Oyebamiji CPA LLC for tax, audit, review and attestation.",
+    "Two independent, complementary Minnesota firms: Sanyagold Accounting, Advisory and Consulting Services for book-keeping, payroll, HR and business advisory, and W O Oyebamiji CPA LLC for tax, audit, review and attestation.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sanyagold.com",
 
   contact: {
@@ -71,7 +71,7 @@ export const siteConfig = {
       children: [
         {
           group: "Sanyagold Accounting, Advisory and Consulting Services",
-          label: "Accounting & Bookkeeping",
+          label: "Accounting & Book-keeping",
           href: "/services/accounting",
           description: "Clean monthly books and clear financial reports.",
         },
@@ -114,7 +114,7 @@ export const siteConfig = {
         {
           label: "Sanyagold",
           href: "/firms/sanyagold",
-          description: "Accounting, Advisory and Consulting Services: bookkeeping, payroll, HR and advisory.",
+          description: "Accounting, Advisory and Consulting Services: book-keeping, payroll, HR and advisory.",
         },
         {
           label: "W O Oyebamiji CPA LLC",
@@ -143,7 +143,7 @@ export const siteConfig = {
         title: "Sanyagold",
         href: "/firms/sanyagold",
         links: [
-          { label: "Accounting & Bookkeeping", href: "/services/accounting" },
+          { label: "Accounting & Book-keeping", href: "/services/accounting" },
           { label: "Payroll Services", href: "/services/payroll" },
           { label: "HR Management", href: "/services/hr-management" },
           { label: "Business Advisory & Consulting", href: "/services/consulting" },

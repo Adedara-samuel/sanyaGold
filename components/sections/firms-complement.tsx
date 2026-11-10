@@ -7,14 +7,14 @@ import { displayName, firms, independenceStatement } from "@/content/firms";
 import { cn } from "@/lib/utils";
 
 const roles: Record<string, string> = {
-  sanyagold: "Ongoing accounting, bookkeeping, payroll, HR and business advisory support throughout the year.",
+  sanyagold: "Ongoing accounting, book-keeping, payroll, HR and business advisory support throughout the year.",
   "oyebamiji-cpa": "Tax planning and preparation, audits, single audits, reviews and attestation services.",
 };
 
 const options = [
   {
     title: "Work with Sanyagold",
-    description: "For bookkeeping, payroll, HR management and business advisory.",
+    description: "For book-keeping, payroll, HR management and business advisory.",
   },
   {
     title: "Work with W O Oyebamiji CPA LLC",

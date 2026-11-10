@@ -704,7 +704,7 @@ const concepts = [
     typeNote: "All logo lettering is converted to outlines. EB Garamond and Montserrat are open-source (SIL OFL) and free for commercial use.",
     conceptTitle: "The Golden Line",
     concept:
-      "A monoline S drawn on a strict square grid with a single, consistent stroke weight. Every proportion is fixed to the grid, the outer terminals are cut at a precise 45° and the form is perfectly point-symmetric, giving a sense of order, accuracy and balance. Measured gaps separate the strokes like the clean break between accounts that still reconcile. Through the centre runs the golden line, set in champagne gold: the connecting thread across bookkeeping, payroll, HR and advisory. Paired with spaced Garamond capitals in deep evergreen, the identity feels established, calm and quietly confident.",
+      "A monoline S drawn on a strict square grid with a single, consistent stroke weight. Every proportion is fixed to the grid, the outer terminals are cut at a precise 45° and the form is perfectly point-symmetric, giving a sense of order, accuracy and balance. Measured gaps separate the strokes like the clean break between accounts that still reconcile. Through the centre runs the golden line, set in champagne gold: the connecting thread across book-keeping, payroll, HR and advisory. Paired with spaced Garamond capitals in deep evergreen, the identity feels established, calm and quietly confident.",
   },
   {
     folder: "Sanyagold/Concept-B-Premium-Lettermark",

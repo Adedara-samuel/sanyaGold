@@ -13,13 +13,13 @@ export const firms: Firm[] = [
     name: "Sanyagold Accounting, Advisory and Consulting Services",
     shortName: "Sanyagold",
     monogram: "SG",
-    focus: "bookkeeping, payroll, HR and business advisory",
+    focus: "book-keeping, payroll, HR and business advisory",
     summary:
       "Ongoing accounting support and business management, so your finances stay organized and your decisions are well informed.",
     description:
       "Sanyagold keeps the day-to-day financial side of your organization running smoothly: accurate books, reliable payroll, organized HR and practical advice on budgeting, growth and strategy.",
     highlights: [
-      "Monthly bookkeeping and financial reporting",
+      "Monthly book-keeping and financial reporting",
       "Payroll processing and payroll filings",
       "HR management and employee records",
       "Business advisory and consulting",

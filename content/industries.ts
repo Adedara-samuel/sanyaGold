@@ -25,7 +25,7 @@ export const industries: Industry[] = [
     description:
       "Monthly books, proactive tax planning and practical advice for owner-operated businesses across Minnesota, from first hire to fifty employees.",
     points: [
-      "Monthly bookkeeping and reporting",
+      "Monthly book-keeping and reporting",
       "Quarterly tax planning and estimates",
       "Sales and payroll tax compliance",
       "Cash flow forecasting",
