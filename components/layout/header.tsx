@@ -58,7 +58,8 @@ export function SiteHeader({ pathname }: { pathname: string | null }) {
       >
         <Logo markClassName={cn("transition-[height] duration-300", scrolled ? "h-7" : "h-8")} />
 
-        <NavigationMenu className="hidden xl:flex" aria-label="Main">
+        {/* Six top-level items need ~1100px; below that the mobile menu is used. */}
+        <NavigationMenu className="hidden min-[1120px]:flex" aria-label="Main">
           <NavigationMenuList>
             {siteConfig.nav.map((item) =>
               "children" in item ? (
