@@ -3,8 +3,11 @@ import { siteConfig } from "@/lib/site-config";
 /**
  * Branded intro shown on the first page load of a session.
  *
- * Pure CSS (see `.sg-splash` in globals.css): it animates the logo and then fades
- * itself out, so it can never get stuck covering the page, even if JavaScript fails.
+ * Deep-navy panel, the Sanyagold mark interlocking, wordmark and a gold progress
+ * bar, then the panel slides up like a curtain to reveal the site (≈2.6s total).
+ *
+ * Pure CSS (see `.sg-splash` in globals.css): it always removes itself, even if
+ * JavaScript fails.
  * - Skipped on later full page loads in the same session (via `splashScript`).
  * - Hidden entirely for visitors who prefer reduced motion.
  * - Decorative only (aria-hidden), so screen readers go straight to the content.
@@ -13,12 +16,8 @@ export function SplashScreen() {
   return (
     <div className="sg-splash" aria-hidden="true">
       <div className="sg-splash__inner">
-        <svg viewBox="-440 -470 880 940" className="sg-splash__mark">
-          <polygon
-            className="sg-splash__ring"
-            points="0,-455 394,-227.5 394,227.5 0,455 -394,227.5 -394,-227.5"
-            pathLength={1}
-          />
+        <span className="sg-splash__glow" />
+        <svg viewBox="-400 -440 800 880" className="sg-splash__mark">
           <path
             className="sg-splash__hook sg-splash__hook--a"
             d="M-30 -428L-390 -220L-390 220L-185 338L200 116L200 -33L89 -33L89 50L-185 208L-277 155L-277 -155L26 -330Z"
@@ -29,7 +28,10 @@ export function SplashScreen() {
           />
         </svg>
         <p className="sg-splash__word">{siteConfig.name}</p>
-        <span className="sg-splash__bar" />
+        <p className="sg-splash__tag">Accounting · Tax · Advisory</p>
+        <span className="sg-splash__track">
+          <span className="sg-splash__bar" />
+        </span>
       </div>
     </div>
   );

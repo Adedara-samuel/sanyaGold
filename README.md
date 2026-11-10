@@ -67,7 +67,8 @@ to the notification email.
 | What                                                                     | Where                                          |
 | ------------------------------------------------------------------------ | ---------------------------------------------- |
 | Name, phone, email, address, hours, license, socials, nav, booking rules | `lib/site-config.ts` (single source of truth)  |
-| Services (each gets its own `/services/[slug]` page)                     | `content/services.ts`                          |
+| The two independent firms (names, focus, licensing)                      | `content/firms.ts`                             |
+| Services (each gets its own `/services/[slug]` page; `firm` sets the provider) | `content/services.ts`                    |
 | Industries (3 featured + chips)                                          | `content/industries.ts`                        |
 | Team, bios, license numbers, photos                                      | `content/team.ts` (+ photos in `public/team/`) |
 | Testimonials                                                             | `content/testimonials.ts`                      |
@@ -124,7 +125,9 @@ content/         typed seed content
 
 Search the code for `[` to find them all.
 
-- [ ] **Firm permit / CPA license numbers** (`siteConfig.licensing.firmPermit`, `content/team.ts`)
+- [ ] **Firm permit / CPA license numbers** for W O Oyebamiji CPA LLC (`content/firms.ts` → `licensing.firmPermit`, `content/team.ts`)
+- [ ] **Official logo for W O Oyebamiji CPA LLC** (currently a "WO" monogram in `components/firms/firm-mark.tsx`)
+- [ ] **Each firm's own contact details** if they differ from the shared website contact (`content/firms.ts`)
 - [ ] **Confirm legal entity name** (`siteConfig.legalName`)
 - [ ] **Verify office address**, taken from the current site profile (`siteConfig.address`)
 - [ ] **Office hours** (`siteConfig.hours`, `openingHoursSpec`) and booking slots to match
