@@ -3,15 +3,17 @@ import { CheckCircle2 } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
 import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { CtaBanner } from "@/components/sections/cta-banner";
-import { ServicesGrid } from "@/components/sections/services-grid";
-import { CtaButtons, JsonLd, PageHero, QueryBoundary, SectionHeading } from "@/components/shared";
+import { FirmServicesSection } from "@/components/sections/firm-services";
+import { FirmsComplement } from "@/components/sections/firms-complement";
+import { CtaButtons, JsonLd, PageHero, SectionHeading } from "@/components/shared";
+import { firms } from "@/content/firms";
 import { prefetchQueries } from "@/lib/prefetch";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Services",
   description:
-    "Tax, accounting & bookkeeping, audit & review and business consulting for Minnesota nonprofits and small businesses.",
+    "Bookkeeping, payroll, HR and business advisory from Sanyagold, plus tax, audit, review and attestation from W O Oyebamiji CPA LLC, for Minnesota nonprofits and small businesses.",
   path: "/services",
 });
 
@@ -30,16 +32,18 @@ export default async function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="Accounting, tax and advisory, made simple"
-        description="Whether you need a reliable monthly close, an accurate Form 990 or a plan for growth, we'll match you with the right service."
+        description="Services are provided by two independent, complementary firms. Choose the services you need from either firm, or both."
       >
         <CtaButtons secondary={null} />
       </PageHero>
 
-      <section className="container-page pb-20" aria-label="Our services">
-        <QueryBoundary className="h-[32rem]">
-          <ServicesGrid />
-        </QueryBoundary>
-      </section>
+      <div className="container-page space-y-20 pb-20">
+        {firms.map((firm) => (
+          <FirmServicesSection key={firm.id} firm={firm.id} />
+        ))}
+      </div>
+
+      <FirmsComplement className="border-t" />
 
       <section className="section border-y bg-secondary/40" aria-labelledby="how-title">
         <div className="container-page">

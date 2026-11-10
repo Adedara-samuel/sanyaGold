@@ -59,8 +59,8 @@ export function Hero() {
           </h1>
 
           <motion.p {...item(0.42)} className="text-lead mt-6 max-w-xl">
-            Stay compliant, understand your numbers and plan ahead, with a CPA team that explains things in plain
-            English and answers when you call.
+            Sanyagold keeps your books, payroll and HR in order. W O Oyebamiji CPA LLC handles your taxes, audits and
+            reviews. Work with either firm, or both.
           </motion.p>
 
           <motion.div {...item(0.52)}>
