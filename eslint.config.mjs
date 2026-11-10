@@ -14,6 +14,7 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Logo proposal assets and their generator (not part of the website).
     "logo-concepts/**",
+    "logo-concepts-v2/**",
   ]),
 ]);
 
