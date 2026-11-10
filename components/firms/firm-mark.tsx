@@ -71,7 +71,7 @@ export function FirmLockup({
             data.name
           )}
         </Heading>
-        <p className="mt-0.5 text-sm text-muted-foreground">{data.focus}</p>
+        <p className="mt-0.5 text-sm text-muted-foreground first-letter:uppercase">{data.focus}</p>
       </div>
     </div>
   );

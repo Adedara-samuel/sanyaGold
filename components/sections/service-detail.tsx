@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, Check } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check } from "lucide-react";
+import { FirmBadge, FirmMark, firmAccent } from "@/components/firms/firm-mark";
 import { Reveal } from "@/components/motion/reveal";
 import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { ErrorState } from "@/components/query-state";
@@ -10,7 +11,9 @@ import { ServiceCard } from "@/components/sections/services-grid";
 import { CtaButtons } from "@/components/shared";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useService, useServices } from "@/hooks/use-services";
+import { firmHref, firms, getFirm } from "@/content/firms";
 import { icons } from "@/lib/icons";
+import { cn } from "@/lib/utils";
 
 export function ServiceDetail({ slug }: { slug: string }) {
   const { data: service, isPending, isError, refetch, isRefetching } = useService(slug);
@@ -34,7 +37,12 @@ export function ServiceDetail({ slug }: { slug: string }) {
   }
 
   const Icon = icons[service.icon];
-  const related = (allServices ?? []).filter((item) => item.slug !== service.slug).slice(0, 3);
+  const firm = getFirm(service.firm);
+  const otherFirm = firms.find((item) => item.id !== service.firm)!;
+  // Related services come from the same firm first.
+  const related = (allServices ?? [])
+    .filter((item) => item.slug !== service.slug && item.firm === service.firm)
+    .slice(0, 3);
 
   return (
     <>
@@ -59,6 +67,7 @@ export function ServiceDetail({ slug }: { slug: string }) {
               <p className="eyebrow">Minnesota {service.shortTitle}</p>
             </div>
             <h1 className="mt-5 text-4xl leading-tight font-semibold sm:text-5xl">{service.title}</h1>
+            <FirmBadge firm={service.firm} className="mt-5" />
             <p className="text-lead mt-5 max-w-2xl">{service.description}</p>
             <CtaButtons className="mt-8" secondary={{ label: "Ask a question", href: "/contact" }} />
           </Reveal>
@@ -125,22 +134,51 @@ export function ServiceDetail({ slug }: { slug: string }) {
         </div>
       </section>
 
-      {related.length > 0 && (
-        <section className="section" aria-labelledby="related-title">
-          <div className="container-page">
-            <h2 id="related-title" className="text-3xl font-semibold">
-              Related services
-            </h2>
-            <ul className="mt-10 grid gap-5 md:grid-cols-3">
-              {related.map((item) => (
-                <li key={item.slug}>
-                  <ServiceCard service={item} />
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      )}
+      <section className="section" aria-labelledby="related-title">
+        <div className="container-page">
+          {related.length > 0 && (
+            <>
+              <h2 id="related-title" className="text-3xl font-semibold">
+                More from {firm.shortName}
+              </h2>
+              <ul className="mt-10 grid gap-5 md:grid-cols-3">
+                {related.map((item) => (
+                  <li key={item.slug}>
+                    <ServiceCard service={item} />
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+
+          <Reveal
+            className={cn(
+              "flex flex-col gap-5 rounded-2xl border bg-card p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7",
+              related.length > 0 && "mt-12",
+              firmAccent[otherFirm.id].border,
+            )}
+          >
+            <div className="flex items-start gap-4">
+              <FirmMark firm={otherFirm.id} className={otherFirm.id === "sanyagold" ? "h-10" : "size-10"} />
+              <div>
+                <h2 className="font-sans text-base font-semibold" id={related.length ? undefined : "related-title"}>
+                  Also need help with {otherFirm.focus}?
+                </h2>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  {otherFirm.name} is an independent firm that complements {firm.shortName}. Many clients use both.
+                </p>
+              </div>
+            </div>
+            <Link
+              href={firmHref(otherFirm.id)}
+              className="group inline-flex shrink-0 items-center gap-1.5 text-sm font-medium text-gold-ink"
+            >
+              Explore {otherFirm.shortName}
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+            </Link>
+          </Reveal>
+        </div>
+      </section>
     </>
   );
 }

@@ -13,7 +13,7 @@ export const firms: Firm[] = [
     name: "Sanyagold Accounting, Advisory and Consulting Services",
     shortName: "Sanyagold",
     monogram: "SG",
-    focus: "Accounting, payroll, HR and business advisory",
+    focus: "bookkeeping, payroll, HR and business advisory",
     summary:
       "Ongoing accounting support and business management, so your finances stay organized and your decisions are well informed.",
     description:
@@ -30,7 +30,7 @@ export const firms: Firm[] = [
     name: "W O Oyebamiji CPA LLC",
     shortName: "W O Oyebamiji CPA",
     monogram: "WO",
-    focus: "Tax, audit, review and attestation",
+    focus: "tax, audit, review and attestation",
     summary:
       "Licensed CPA services for tax, financial assurance and compliance, delivered with professional independence.",
     description:

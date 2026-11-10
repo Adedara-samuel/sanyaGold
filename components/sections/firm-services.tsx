@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 export function FirmServicesSection({ firm, className }: { firm: FirmId; className?: string }) {
   const data = getFirm(firm);
   return (
-    <section className={cn("scroll-mt-24", className)} id={firm} aria-labelledby={`${firm}-services-title`}>
+    <section className={cn("scroll-mt-24", className)} id={firm} aria-label={`Services from ${data.name}`}>
       <Reveal
         className={cn(
           "flex flex-col gap-5 rounded-3xl border p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8",
@@ -22,7 +22,7 @@ export function FirmServicesSection({ firm, className }: { firm: FirmId; classNa
       >
         <div>
           <FirmLockup firm={firm} headingLevel="h2" />
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground" id={`${firm}-services-title`}>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
             {data.description}
           </p>
         </div>

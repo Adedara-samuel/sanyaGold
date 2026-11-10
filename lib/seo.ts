@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import { firmHref, getFirm } from "@/content/firms";
 import { siteConfig } from "@/lib/site-config";
-import type { Faq, Post } from "@/lib/types";
+import type { Faq, FirmId, Post } from "@/lib/types";
 import { absoluteUrl } from "@/lib/utils";
 
 interface PageMetaInput {
@@ -32,17 +33,27 @@ export function pageMetadata({ title, description, path, type = "website" }: Pag
   };
 }
 
-export function organizationJsonLd() {
+/** Stable JSON-LD @id for each firm, so services can reference their provider. */
+export function firmOrganizationId(firm: FirmId) {
+  return firm === "sanyagold" ? absoluteUrl("/#organization") : absoluteUrl(`${firmHref(firm)}#organization`);
+}
+
+/**
+ * One organization node per independent firm. Contact details are the shared
+ * website contact until each firm's own details are confirmed.
+ */
+export function organizationJsonLd(firmId: FirmId = "sanyagold") {
   const { address, contact, socials, openingHoursSpec } = siteConfig;
+  const firm = getFirm(firmId);
   return {
     "@context": "https://schema.org",
     "@type": ["AccountingService", "LocalBusiness"],
-    "@id": absoluteUrl("/#organization"),
-    name: siteConfig.name,
-    legalName: siteConfig.legalName,
-    description: siteConfig.description,
-    url: absoluteUrl("/"),
-    logo: absoluteUrl("/brand/sanyagold-logo.svg"),
+    "@id": firmOrganizationId(firmId),
+    name: firm.name,
+    legalName: firm.name,
+    description: firm.description,
+    url: firmId === "sanyagold" ? absoluteUrl("/") : absoluteUrl(firmHref(firmId)),
+    ...(firmId === "sanyagold" ? { logo: absoluteUrl("/brand/sanyagold-logo.svg") } : {}),
     image: absoluteUrl("/opengraph-image"),
     telephone: `+1-${contact.phone}`,
     email: contact.email,
@@ -63,7 +74,7 @@ export function organizationJsonLd() {
       closes: spec.closes,
     })),
     // Placeholder social URLs contain "[" and are filtered out until replaced.
-    sameAs: Object.values(socials).filter((url) => !url.includes("[")),
+    ...(firmId === "sanyagold" ? { sameAs: Object.values(socials).filter((url) => !url.includes("[")) } : {}),
   };
 }
 
@@ -107,14 +118,14 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
   };
 }
 
-export function serviceJsonLd(service: { title: string; description: string; slug: string }) {
+export function serviceJsonLd(service: { title: string; description: string; slug: string; firm: FirmId }) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
     name: service.title,
     description: service.description,
     serviceType: service.title,
-    provider: { "@id": absoluteUrl("/#organization") },
+    provider: { "@id": firmOrganizationId(service.firm) },
     areaServed: { "@type": "State", name: "Minnesota" },
     url: absoluteUrl(`/services/${service.slug}`),
   };

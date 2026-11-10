@@ -15,7 +15,7 @@ export default function MarketingLayout({ children }: LayoutProps<"/">) {
         {children}
       </main>
       <SiteFooter />
-      <JsonLd data={organizationJsonLd()} />
+      <JsonLd data={[organizationJsonLd("sanyagold"), organizationJsonLd("oyebamiji-cpa")]} />
     </>
   );
 }
