@@ -6,11 +6,13 @@ import { motion } from "motion/react";
 import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { ErrorState } from "@/components/query-state";
 import { Skeleton } from "@/components/ui/skeleton";
+import { getFirm } from "@/content/firms";
 import { useServices } from "@/hooks/use-services";
 import { icons } from "@/lib/icons";
-import type { Service } from "@/lib/types";
+import type { FirmId, Service } from "@/lib/types";
 
-export function ServicesGrid() {
+/** Service cards, optionally limited to one firm's services. */
+export function ServicesGrid({ firm }: { firm?: FirmId }) {
   const { data, isPending, isError, refetch, isRefetching } = useServices();
 
   if (isPending) {
@@ -27,18 +29,20 @@ export function ServicesGrid() {
     return <ErrorState message="We couldn't load our services." onRetry={() => refetch()} isRetrying={isRefetching} />;
   }
 
+  const items = firm ? data.filter((service) => service.firm === firm) : data;
+
   return (
     <Stagger as="ul" className="grid gap-5 sm:grid-cols-2">
-      {data.map((service) => (
+      {items.map((service) => (
         <StaggerItem as="li" key={service.slug} className="h-full">
-          <ServiceCard service={service} />
+          <ServiceCard service={service} showFirm={!firm} />
         </StaggerItem>
       ))}
     </Stagger>
   );
 }
 
-export function ServiceCard({ service }: { service: Service }) {
+export function ServiceCard({ service, showFirm = false }: { service: Service; showFirm?: boolean }) {
   const Icon = icons[service.icon];
   return (
     <motion.div
@@ -55,7 +59,10 @@ export function ServiceCard({ service }: { service: Service }) {
           className="size-5 text-muted-foreground transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground"
         />
       </div>
-      <h3 className="mt-6 text-xl font-semibold">
+      {showFirm && (
+        <p className="mt-5 text-xs font-medium tracking-wide text-muted-foreground">{getFirm(service.firm).name}</p>
+      )}
+      <h3 className={showFirm ? "mt-1.5 text-xl font-semibold" : "mt-6 text-xl font-semibold"}>
         <Link
           href={`/services/${service.slug}`}
           className="after:absolute after:inset-0 after:rounded-2xl focus-visible:outline-none"

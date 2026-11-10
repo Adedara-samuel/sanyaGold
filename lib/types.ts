@@ -1,6 +1,31 @@
 import type { LucideIcon } from "lucide-react";
 
-export type ServiceSlug = "tax" | "accounting" | "audit-assurance" | "consulting";
+export type ServiceSlug = "tax" | "accounting" | "audit-assurance" | "consulting" | "payroll" | "hr-management";
+
+/** The two independent firms presented on this website. */
+export type FirmId = "sanyagold" | "oyebamiji-cpa";
+
+export interface Firm {
+  id: FirmId;
+  /** Full business name, used wherever the firm is formally identified. */
+  name: string;
+  /** Short name for tight spaces (badges, nav groups). */
+  shortName: string;
+  /** Two-letter monogram used until an official logo is supplied. */
+  monogram: string;
+  /** One-line positioning shown under the name. */
+  focus: string;
+  summary: string;
+  description: string;
+  /** What clients typically engage this firm for. */
+  highlights: string[];
+  /** CPA licensing details, only for the licensed CPA firm. */
+  licensing?: {
+    firmPermit: string;
+    licensingBoard: string;
+    licensingBoardUrl: string;
+  };
+}
 
 /** Icon names are strings so data stays serialisable across the API boundary. */
 export type IconName =
@@ -20,10 +45,14 @@ export type IconName =
   | "clock"
   | "sparkles"
   | "map"
-  | "message";
+  | "message"
+  | "wallet"
+  | "people";
 
 export interface Service {
   slug: ServiceSlug;
+  /** The firm that provides (and contracts for) this service. */
+  firm: FirmId;
   title: string;
   shortTitle: string;
   icon: IconName;

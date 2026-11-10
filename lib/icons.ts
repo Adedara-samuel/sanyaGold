@@ -15,7 +15,9 @@ import {
   Sparkles,
   Stethoscope,
   Store,
+  UserRoundCog,
   Users,
+  Wallet,
 } from "lucide-react";
 import type { IconMap } from "@/lib/types";
 
@@ -37,4 +39,6 @@ export const icons: IconMap = {
   sparkles: Sparkles,
   map: MapPin,
   message: MessageCircle,
+  wallet: Wallet,
+  people: UserRoundCog,
 };
