@@ -1,9 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
-import { CalendarCheck, CheckCircle2, FileCheck2, MapPin } from "lucide-react";
+import { ArrowUpRight, CalendarCheck, CheckCircle2, FileCheck2, MapPin } from "lucide-react";
+import { FirmMark } from "@/components/firms/firm-mark";
 import { LogoMark } from "@/components/layout/logo";
 import { CtaButtons } from "@/components/shared";
+import { displayName, firmHref, firms } from "@/content/firms";
 
 const headline = [
   "Accounting, tax and advisory",
@@ -59,15 +62,42 @@ export function Hero() {
           </h1>
 
           <motion.p {...item(0.42)} className="text-lead mt-6 max-w-xl">
-            Sanyagold keeps your books, payroll and HR in order. W&nbsp;O&nbsp;Oyebamiji CPA LLC handles your taxes,
-            audits and reviews. Work with either firm, or both.
+            Two independent, complementary firms, one place to start. Work with either firm on its own, or with both
+            together.
           </motion.p>
 
-          <motion.div {...item(0.52)}>
+          {/* The two firms, side by side: each stands on its own and links to its own page. */}
+          <motion.ul {...item(0.48)} className="mt-7 grid max-w-xl gap-3 sm:grid-cols-2" aria-label="Our two firms">
+            {firms.map((firm) => (
+              <li key={firm.id}>
+                <Link
+                  href={firmHref(firm.id)}
+                  className="group flex h-full items-start gap-3 rounded-2xl border bg-card/80 p-3.5 backdrop-blur transition-[border-color,box-shadow] hover:border-accent hover:shadow-md"
+                >
+                  <FirmMark
+                    firm={firm.id}
+                    className={firm.id === "sanyagold" ? "mt-0.5 h-8" : "size-8 rounded-lg text-[0.7rem]"}
+                  />
+                  <span className="min-w-0">
+                    <span className="block text-sm leading-snug font-semibold">{displayName(firm)}</span>
+                    <span className="mt-0.5 block text-xs text-muted-foreground first-letter:uppercase">
+                      {firm.focus}
+                    </span>
+                  </span>
+                  <ArrowUpRight
+                    aria-hidden="true"
+                    className="ml-auto size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
+                </Link>
+              </li>
+            ))}
+          </motion.ul>
+
+          <motion.div {...item(0.55)}>
             <CtaButtons className="mt-9" />
           </motion.div>
 
-          <motion.ul {...item(0.62)} className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+          <motion.ul {...item(0.65)} className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
             {["Free first consultation", "Clear, fixed-fee pricing", "Secure document upload"].map((point) => (
               <li key={point} className="flex items-center gap-2">
                 <CheckCircle2 className="size-4 text-success" aria-hidden="true" />

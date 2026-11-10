@@ -22,7 +22,7 @@ const options = [
   },
   {
     title: "Use both firms",
-    description: "Well-kept books and records make tax season and assurance work smoother.",
+    description: "Well-kept books from Sanyagold make tax planning and preparation smoother.",
   },
 ];
 

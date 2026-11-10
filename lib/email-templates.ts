@@ -138,17 +138,42 @@ export function contactConfirmation(data: ContactEmailData) {
 
 /* ───────────────────── Consultation booking ───────────────────── */
 
+export type BookingFirm = "sanyagold" | "oyebamiji-cpa" | "both" | "not-sure";
+
 export interface BookingEmailData {
   when: string;
   name: string;
   email: string;
   phone: string;
   organizationType: string;
+  firm: BookingFirm;
   topic: string;
 }
 
+const SG_NAME = "Sanyagold Accounting, Advisory and Consulting Services";
+const CPA_NAME = "W O Oyebamiji CPA LLC";
+/** Who the consultation is with, as written in emails. */
+const firmWording: Record<BookingFirm, { label: string; with: string; team: string; tag: string }> = {
+  sanyagold: { label: SG_NAME, with: SG_NAME, team: "The Sanyagold team", tag: "Sanyagold" },
+  "oyebamiji-cpa": { label: CPA_NAME, with: CPA_NAME, team: "W O Oyebamiji CPA LLC", tag: "W O Oyebamiji CPA" },
+  both: {
+    label: "Both firms",
+    with: `${SG_NAME} and ${CPA_NAME}`,
+    team: "Sanyagold and W O Oyebamiji CPA LLC",
+    tag: "Both firms",
+  },
+  "not-sure": {
+    label: "Not sure yet (help the visitor choose)",
+    with: "us",
+    team: "Sanyagold and W O Oyebamiji CPA LLC",
+    tag: "Firm not chosen",
+  },
+};
+
 export function bookingNotification(data: BookingEmailData) {
+  const fw = firmWording[data.firm];
   const rows: Row[] = [
+    ["Wants to speak with", fw.label],
     ["Requested time", data.when],
     ["Name", data.name],
     ["Email", data.email],
@@ -156,7 +181,7 @@ export function bookingNotification(data: BookingEmailData) {
     ["Organization type", data.organizationType],
   ];
   return {
-    subject: `Consultation request: ${oneLine(data.when)} — ${oneLine(data.name)}`,
+    subject: `[${fw.tag}] Consultation request: ${oneLine(data.when)} — ${oneLine(data.name)}`,
     text: `New consultation request from the ${siteConfig.name} website\n\n${textRows(rows)}\n\nTopic:\n${data.topic || "—"}\n\nPlease reply to this email to confirm the time with ${data.name}.`,
     html: layout({
       preheader: `${data.name} requested ${data.when}`,
@@ -171,17 +196,22 @@ export function bookingNotification(data: BookingEmailData) {
 
 export function bookingConfirmation(data: BookingEmailData) {
   const firstName = oneLine(data.name).split(" ")[0] || "there";
+  const fw = firmWording[data.firm];
+  const intro =
+    data.firm === "not-sure"
+      ? "Thank you for requesting a free consultation. We'll help you decide whether Sanyagold, W O Oyebamiji CPA LLC, or both firms are the right fit."
+      : `Thank you for requesting a free consultation with ${fw.with}.`;
   return {
-    subject: `Your consultation request — ${siteConfig.name}`,
-    text: `Hi ${firstName},\n\nThank you for requesting a free consultation with ${siteConfig.name}.\n\nRequested time: ${data.when}\n\nThis time is not confirmed yet. We'll email you within one business day to confirm it or suggest an alternative.\n\nNeed to change something? Just reply to this email or call ${siteConfig.contact.phone}.\n\nWarm regards,\nThe ${siteConfig.name} team`,
+    subject: `Your consultation request — ${fw.tag === "Firm not chosen" ? "Sanyagold & W O Oyebamiji CPA LLC" : fw.tag}`,
+    text: `Hi ${firstName},\n\n${intro}\n\nRequested time: ${data.when}\n\nThis time is not confirmed yet. We'll email you within one business day to confirm it or suggest an alternative.\n\nNeed to change something? Just reply to this email or call ${siteConfig.contact.phone}.\n\nWarm regards,\n${fw.team}`,
     html: layout({
       preheader: "We've received your request and will confirm by email.",
       heading: `Thanks, ${firstName}. Your request is in.`,
-      body: `${paragraph(`Thank you for requesting a free consultation with ${siteConfig.name}.`)}
+      body: `${paragraph(intro)}
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rowsHtml([["Requested time", data.when]])}</table>
         <p style="margin:20px 0 16px;font-size:15px;line-height:1.6;color:${colors.navy};"><strong>This time isn't confirmed yet.</strong> We'll email you within one business day to confirm it or suggest an alternative.</p>
         ${paragraph(`Need to change something? Just reply to this email or call ${siteConfig.contact.phone}.`)}
-        <p style="margin:24px 0 0;font-size:15px;color:${colors.navy};">Warm regards,<br>The ${escapeHtml(siteConfig.name)} team</p>`,
+        <p style="margin:24px 0 0;font-size:15px;color:${colors.navy};">Warm regards,<br>${escapeHtml(fw.team)}</p>`,
     }),
   };
 }

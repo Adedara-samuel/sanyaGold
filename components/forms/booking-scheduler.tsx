@@ -26,7 +26,13 @@ import {
 } from "@/lib/booking";
 import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
-import { bookingDetailDefaults, bookingSchema, organizationTypeLabels, type BookingInput } from "@/lib/validators";
+import {
+  bookingDetailDefaults,
+  bookingSchema,
+  firmChoiceLabels,
+  organizationTypeLabels,
+  type BookingInput,
+} from "@/lib/validators";
 
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const STORAGE_KEY = "sanyagold:requested-slots";
@@ -287,6 +293,33 @@ function Scheduler({ todayKey }: { todayKey: string }) {
               {time && (
                 <Form {...form}>
                   <form noValidate onSubmit={submit} className="mt-6 grid gap-4" aria-busy={mutation.isPending}>
+                    <FormField
+                      control={form.control}
+                      name="firm"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Which firm would you like to speak with?</FormLabel>
+                          <Select value={field.value} onValueChange={field.onChange}>
+                            <FormControl>
+                              <SelectTrigger onBlur={field.onBlur} ref={field.ref}>
+                                <SelectValue />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {Object.entries(firmChoiceLabels).map(([value, label]) => (
+                                <SelectItem key={value} value={value}>
+                                  {label}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          <p className="text-xs text-muted-foreground">
+                            Two independent firms. Choose one, both, or let us help you decide.
+                          </p>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
                     <div className="grid gap-4 sm:grid-cols-2">
                       <FormField
                         control={form.control}

@@ -4,6 +4,7 @@ import { HydrationBoundary } from "@tanstack/react-query";
 import { ArrowRight, BadgeCheck, Check } from "lucide-react";
 import { FirmMark, firmAccent } from "@/components/firms/firm-mark";
 import { Reveal } from "@/components/motion/reveal";
+import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { ServicesGrid } from "@/components/sections/services-grid";
 import { CtaButtons, JsonLd, QueryBoundary, SectionHeading } from "@/components/shared";
@@ -104,7 +105,30 @@ export default async function FirmPage({ params }: PageProps<"/firms/[slug]">) {
         </div>
       </section>
 
-      <section className="section border-y bg-secondary/40" aria-labelledby="complement-title">
+      <section className="section border-t bg-secondary/40 pb-12" aria-labelledby="strengths-title">
+        <div className="container-page">
+          <SectionHeading
+            align="left"
+            eyebrow={`Why ${firm.shortName}`}
+            title={<span id="strengths-title">Why clients choose {firm.shortName}</span>}
+          />
+          <Stagger as="ul" className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {firm.strengths.map((s) => (
+              <StaggerItem
+                as="li"
+                key={s.title}
+                className={cn("relative overflow-hidden rounded-2xl border bg-card p-6", firmAccent[firm.id].border)}
+              >
+                <span aria-hidden="true" className={cn("absolute inset-x-0 top-0 h-1", firmAccent[firm.id].bar)} />
+                <h3 className="font-sans text-base font-semibold">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.description}</p>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
+      </section>
+
+      <section className="section border-b bg-secondary/40 pt-8" aria-labelledby="complement-title">
         <div className="container-page">
           <Reveal
             className={cn(

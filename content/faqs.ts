@@ -12,7 +12,7 @@ export const faqGroups: FaqGroup[] = [
       {
         question: "Do I have to use both firms?",
         answer:
-          "No. You can engage either firm on its own. Many clients use both, for example Sanyagold for monthly book-keeping and payroll, and W O Oyebamiji CPA LLC for tax preparation or an audit.",
+          "No. You can engage either firm on its own. Many clients use both, for example Sanyagold for monthly book-keeping and payroll, and W O Oyebamiji CPA LLC for tax planning and preparation.",
       },
     ],
   },

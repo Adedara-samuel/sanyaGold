@@ -47,6 +47,8 @@ export const bookingSchema = z.object({
   organizationType: z.enum(["nonprofit", "small-business", "professional-services", "individual", "other"], {
     error: "Please choose one.",
   }),
+  /** Which independent firm the visitor wants to speak with. */
+  firm: z.enum(["sanyagold", "oyebamiji-cpa", "both", "not-sure"], { error: "Please choose one." }),
   topic: z.string().trim().max(1000),
   website: z.string().max(0),
 });
@@ -58,8 +60,16 @@ export const bookingDetailDefaults: Omit<BookingInput, "date" | "time"> = {
   email: "",
   phone: "",
   organizationType: "small-business",
+  firm: "not-sure",
   topic: "",
   website: "",
+};
+
+export const firmChoiceLabels: Record<BookingInput["firm"], string> = {
+  "not-sure": "Not sure yet: help me choose",
+  sanyagold: "Sanyagold (book-keeping, payroll, HR, advisory)",
+  "oyebamiji-cpa": "W O Oyebamiji CPA LLC (tax, audit, attestation)",
+  both: "Both firms",
 };
 
 export const organizationTypeLabels: Record<BookingInput["organizationType"], string> = {

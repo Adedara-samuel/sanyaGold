@@ -19,6 +19,8 @@ export interface Firm {
   description: string;
   /** What clients typically engage this firm for. */
   highlights: string[];
+  /** Why clients choose this firm, in its own right. */
+  strengths: { title: string; description: string }[];
   /** CPA licensing details, only for the licensed CPA firm. */
   licensing?: {
     firmPermit: string;

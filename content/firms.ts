@@ -24,6 +24,27 @@ export const firms: Firm[] = [
       "HR management and employee records",
       "Business advisory and consulting",
     ],
+    strengths: [
+      {
+        title: "Organized, every month",
+        description:
+          "Books reconciled and reports delivered on a regular schedule, so you always know where you stand.",
+      },
+      {
+        title: "People and payroll, handled together",
+        description:
+          "Payroll, payroll filings and HR records managed side by side, so your team is paid correctly and records agree.",
+      },
+      {
+        title: "Advice you can act on",
+        description: "Budgets, forecasts and plain-English guidance that help you plan, hire and grow with confidence.",
+      },
+      {
+        title: "Ready when tax season comes",
+        description:
+          "Clean, well-documented books make tax preparation faster and smoother, whoever prepares your return.",
+      },
+    ],
   },
   {
     id: "oyebamiji-cpa",
@@ -40,6 +61,28 @@ export const firms: Firm[] = [
       "Financial statement audits and single audits",
       "Financial reviews and compilations",
       "Attestation and agreed-upon procedures",
+    ],
+    strengths: [
+      {
+        title: "Licensed CPA expertise",
+        description:
+          "Tax, audit, review and attestation work performed by a licensed CPA firm and held to professional standards.",
+      },
+      {
+        title: "Objective, independent assurance",
+        description:
+          "Audits, reviews and attestation engagements planned and performed in line with professional standards, including independence requirements.",
+      },
+      {
+        title: "Proactive tax planning",
+        description:
+          "Year-round planning and accurate preparation for businesses, nonprofits and their owners, with notices handled on your behalf.",
+      },
+      {
+        title: "Built for nonprofits",
+        description:
+          "Form 990s, financial statement audits and single audits for organizations with funder and federal-award requirements.",
+      },
     ],
     licensing: {
       firmPermit: "[Minnesota CPA Firm Permit #]",

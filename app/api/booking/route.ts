@@ -48,6 +48,7 @@ export async function POST(request: Request) {
     email: data.email,
     phone: data.phone,
     organizationType: organizationTypeLabels[data.organizationType],
+    firm: data.firm,
     topic: data.topic,
   };
 
