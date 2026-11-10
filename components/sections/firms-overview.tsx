@@ -27,7 +27,7 @@ export function FirmsOverview() {
   }
 
   return (
-    <Stagger as="ul" className="grid gap-6 lg:grid-cols-2">
+    <Stagger as="ul" className="grid items-start gap-6 lg:grid-cols-2">
       {firms.map((firm) => {
         const firmServices = data.filter((service) => service.firm === firm.id);
         return (

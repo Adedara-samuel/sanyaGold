@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { LogoMark } from "@/components/layout/logo";
-import { firmHref, getFirm } from "@/content/firms";
+import { displayName, firmHref, getFirm } from "@/content/firms";
 import type { FirmId } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -65,10 +65,10 @@ export function FirmLockup({
         <Heading className="text-xl leading-snug font-semibold text-balance">
           {link ? (
             <Link href={firmHref(firm)} className="underline-offset-4 hover:underline">
-              {data.name}
+              {displayName(data)}
             </Link>
           ) : (
-            data.name
+            displayName(data)
           )}
         </Heading>
         <p className="mt-0.5 text-sm text-muted-foreground first-letter:uppercase">{data.focus}</p>
@@ -78,7 +78,15 @@ export function FirmLockup({
 }
 
 /** Small "Provided by …" pill used on service pages and cards. */
-export function FirmBadge({ firm, className, prefix = "Provided by" }: { firm: FirmId; className?: string; prefix?: string }) {
+export function FirmBadge({
+  firm,
+  className,
+  prefix = "Provided by",
+}: {
+  firm: FirmId;
+  className?: string;
+  prefix?: string;
+}) {
   const data = getFirm(firm);
   return (
     <Link
@@ -89,7 +97,10 @@ export function FirmBadge({ firm, className, prefix = "Provided by" }: { firm: F
         className,
       )}
     >
-      <FirmMark firm={firm} className={firm === "sanyagold" ? "h-5" : "size-6 rounded-full text-[0.6rem] ring-0 ring-offset-0"} />
+      <FirmMark
+        firm={firm}
+        className={firm === "sanyagold" ? "h-5" : "size-6 rounded-full text-[0.6rem] ring-0 ring-offset-0"}
+      />
       <span className="truncate">
         <span className="text-muted-foreground">{prefix} </span>
         {data.name}

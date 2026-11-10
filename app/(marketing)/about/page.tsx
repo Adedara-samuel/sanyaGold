@@ -19,20 +19,17 @@ const values = [
   {
     icon: HeartHandshake,
     title: "Integrity",
-    description:
-      "Our team is committed to integrity, transparency, and the highest standards of professionalism.",
+    description: "Our team is committed to integrity, transparency, and the highest standards of professionalism.",
   },
   {
     icon: Target,
     title: "Transparency",
-    description:
-      "We deliver solutions that are accurate, reliable, and tailored to the specific needs of each client.",
+    description: "We deliver solutions that are accurate, reliable, and tailored to the specific needs of each client.",
   },
   {
     icon: Scale,
     title: "Professionalism",
-    description:
-      "We help clients grow, thrive, and stay compliant in an ever-changing business landscape.",
+    description: "We help clients grow, thrive, and stay compliant in an ever-changing business landscape.",
   },
 ];
 
@@ -126,7 +123,8 @@ export default function AboutPage() {
               Expert Financial Services
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Sanyagold provides accounting, payroll, HR and business consultancy services. Tax, audit, review and attestation services are provided by W O Oyebamiji CPA LLC.
+              Sanyagold provides accounting, payroll, HR and business consultancy services. Tax, audit, review and
+              attestation services are provided by W O Oyebamiji CPA LLC.
             </p>
           </Reveal>
           <Reveal delay={0.08} className="rounded-2xl border bg-card p-6">

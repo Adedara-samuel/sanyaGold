@@ -55,6 +55,11 @@ export const firmSlugs: Record<FirmId, string> = {
   "oyebamiji-cpa": "w-o-oyebamiji-cpa",
 };
 
+/** Firm name with non-breaking spaces in "W O Oyebamiji" so the initials never wrap apart in headings. */
+export function displayName(firm: Firm) {
+  return firm.name.replace("W O Oyebamiji", "W O Oyebamiji");
+}
+
 export function getFirm(id: FirmId): Firm {
   const firm = firms.find((item) => item.id === id);
   if (!firm) throw new Error(`Unknown firm: ${id}`);

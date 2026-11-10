@@ -58,7 +58,7 @@ export function SiteHeader({ pathname }: { pathname: string | null }) {
       >
         <Logo markClassName={cn("transition-[height] duration-300", scrolled ? "h-7" : "h-8")} />
 
-        <NavigationMenu className="hidden lg:flex" aria-label="Main">
+        <NavigationMenu className="hidden xl:flex" aria-label="Main">
           <NavigationMenuList>
             {siteConfig.nav.map((item) =>
               "children" in item ? (

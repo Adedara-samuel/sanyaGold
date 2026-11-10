@@ -22,9 +22,7 @@ export function FirmServicesSection({ firm, className }: { firm: FirmId; classNa
       >
         <div>
           <FirmLockup firm={firm} headingLevel="h2" />
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            {data.description}
-          </p>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">{data.description}</p>
         </div>
         <Link
           href={firmHref(firm)}

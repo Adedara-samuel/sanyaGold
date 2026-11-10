@@ -7,7 +7,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { ServicesGrid } from "@/components/sections/services-grid";
 import { CtaButtons, JsonLd, QueryBoundary, SectionHeading } from "@/components/shared";
-import { firmHref, firms, firmSlugs, getFirmBySlug, independenceStatement } from "@/content/firms";
+import { displayName, firmHref, firms, firmSlugs, getFirmBySlug, independenceStatement } from "@/content/firms";
 import { prefetchQueries } from "@/lib/prefetch";
 import { breadcrumbJsonLd, organizationJsonLd, pageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
@@ -49,14 +49,11 @@ export default async function FirmPage({ params }: PageProps<"/firms/[slug]">) {
           <Reveal>
             <FirmMark firm={firm.id} className={firm.id === "sanyagold" ? "h-16" : "size-16 rounded-2xl text-xl"} />
             <p className="eyebrow mt-8 first-letter:uppercase">{firm.focus}</p>
-            <h1 className="mt-4 text-4xl leading-tight font-semibold sm:text-5xl">{firm.name}</h1>
+            <h1 className="mt-4 text-4xl leading-tight font-semibold sm:text-5xl">{displayName(firm)}</h1>
             <p className="text-lead mt-5 max-w-2xl">{firm.description}</p>
             <CtaButtons className="mt-8" secondary={{ label: "Ask a question", href: "/contact" }} />
           </Reveal>
-          <Reveal
-            delay={0.15}
-            className={cn("overflow-hidden rounded-2xl border bg-card", firmAccent[firm.id].border)}
-          >
+          <Reveal delay={0.15} className={cn("overflow-hidden rounded-2xl border bg-card", firmAccent[firm.id].border)}>
             <span aria-hidden="true" className={cn("block h-1.5", firmAccent[firm.id].bar)} />
             <div className="p-6">
               <h2 className="font-sans text-sm font-semibold">Clients engage us for</h2>
@@ -120,7 +117,7 @@ export default async function FirmPage({ params }: PageProps<"/firms/[slug]">) {
               <div>
                 <p className="eyebrow">A complementary, independent firm</p>
                 <h2 id="complement-title" className="mt-3 text-2xl font-semibold sm:text-3xl">
-                  {otherFirm.name}
+                  {displayName(otherFirm)}
                 </h2>
                 <p className="mt-3 max-w-2xl leading-relaxed text-muted-foreground">
                   {otherFirm.summary} Many clients use both firms; others need just one. You decide what fits.

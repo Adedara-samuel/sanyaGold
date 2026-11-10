@@ -3,7 +3,7 @@ import { FirmMark, firmAccent } from "@/components/firms/firm-mark";
 import { Reveal } from "@/components/motion/reveal";
 import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { SectionHeading } from "@/components/shared";
-import { firms, independenceStatement } from "@/content/firms";
+import { displayName, firms, independenceStatement } from "@/content/firms";
 import { cn } from "@/lib/utils";
 
 const roles: Record<string, string> = {
@@ -48,7 +48,7 @@ export function FirmsComplement({ className }: { className?: string }) {
               >
                 <FirmMark firm={firm.id} className={firm.id === "sanyagold" ? "h-11" : "size-11"} />
                 <div>
-                  <h3 className="font-sans text-base font-semibold">{firm.name}</h3>
+                  <h3 className="font-sans text-base font-semibold">{displayName(firm)}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{roles[firm.id]}</p>
                 </div>
               </Reveal>

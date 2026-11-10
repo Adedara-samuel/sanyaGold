@@ -60,8 +60,7 @@ export const faqGroups: FaqGroup[] = [
     items: [
       {
         question: "Can you prepare our Form 990?",
-        answer:
-          "Yes. W O Oyebamiji CPA LLC prepares Form 990, 990-EZ and 990-N, plus related Minnesota filings.",
+        answer: "Yes. W O Oyebamiji CPA LLC prepares Form 990, 990-EZ and 990-N, plus related Minnesota filings.",
       },
       {
         question: "Can you help us get ready for our first audit?",
