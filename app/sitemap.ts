@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { firmHref, firms } from "@/content/firms";
 import { posts } from "@/content/posts";
 import { services } from "@/content/services";
 import { absoluteUrl } from "@/lib/utils";
@@ -7,6 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: { path: string; priority: number; changeFrequency: "weekly" | "monthly" | "yearly" }[] = [
     { path: "/", priority: 1, changeFrequency: "weekly" },
     { path: "/services", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/firms", priority: 0.9, changeFrequency: "monthly" },
+    ...firms.map((firm) => ({ path: firmHref(firm.id), priority: 0.9, changeFrequency: "monthly" as const })),
     { path: "/industries", priority: 0.8, changeFrequency: "monthly" },
     { path: "/about", priority: 0.8, changeFrequency: "monthly" },
     { path: "/book", priority: 0.9, changeFrequency: "monthly" },

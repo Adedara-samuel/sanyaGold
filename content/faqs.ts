@@ -2,6 +2,21 @@ import type { FaqGroup } from "@/lib/types";
 
 export const faqGroups: FaqGroup[] = [
   {
+    category: "Our two firms",
+    items: [
+      {
+        question: "How are Sanyagold and W O Oyebamiji CPA LLC related?",
+        answer:
+          "They are two independent firms that complement each other. Sanyagold Accounting, Advisory and Consulting Services provides bookkeeping, payroll, HR and business advisory. W O Oyebamiji CPA LLC provides tax, audit, review and attestation services.",
+      },
+      {
+        question: "Do I have to use both firms?",
+        answer:
+          "No. You can engage either firm on its own. Many clients use both, for example Sanyagold for monthly bookkeeping and payroll, and W O Oyebamiji CPA LLC for tax preparation or an audit.",
+      },
+    ],
+  },
+  {
     category: "Getting started",
     items: [
       {
@@ -45,12 +60,13 @@ export const faqGroups: FaqGroup[] = [
     items: [
       {
         question: "Can you prepare our Form 990?",
-        answer: "Yes. We prepare Form 990, 990-EZ and 990-N, plus related Minnesota filings.",
+        answer:
+          "Yes. W O Oyebamiji CPA LLC prepares Form 990, 990-EZ and 990-N, plus related Minnesota filings.",
       },
       {
         question: "Can you help us get ready for our first audit?",
         answer:
-          "Yes. We can help you prepare schedules, documentation and processes so your first audit goes smoothly.",
+          "Yes. Sanyagold can help you organize your books, schedules and documentation so your first audit goes smoothly.",
       },
     ],
   },
