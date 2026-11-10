@@ -64,19 +64,19 @@ to the notification email.
 
 ## Editing content
 
-| What                                                                     | Where                                          |
-| ------------------------------------------------------------------------ | ---------------------------------------------- |
-| Name, phone, email, address, hours, license, socials, nav, booking rules | `lib/site-config.ts` (single source of truth)  |
-| The two independent firms (names, focus, licensing)                      | `content/firms.ts`                             |
-| Services (each gets its own `/services/[slug]` page; `firm` sets the provider) | `content/services.ts`                    |
-| Industries (3 featured + chips)                                          | `content/industries.ts`                        |
-| Team, bios, license numbers, photos                                      | `content/team.ts` (+ photos in `public/team/`) |
-| Testimonials                                                             | `content/testimonials.ts`                      |
-| FAQs                                                                     | `content/faqs.ts`                              |
-| Trust-bar stats                                                          | `content/stats.ts`                             |
-| Blog posts                                                               | `content/posts.ts` (typed blocks)              |
-| Brand colors, radii, fonts                                               | `app/globals.css` (CSS variables)              |
-| Logo                                                                     | `components/layout/logo.tsx`                   |
+| What                                                                           | Where                                          |
+| ------------------------------------------------------------------------------ | ---------------------------------------------- |
+| Name, phone, email, address, hours, license, socials, nav, booking rules       | `lib/site-config.ts` (single source of truth)  |
+| The two independent firms (names, focus, licensing)                            | `content/firms.ts`                             |
+| Services (each gets its own `/services/[slug]` page; `firm` sets the provider) | `content/services.ts`                          |
+| Industries (3 featured + chips)                                                | `content/industries.ts`                        |
+| Team, bios, license numbers, photos                                            | `content/team.ts` (+ photos in `public/team/`) |
+| Testimonials                                                                   | `content/testimonials.ts`                      |
+| FAQs                                                                           | `content/faqs.ts`                              |
+| Trust-bar stats                                                                | `content/stats.ts`                             |
+| Blog posts                                                                     | `content/posts.ts` (typed blocks)              |
+| Brand colors, radii, fonts                                                     | `app/globals.css` (CSS variables)              |
+| Logo                                                                           | `components/layout/logo.tsx`                   |
 
 **Logo:** this is the existing Sanyagold mark (the mauve hexagonal "S"), rebuilt as an exact SVG so it stays crisp and
 adapts to dark mode. The original PNGs are kept in `public/brand/`.
