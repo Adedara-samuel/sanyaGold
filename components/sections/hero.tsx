@@ -31,7 +31,7 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full border bg-card/70 px-3.5 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur"
           >
             <MapPin className="size-3.5 text-gold-ink" aria-hidden="true" />
-            Minnesota CPA firm · Nonprofits &amp; small businesses
+            Two independent Minnesota firms · Nonprofits &amp; small businesses
           </motion.p>
 
           <h1 id="hero-title" className="mt-6 text-4xl leading-[1.08] font-semibold sm:text-5xl lg:text-[3.6rem]">
@@ -106,7 +106,7 @@ function HeroVisual() {
       meta: "Small business",
       className: "bottom-24 -right-2 sm:-right-8",
     },
-    { icon: CheckCircle2, title: "Books closed for October", meta: "Monthly close", className: "-bottom-4 left-6" },
+    { icon: CheckCircle2, title: "Books Closed for the Period", meta: "Monthly close", className: "-bottom-4 left-6" },
   ];
 
   return (

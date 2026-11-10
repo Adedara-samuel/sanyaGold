@@ -7,7 +7,8 @@ import { CtaBanner } from "@/components/sections/cta-banner";
 import { FaqPreview } from "@/components/sections/faq";
 import { Hero } from "@/components/sections/hero";
 import { IndustriesFeatured } from "@/components/sections/industries-featured";
-import { ServicesGrid } from "@/components/sections/services-grid";
+import { FirmsComplement } from "@/components/sections/firms-complement";
+import { FirmsOverview } from "@/components/sections/firms-overview";
 import { StatsBar } from "@/components/sections/stats";
 import { TeamGrid } from "@/components/sections/team";
 import { TestimonialsCarousel } from "@/components/sections/testimonials";
@@ -29,13 +30,13 @@ export default async function HomePage() {
       <section className="section" aria-labelledby="services-title">
         <div className="container-page">
           <SectionHeading
-            eyebrow="Services"
-            title={<span id="services-title">Everything your finances need, under one roof</span>}
-            description="Four core services, each with its own team and process, so you get exactly the help you need."
+            eyebrow="Our firms"
+            title={<span id="services-title">Two independent firms. Everything your finances need.</span>}
+            description="Sanyagold handles accounting, payroll, HR and advisory. W O Oyebamiji CPA LLC handles tax, audit, review and attestation. Engage either firm, or both."
           />
           <div className="mt-14">
             <QueryBoundary className="h-[32rem]">
-              <ServicesGrid />
+              <FirmsOverview />
             </QueryBoundary>
           </div>
           <Reveal className="mt-10 flex justify-center">
@@ -49,11 +50,11 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <div className="border-y bg-secondary/40">
-        <WhyUs />
-      </div>
+      <FirmsComplement className="border-y bg-secondary/40" />
 
-      <section className="section" aria-label="Industries">
+      <WhyUs />
+
+      <section className="section pt-0" aria-label="Industries">
         <div className="container-page">
           <IndustriesFeatured />
         </div>

@@ -21,8 +21,8 @@ const reasons = [
   },
   {
     icon: ShieldCheck,
-    title: "Licensed and accountable",
-    description: "A Minnesota-licensed CPA firm held to professional and ethical standards.",
+    title: "Licensed CPA services",
+    description: "Tax, audit, review and attestation work is performed by W O Oyebamiji CPA LLC, a licensed CPA firm.",
   },
 ];
 
@@ -33,9 +33,9 @@ export function WhyUs() {
         <div>
           <SectionHeading
             align="left"
-            eyebrow="Why Sanyagold"
-            title={<span id="why-title">A CPA partner who feels like part of your team</span>}
-            description="We combine the expertise of a CPA firm with the attention of a boutique practice. You'll always know who's working on your account and what's happening next."
+            eyebrow="Why work with us"
+            title={<span id="why-title">Financial partners who feel like part of your team</span>}
+            description="Both firms combine professional expertise with the attention of a boutique practice. You'll always know who's working on your account and what's happening next."
           />
           <Reveal delay={0.1}>
             <CtaButtons className="mt-8" secondary={{ label: "Meet the team", href: "/about" }} />

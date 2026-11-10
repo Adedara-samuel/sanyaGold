@@ -38,29 +38,31 @@ export function FirmsComplement({ className }: { className?: string }) {
         />
 
         <div className="mt-14 grid items-stretch gap-5 lg:grid-cols-[1fr_auto_1fr]">
-          {firms.map((firm, index) => (
-            <Reveal
-              key={firm.id}
-              delay={index * 0.1}
-              direction={index === 0 ? "right" : "left"}
-              className={cn(
-                "flex gap-5 rounded-2xl border bg-card p-6 sm:p-7",
-                firmAccent[firm.id].border,
-                index === 1 && "lg:order-3",
-              )}
-            >
-              <FirmMark firm={firm.id} className={firm.id === "sanyagold" ? "h-11" : "size-11"} />
-              <div>
-                <h3 className="font-sans text-base font-semibold">{firm.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{roles[firm.id]}</p>
-              </div>
-            </Reveal>
-          ))}
-          <div aria-hidden="true" className="flex items-center justify-center lg:order-2">
-            <span className="grid size-11 place-items-center rounded-full border bg-background font-serif text-xl text-gold-ink shadow-sm">
-              +
-            </span>
-          </div>
+          {firms.flatMap((firm, index) => {
+            const card = (
+              <Reveal
+                key={firm.id}
+                delay={index * 0.1}
+                direction={index === 0 ? "right" : "left"}
+                className={cn("flex gap-5 rounded-2xl border bg-card p-6 sm:p-7", firmAccent[firm.id].border)}
+              >
+                <FirmMark firm={firm.id} className={firm.id === "sanyagold" ? "h-11" : "size-11"} />
+                <div>
+                  <h3 className="font-sans text-base font-semibold">{firm.name}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{roles[firm.id]}</p>
+                </div>
+              </Reveal>
+            );
+            if (index === 0) return [card];
+            return [
+              <div key="connector" aria-hidden="true" className="flex items-center justify-center">
+                <span className="grid size-11 place-items-center rounded-full border bg-background font-serif text-xl text-gold-ink shadow-sm">
+                  +
+                </span>
+              </div>,
+              card,
+            ];
+          })}
         </div>
 
         <Stagger as="ul" className="mt-10 grid gap-4 md:grid-cols-3">
