@@ -18,6 +18,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { groupNavChildren, type NavChild } from "@/lib/nav";
 import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
@@ -66,28 +67,53 @@ export function SiteHeader({ pathname }: { pathname: string | null }) {
                     {item.label}
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[min(92vw,520px)] gap-1 p-1 sm:grid-cols-2">
-                      <li className="sm:col-span-2">
-                        <NavigationMenuLink asChild>
-                          <Link href={item.href} className="bg-secondary/60">
-                            <span className="font-medium">All {item.label.toLowerCase()}</span>
-                            <span className="text-xs text-muted-foreground">Overview</span>
+                    {(() => {
+                      const groups = groupNavChildren(item.children);
+                      const grouped = groups.some((g) => g.group);
+                      const renderLink = (child: NavChild) => (
+                        <NavigationMenuLink asChild active={isActive(pathname, child.href)}>
+                          <Link href={child.href}>
+                            <span className="font-medium">{child.label}</span>
+                            <span className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
+                              {child.description}
+                            </span>
                           </Link>
                         </NavigationMenuLink>
-                      </li>
-                      {item.children.map((child) => (
-                        <li key={child.href}>
-                          <NavigationMenuLink asChild active={isActive(pathname, child.href)}>
-                            <Link href={child.href}>
-                              <span className="font-medium">{child.label}</span>
-                              <span className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
-                                {child.description}
-                              </span>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
+                      );
+                      return (
+                        <ul
+                          className={cn(
+                            "grid gap-1 p-1 sm:grid-cols-2",
+                            grouped ? "w-[min(92vw,640px)]" : "w-[min(92vw,520px)]",
+                          )}
+                        >
+                          <li className="sm:col-span-2">
+                            <NavigationMenuLink asChild>
+                              <Link href={item.href} className="bg-secondary/60">
+                                <span className="font-medium">All {item.label.toLowerCase()}</span>
+                                <span className="text-xs text-muted-foreground">
+                                  {grouped ? "Grouped by the firm that provides each service" : "Overview"}
+                                </span>
+                              </Link>
+                            </NavigationMenuLink>
+                          </li>
+                          {grouped
+                            ? groups.map((g) => (
+                                <li key={g.group} className="pt-1">
+                                  <p className="px-3 pt-2 pb-1 text-[0.6875rem] font-semibold tracking-wider text-gold-ink uppercase">
+                                    {g.group}
+                                  </p>
+                                  <ul>
+                                    {g.items.map((child) => (
+                                      <li key={child.href}>{renderLink(child)}</li>
+                                    ))}
+                                  </ul>
+                                </li>
+                              ))
+                            : item.children.map((child) => <li key={child.href}>{renderLink(child)}</li>)}
+                        </ul>
+                      );
+                    })()}
                   </NavigationMenuContent>
                 </NavigationMenuItem>
               ) : (

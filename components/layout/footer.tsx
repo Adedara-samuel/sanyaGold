@@ -1,8 +1,12 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone, Star } from "lucide-react";
 import { CurrentYear } from "@/components/layout/current-year";
+import { FirmMark } from "@/components/firms/firm-mark";
 import { Logo } from "@/components/layout/logo";
+import { firmHref, firms, getFirm, independenceStatement } from "@/content/firms";
 import { formattedAddress, siteConfig } from "@/lib/site-config";
+
+const cpaFirm = getFirm("oyebamiji-cpa");
 
 function LinkedInIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -50,8 +54,24 @@ export function SiteFooter() {
         <div className="max-w-sm space-y-5">
           <Logo />
           <p className="text-sm leading-relaxed text-muted-foreground">
-            Accounting, tax and advisory for Minnesota nonprofits and small businesses.
+            Two independent, complementary firms serving Minnesota nonprofits and small businesses.
           </p>
+          <ul className="space-y-2.5 text-sm">
+            {firms.map((firm) => (
+              <li key={firm.id}>
+                <Link
+                  href={firmHref(firm.id)}
+                  className="inline-flex items-center gap-2.5 text-foreground/90 hover:text-foreground"
+                >
+                  <FirmMark
+                    firm={firm.id}
+                    className={firm.id === "sanyagold" ? "h-5" : "size-6 rounded-md text-[0.6rem] ring-0 ring-offset-0"}
+                  />
+                  {firm.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
           <ul className="flex gap-2" aria-label="Social media">
             {socialLinks.map(({ label, href, Icon }) => (
               <li key={label}>
@@ -70,7 +90,31 @@ export function SiteFooter() {
         </div>
 
         <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 xl:grid-cols-4">
-          <FooterColumn title="Services" links={siteConfig.footer.services} />
+          <div>
+            <h2 className="font-sans text-sm font-semibold tracking-wide">Services</h2>
+            {siteConfig.footer.serviceGroups.map((group) => (
+              <div key={group.title} className="mt-4 first-of-type:mt-4">
+                <Link
+                  href={group.href}
+                  className="text-[0.6875rem] font-semibold tracking-wider text-gold-ink uppercase hover:underline"
+                >
+                  {group.title}
+                </Link>
+                <ul className="mt-2.5 space-y-2.5">
+                  {group.links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
           <FooterColumn title="Company" links={siteConfig.footer.company} />
           <FooterColumn title="Resources" links={siteConfig.footer.resources} />
           <div className="col-span-2 sm:col-span-3 xl:col-span-1">
@@ -94,11 +138,17 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t">
-        <div className="container-page flex flex-col gap-3 py-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © <CurrentYear /> {siteConfig.legalName}. All rights reserved. Licensed by the{" "}
-            {siteConfig.licensing.licensingBoard}. {siteConfig.licensing.firmPermit}
-          </p>
+        <div className="container-page flex flex-col gap-3 py-6 text-xs text-muted-foreground sm:flex-row sm:items-start sm:justify-between">
+          <div className="max-w-3xl space-y-1.5">
+            <p>
+              © <CurrentYear /> {firms.map((firm) => firm.name).join(" and ")}. All rights reserved.
+            </p>
+            <p>
+              {independenceStatement}
+              {cpaFirm.licensing &&
+                ` ${cpaFirm.name} is licensed by the ${cpaFirm.licensing.licensingBoard}. ${cpaFirm.licensing.firmPermit}`}
+            </p>
+          </div>
           <nav aria-label="Legal">
             <ul className="flex gap-5">
               {siteConfig.footer.legal.map((link) => (

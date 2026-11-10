@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, Phone } from "lucide-react";
 import { Logo } from "@/components/layout/logo";
+import { groupNavChildren } from "@/lib/nav";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -54,15 +55,26 @@ export function MobileNav({ pathname }: { pathname: string | null }) {
                 </Link>
                 {"children" in item && (
                   <ul className="mt-1 mb-2 ml-3 space-y-0.5 border-l border-border pl-3">
-                    {item.children.map((child) => (
-                      <li key={child.href}>
-                        <Link
-                          href={child.href}
-                          onClick={close}
-                          className={cn(linkClass(child.href), "py-2 text-[0.9375rem]")}
-                        >
-                          {child.label}
-                        </Link>
+                    {groupNavChildren(item.children).map((g) => (
+                      <li key={g.group ?? item.href}>
+                        {g.group && (
+                          <p className="px-3 pt-3 pb-1 text-[0.6875rem] font-semibold tracking-wider text-gold-ink uppercase">
+                            {g.group}
+                          </p>
+                        )}
+                        <ul className="space-y-0.5">
+                          {g.items.map((child) => (
+                            <li key={child.href}>
+                              <Link
+                                href={child.href}
+                                onClick={close}
+                                className={cn(linkClass(child.href), "py-2 text-[0.9375rem]")}
+                              >
+                                {child.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
                       </li>
                     ))}
                   </ul>

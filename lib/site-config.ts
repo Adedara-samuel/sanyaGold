@@ -5,11 +5,12 @@
  */
 
 export const siteConfig = {
+  // Website brand. The two independent firms are described in content/firms.ts.
   name: "Sanyagold",
-  legalName: "Sanyagold CPA", // [Confirm exact registered legal entity name]
+  legalName: "Sanyagold Accounting, Advisory and Consulting Services",
   tagline: "Accounting, tax and advisory for Minnesota nonprofits and small businesses",
   description:
-    "Sanyagold is a Minnesota CPA firm providing accounting, tax, audit & review and business consulting for nonprofits and small businesses.",
+    "Two independent, complementary Minnesota firms: Sanyagold Accounting, Advisory and Consulting Services for bookkeeping, payroll, HR and business advisory, and W O Oyebamiji CPA LLC for tax, audit, review and attestation.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sanyagold.com",
 
   contact: {
@@ -40,13 +41,6 @@ export const siteConfig = {
     },
   ],
 
-  licensing: {
-    firmPermit: "[Minnesota CPA Firm Permit #]",
-    licensingBoard: "Minnesota Board of Accountancy",
-    licensingBoardUrl: "https://boa.state.mn.us/",
-    states: ["Minnesota"],
-  },
-
   socials: {
     linkedin: "https://www.linkedin.com/company/[sanyagold]",
     facebook: "https://www.facebook.com/[sanyagold]",
@@ -73,26 +67,59 @@ export const siteConfig = {
     {
       label: "Services",
       href: "/services",
+      // Grouped by the independent firm that provides each service.
       children: [
         {
-          label: "Tax Services",
-          href: "/services/tax",
-          description: "Planning, preparation and filings for businesses and nonprofits.",
-        },
-        {
+          group: "Sanyagold Accounting, Advisory and Consulting Services",
           label: "Accounting & Bookkeeping",
           href: "/services/accounting",
-          description: "Clean monthly books, payroll support and reporting.",
+          description: "Clean monthly books and clear financial reports.",
         },
         {
-          label: "Audit & Review",
-          href: "/services/audit-assurance",
-          description: "Independent audits, reviews and compilations.",
+          group: "Sanyagold Accounting, Advisory and Consulting Services",
+          label: "Payroll Services",
+          href: "/services/payroll",
+          description: "On-time payroll, payroll filings and year-end forms.",
         },
         {
-          label: "Business Consulting",
+          group: "Sanyagold Accounting, Advisory and Consulting Services",
+          label: "HR Management",
+          href: "/services/hr-management",
+          description: "Policies, onboarding and employee records.",
+        },
+        {
+          group: "Sanyagold Accounting, Advisory and Consulting Services",
+          label: "Business Advisory & Consulting",
           href: "/services/consulting",
-          description: "Budgeting, forecasting and outsourced CFO support.",
+          description: "Budgets, forecasts and CFO-level support.",
+        },
+        {
+          group: "W O Oyebamiji CPA LLC",
+          label: "Tax Services",
+          href: "/services/tax",
+          description: "Tax planning and tax preparation for businesses and nonprofits.",
+        },
+        {
+          group: "W O Oyebamiji CPA LLC",
+          label: "Audit, Review & Attestation",
+          href: "/services/audit-assurance",
+          description: "Audits, single audits, reviews and attestation.",
+        },
+      ],
+    },
+    {
+      label: "Our Firms",
+      href: "/firms",
+      children: [
+        {
+          label: "Sanyagold",
+          href: "/firms/sanyagold",
+          description: "Accounting, Advisory and Consulting Services: bookkeeping, payroll, HR and advisory.",
+        },
+        {
+          label: "W O Oyebamiji CPA LLC",
+          href: "/firms/w-o-oyebamiji-cpa",
+          description: "Licensed CPA firm: tax, audit, review and attestation.",
         },
       ],
     },
@@ -110,13 +137,29 @@ export const siteConfig = {
   ],
 
   footer: {
-    services: [
-      { label: "Tax Services", href: "/services/tax" },
-      { label: "Accounting & Bookkeeping", href: "/services/accounting" },
-      { label: "Audit & Review", href: "/services/audit-assurance" },
-      { label: "Business Consulting", href: "/services/consulting" },
+    // Services grouped by the firm that provides them.
+    serviceGroups: [
+      {
+        title: "Sanyagold",
+        href: "/firms/sanyagold",
+        links: [
+          { label: "Accounting & Bookkeeping", href: "/services/accounting" },
+          { label: "Payroll Services", href: "/services/payroll" },
+          { label: "HR Management", href: "/services/hr-management" },
+          { label: "Business Advisory & Consulting", href: "/services/consulting" },
+        ],
+      },
+      {
+        title: "W O Oyebamiji CPA LLC",
+        href: "/firms/w-o-oyebamiji-cpa",
+        links: [
+          { label: "Tax Services", href: "/services/tax" },
+          { label: "Audit, Review & Attestation", href: "/services/audit-assurance" },
+        ],
+      },
     ],
     company: [
+      { label: "Our Firms", href: "/firms" },
       { label: "About Us", href: "/about" },
       { label: "Industries", href: "/industries" },
       { label: "Contact", href: "/contact" },
