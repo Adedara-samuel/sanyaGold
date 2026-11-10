@@ -1,14 +1,14 @@
+import { getFirm } from "@/content/firms";
+import { services } from "@/content/services";
 import { inboxAddress, sendMail } from "@/lib/email";
 import { contactConfirmation, contactNotification } from "@/lib/email-templates";
 import { clientIp, rateLimit } from "@/lib/rate-limit";
 import { contactSchema, zodIssuesToRecord } from "@/lib/validators";
 
-const serviceLabels: Record<string, string> = {
-  tax: "Tax services",
-  accounting: "Accounting & bookkeeping",
-  "audit-assurance": "Audit & review",
-  consulting: "Business consulting",
-};
+// "Service — Firm", so each enquiry shows which independent firm it is for.
+const serviceLabels: Record<string, string> = Object.fromEntries(
+  services.map((service) => [service.slug, `${service.title} (${getFirm(service.firm).name})`]),
+);
 
 export async function POST(request: Request) {
   // Basic in-memory rate limit (see TODO in lib/rate-limit.ts).

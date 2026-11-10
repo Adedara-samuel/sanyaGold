@@ -10,7 +10,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Contact Us",
   description:
-    "Contact Sanyagold, a Minnesota CPA firm. Call 763-400-1411, email info@sanyagold.com or send us a message.",
+    "Contact Sanyagold Accounting, Advisory and Consulting Services and W O Oyebamiji CPA LLC. Call 763-400-1411, email info@sanyagold.com or send us a message.",
   path: "/contact",
 });
 

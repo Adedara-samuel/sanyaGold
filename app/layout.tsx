@@ -23,13 +23,17 @@ const lora = Lora({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | CPA Firm for Minnesota Nonprofits & Small Businesses`,
+    default: `${siteConfig.name} | Accounting, Tax & Advisory for Minnesota Nonprofits & Small Businesses`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
   keywords: [
     "Minnesota CPA",
+    "W O Oyebamiji CPA LLC",
+    "Sanyagold Accounting, Advisory and Consulting Services",
+    "payroll services Minnesota",
+    "single audit Minnesota",
     "nonprofit accountant Minnesota",
     "small business accounting Minnesota",
     "Form 990 preparation",

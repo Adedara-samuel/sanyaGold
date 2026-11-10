@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/lib/site-config";
 
-export const alt = `${siteConfig.name}: CPA firm for Minnesota nonprofits and small businesses`;
+export const alt = `Sanyagold Accounting, Advisory and Consulting Services and W O Oyebamiji CPA LLC`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -27,11 +27,14 @@ export default function OpengraphImage() {
         </svg>
         <span style={{ fontSize: 52, fontWeight: 700, color: "#7E8A88" }}>{siteConfig.name}</span>
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
         <span style={{ fontSize: 64, lineHeight: 1.1, fontWeight: 700, maxWidth: 960 }}>
           Accounting, tax and advisory for Minnesota nonprofits and small businesses.
         </span>
-        <span style={{ fontSize: 28, color: "#4A5568", fontFamily: "sans-serif" }}>
+        <span style={{ fontSize: 26, color: "#4A5568", fontFamily: "sans-serif" }}>
+          Sanyagold Accounting, Advisory and Consulting Services · W O Oyebamiji CPA LLC
+        </span>
+        <span style={{ fontSize: 26, color: "#4A5568", fontFamily: "sans-serif" }}>
           Book a free consultation · {siteConfig.contact.phone}
         </span>
       </div>

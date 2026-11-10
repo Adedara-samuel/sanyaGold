@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Reveal } from "@/components/motion/reveal";
 import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { CtaBanner } from "@/components/sections/cta-banner";
+import { FirmsComplement } from "@/components/sections/firms-complement";
 import { TeamGrid } from "@/components/sections/team";
 import { JsonLd, PageHero, SectionHeading } from "@/components/shared";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
@@ -10,7 +11,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "About Us",
   description:
-    "Meet the Sanyagold team, a Minnesota CPA firm serving nonprofits and small businesses with clear, responsive accounting and tax support.",
+    "Meet the team behind Sanyagold Accounting, Advisory and Consulting Services and W O Oyebamiji CPA LLC, two independent firms serving Minnesota nonprofits and small businesses.",
   path: "/about",
 });
 
@@ -54,8 +55,10 @@ export default function AboutPage() {
           </h2>
           <div className="mt-6 space-y-4 leading-relaxed text-muted-foreground">
             <p>
-              Founded with a vision to provide comprehensive auditing, accounting, taxation, financial and business
-              consultancy services, our firm has grown into a trusted partner for companies across various industries.
+              Founded with a vision to provide comprehensive accounting, financial and business consultancy services,
+              Sanyagold has grown into a trusted partner for companies across various industries. Clients who also need
+              tax, audit, review or attestation services can work with W O Oyebamiji CPA LLC, an independent CPA firm
+              that complements Sanyagold&apos;s work.
             </p>
             <p>
               With years of experience and a deep understanding of the unique challenges faced by businesses, we have
@@ -77,13 +80,15 @@ export default function AboutPage() {
         >
           <Image
             src="/about/teamwork.jpg"
-            alt="Diverse team joining hands in unity, representing teamwork and collaboration at SanyaGold CPA"
+            alt="Diverse team joining hands in unity, representing teamwork and collaboration at Sanyagold"
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="object-cover"
           />
         </Reveal>
       </section>
+
+      <FirmsComplement className="border-t" />
 
       <section className="section border-y bg-secondary/40" aria-labelledby="values-title">
         <div className="container-page">
@@ -105,7 +110,7 @@ export default function AboutPage() {
           <SectionHeading
             eyebrow="Our team"
             title={<span id="team-title">Our Team</span>}
-            description="At Sanyagold, we have dedicated team members committed to meeting clients needs with accuracy, integrity and timeliness."
+            description="Dedicated professionals committed to meeting clients' needs with accuracy, integrity and timeliness."
           />
           <div className="mt-12">
             <TeamGrid detailed />
@@ -121,7 +126,7 @@ export default function AboutPage() {
               Expert Financial Services
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              We provide comprehensive auditing, accounting, taxation, financial and business consultancy services.
+              Sanyagold provides accounting, payroll, HR and business consultancy services. Tax, audit, review and attestation services are provided by W O Oyebamiji CPA LLC.
             </p>
           </Reveal>
           <Reveal delay={0.08} className="rounded-2xl border bg-card p-6">

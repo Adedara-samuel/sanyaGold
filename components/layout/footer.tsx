@@ -93,7 +93,7 @@ export function SiteFooter() {
           <div>
             <h2 className="font-sans text-sm font-semibold tracking-wide">Services</h2>
             {siteConfig.footer.serviceGroups.map((group) => (
-              <div key={group.title} className="mt-4 first-of-type:mt-4">
+              <div key={group.title} className="mt-4">
                 <Link
                   href={group.href}
                   className="text-[0.6875rem] font-semibold tracking-wider text-gold-ink uppercase hover:underline"

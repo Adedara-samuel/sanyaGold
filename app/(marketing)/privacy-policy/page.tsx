@@ -18,7 +18,7 @@ export default function PrivacyPolicyPage() {
     <LegalPage
       title="Privacy Policy"
       updated="[Month Day, Year]"
-      intro={`This policy explains what information ${siteConfig.name} collects through this website, how we use it and the choices you have.`}
+      intro={`This policy explains what information is collected through this website, which is shared by Sanyagold Accounting, Advisory and Consulting Services and W O Oyebamiji CPA LLC, how it is used and the choices you have.`}
     >
       <h2>Information we collect</h2>
       <ul>
@@ -39,7 +39,8 @@ export default function PrivacyPolicyPage() {
       <h2>How we use information</h2>
       <ul>
         <li>To respond to your enquiries and schedule consultations</li>
-        <li>To provide accounting, tax, audit and consulting services you engage us for</li>
+        <li>To provide the services you engage either firm for</li>
+        <li>To route your enquiry to the firm that provides the service you ask about</li>
         <li>To improve our website and services</li>
         <li>To meet our legal and professional obligations</li>
       </ul>
@@ -53,8 +54,8 @@ export default function PrivacyPolicyPage() {
 
       <h2>Client confidentiality</h2>
       <p>
-        As a CPA firm, we are bound by professional rules on the confidentiality of client information, in addition to
-        this policy.
+        Both firms treat client information as confidential. As a licensed CPA firm, W O Oyebamiji CPA LLC is also bound
+        by professional rules on the confidentiality of client information, in addition to this policy.
       </p>
 
       <h2>Keeping information secure</h2>
@@ -72,7 +73,9 @@ export default function PrivacyPolicyPage() {
 
       <h2>Contact us</h2>
       <p>
-        {siteConfig.legalName}
+        Sanyagold Accounting, Advisory and Consulting Services
+        <br />
+        W O Oyebamiji CPA LLC
         <br />
         {formattedAddress}
         <br />

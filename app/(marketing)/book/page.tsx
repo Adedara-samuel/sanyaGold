@@ -8,7 +8,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Book a Free Consultation",
   description:
-    "Book a free, no-obligation consultation with Sanyagold, a Minnesota CPA firm for nonprofits and small businesses.",
+    "Book a free, no-obligation consultation with Sanyagold or W O Oyebamiji CPA LLC, serving Minnesota nonprofits and small businesses.",
   path: "/book",
 });
 

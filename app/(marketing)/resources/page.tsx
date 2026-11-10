@@ -13,7 +13,7 @@ import { faqJsonLd, pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Resources & FAQs",
   description:
-    "Answers to common questions, plain-English guides and client tools from Sanyagold, a Minnesota CPA firm.",
+    "Answers to common questions, plain-English guides and client tools from Sanyagold and W O Oyebamiji CPA LLC.",
   path: "/resources",
 });
 

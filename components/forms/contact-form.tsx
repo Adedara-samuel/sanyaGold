@@ -1,24 +1,34 @@
 "use client";
 
+import { Fragment } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { firms } from "@/content/firms";
+import { servicesForFirm } from "@/content/services";
 import { Textarea } from "@/components/ui/textarea";
 import { useContactMutation } from "@/hooks/use-contact-mutation";
 import { contactDefaults, contactSchema, type ContactInput } from "@/lib/validators";
 import { HoneypotField, applyServerIssues } from "@/components/forms/form-helpers";
 
-const serviceOptions = [
-  { value: "", label: "Not sure yet" },
-  { value: "tax", label: "Tax services" },
-  { value: "accounting", label: "Accounting & bookkeeping" },
-  { value: "audit-assurance", label: "Audit & review" },
-  { value: "consulting", label: "Business consulting" },
-];
+// Grouped by the independent firm that provides each service.
+const serviceGroups = firms.map((firm) => ({
+  firm: firm.name,
+  options: servicesForFirm(firm.id).map((service) => ({ value: service.slug, label: service.title })),
+}));
 
 export function ContactForm() {
   const form = useForm<ContactInput>({
@@ -116,10 +126,19 @@ export function ContactForm() {
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  {serviceOptions.map((option) => (
-                    <SelectItem key={option.value || "not-sure"} value={option.value || "not-sure"}>
-                      {option.label}
-                    </SelectItem>
+                  <SelectItem value="not-sure">Not sure yet</SelectItem>
+                  {serviceGroups.map((group) => (
+                    <Fragment key={group.firm}>
+                      <SelectSeparator />
+                      <SelectGroup>
+                        <SelectLabel className="font-semibold text-foreground">{group.firm}</SelectLabel>
+                        {group.options.map((option) => (
+                          <SelectItem key={option.value} value={option.value}>
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectGroup>
+                    </Fragment>
                   ))}
                 </SelectContent>
               </Select>
