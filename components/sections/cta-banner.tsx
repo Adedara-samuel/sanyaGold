@@ -23,7 +23,10 @@ export function CtaBanner({
             aria-hidden="true"
             className="absolute -right-24 -bottom-28 size-80 rounded-full bg-sg-gold/25 blur-3xl"
           />
-          <LogoMark tone="mono" className="pointer-events-none absolute -right-6 -bottom-10 h-56 text-primary-foreground/10" />
+          <LogoMark
+            tone="mono"
+            className="pointer-events-none absolute -right-6 -bottom-10 h-56 text-primary-foreground/10"
+          />
           <div className="relative mx-auto max-w-2xl">
             <h2 id="cta-title" className="text-3xl font-semibold sm:text-4xl">
               {title}

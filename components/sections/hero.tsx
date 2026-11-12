@@ -74,10 +74,7 @@ export function Hero() {
                   href={firmHref(firm.id)}
                   className="group flex h-full items-start gap-3 rounded-2xl border bg-card/80 p-3.5 backdrop-blur transition-[border-color,box-shadow] hover:border-accent hover:shadow-md"
                 >
-                  <FirmMark
-                    firm={firm.id}
-                    className="mt-0.5 h-8"
-                  />
+                  <FirmMark firm={firm.id} className="mt-0.5 h-8" />
                   <span className="min-w-0">
                     <span className="block text-sm leading-snug font-semibold">{displayName(firm)}</span>
                     <span className="mt-0.5 block text-xs text-muted-foreground first-letter:uppercase">

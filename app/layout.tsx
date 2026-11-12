@@ -70,7 +70,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-US" className={`${geistSans.variable} ${lora.variable} ${garamond.variable}`} suppressHydrationWarning>
+    <html
+      lang="en-US"
+      className={`${geistSans.variable} ${lora.variable} ${garamond.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         {/* Static inline script: decides before first paint whether this session already saw the splash. */}
         <script dangerouslySetInnerHTML={{ __html: splashScript }} />
