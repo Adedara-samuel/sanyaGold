@@ -52,7 +52,7 @@ export function SiteFooter() {
     <footer className="border-t bg-secondary/50">
       <div className="container-page grid gap-12 py-16 lg:grid-cols-[1.3fr_2fr]">
         <div className="max-w-sm space-y-5">
-          <Logo />
+          <Logo descriptor />
           <p className="text-sm leading-relaxed text-muted-foreground">
             Two independent, complementary firms serving Minnesota nonprofits and small businesses.
           </p>
@@ -63,10 +63,7 @@ export function SiteFooter() {
                   href={firmHref(firm.id)}
                   className="inline-flex items-center gap-2.5 text-foreground/90 hover:text-foreground"
                 >
-                  <FirmMark
-                    firm={firm.id}
-                    className={firm.id === "sanyagold" ? "h-5" : "size-6 rounded-md text-[0.6rem] ring-0 ring-offset-0"}
-                  />
+                  <FirmMark firm={firm.id} className={firm.id === "sanyagold" ? "h-5" : "h-6"} />
                   {firm.name}
                 </Link>
               </li>

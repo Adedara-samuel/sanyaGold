@@ -3,8 +3,9 @@ import { siteConfig } from "@/lib/site-config";
 /**
  * Branded intro shown on the first page load of a session.
  *
- * Deep-navy panel, the Sanyagold mark interlocking, wordmark and a gold progress
- * bar, then the panel slides up like a curtain to reveal the site (≈2.6s total).
+ * Evergreen panel where the Golden Line S draws itself stroke by stroke and the
+ * gold line sweeps through, then the wordmark and a gold progress bar, and the
+ * panel slides up like a curtain to reveal the site (≈2.6s total).
  *
  * Pure CSS (see `.sg-splash` in globals.css): it always removes itself, even if
  * JavaScript fails.
@@ -17,18 +18,15 @@ export function SplashScreen() {
     <div className="sg-splash" aria-hidden="true">
       <div className="sg-splash__inner">
         <span className="sg-splash__glow" />
-        <svg viewBox="-400 -440 800 880" className="sg-splash__mark">
-          <path
-            className="sg-splash__hook sg-splash__hook--a"
-            d="M-30 -428L-390 -220L-390 220L-185 338L200 116L200 -33L89 -33L89 50L-185 208L-277 155L-277 -155L26 -330Z"
-          />
-          <path
-            className="sg-splash__hook sg-splash__hook--b"
-            d="M30 428L390 220L390 -220L185 -338L-200 -116L-200 33L-89 33L-89 -50L185 -208L277 -155L277 155L-26 330Z"
-          />
+        <svg viewBox="0 0 100 100" className="sg-splash__mark">
+          <path className="sg-splash__top" d="M0 0L100 0L89.5 10.5L0 10.5Z" />
+          <path className="sg-splash__stem-l" d="M0 0H10.5V39.25H0Z" />
+          <path className="sg-splash__gold" d="M0 44.75H100V55.25H0Z" />
+          <path className="sg-splash__stem-r" d="M89.5 60.75H100V100H89.5Z" />
+          <path className="sg-splash__bottom" d="M10.5 89.5L100 89.5L100 100L0 100Z" />
         </svg>
         <p className="sg-splash__word">{siteConfig.name}</p>
-        <p className="sg-splash__tag">Accounting · Tax · Advisory</p>
+        <p className="sg-splash__tag">Accounting · Advisory · Consulting</p>
         <span className="sg-splash__track">
           <span className="sg-splash__bar" />
         </span>

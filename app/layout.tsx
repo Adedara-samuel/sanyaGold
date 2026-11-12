@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Lora } from "next/font/google";
+import { EB_Garamond, Geist, Lora } from "next/font/google";
 import { Analytics } from "@/components/analytics";
 import { Providers } from "@/components/providers";
 import { SkipLink } from "@/components/layout/skip-link";
@@ -13,11 +13,19 @@ const geistSans = Geist({
   display: "swap",
 });
 
-// Lora closely matches the serif wordmark in the Sanyagold logo.
+// Lora is the site's serif for headings.
 const lora = Lora({
   variable: "--font-lora",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
+  display: "swap",
+});
+
+// EB Garamond is the typeface of the approved Sanyagold wordmark.
+const garamond = EB_Garamond({
+  variable: "--font-garamond",
+  subsets: ["latin"],
+  weight: ["500"],
   display: "swap",
 });
 
@@ -62,7 +70,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-US" className={`${geistSans.variable} ${lora.variable}`} suppressHydrationWarning>
+    <html lang="en-US" className={`${geistSans.variable} ${lora.variable} ${garamond.variable}`} suppressHydrationWarning>
       <head>
         {/* Static inline script: decides before first paint whether this session already saw the splash. */}
         <script dangerouslySetInnerHTML={{ __html: splashScript }} />

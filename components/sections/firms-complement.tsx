@@ -46,7 +46,7 @@ export function FirmsComplement({ className }: { className?: string }) {
                 direction={index === 0 ? "right" : "left"}
                 className={cn("flex gap-5 rounded-2xl border bg-card p-6 sm:p-7", firmAccent[firm.id].border)}
               >
-                <FirmMark firm={firm.id} className={firm.id === "sanyagold" ? "h-11" : "size-11"} />
+                <FirmMark firm={firm.id} className="h-11" />
                 <div>
                   <h3 className="font-sans text-base font-semibold">{displayName(firm)}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{roles[firm.id]}</p>

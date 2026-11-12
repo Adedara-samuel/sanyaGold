@@ -76,7 +76,7 @@ export function Hero() {
                 >
                   <FirmMark
                     firm={firm.id}
-                    className={firm.id === "sanyagold" ? "mt-0.5 h-8" : "size-8 rounded-lg text-[0.7rem]"}
+                    className="mt-0.5 h-8"
                   />
                   <span className="min-w-0">
                     <span className="block text-sm leading-snug font-semibold">{displayName(firm)}</span>
@@ -118,7 +118,7 @@ function HeroBackdrop() {
     <div aria-hidden="true" className="absolute inset-0 -z-10">
       <div className="bg-grain absolute inset-0 [mask-image:radial-gradient(ellipse_at_30%_20%,black,transparent_70%)]" />
       <div className="absolute -top-40 -left-32 size-[34rem] animate-gradient rounded-full bg-accent/30 blur-3xl dark:bg-accent/12" />
-      <div className="absolute top-20 -right-40 size-[30rem] animate-gradient rounded-full bg-brand-mauve/20 blur-3xl [animation-delay:-6s]" />
+      <div className="absolute top-20 -right-40 size-[30rem] animate-gradient rounded-full bg-sg-ink/15 blur-3xl [animation-delay:-6s]" />
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </div>
   );
@@ -162,7 +162,7 @@ function HeroVisual() {
           </svg>
         </div>
         <div className="relative animate-float">
-          <LogoMark className="h-32 drop-shadow-[0_14px_24px_rgba(164,116,127,0.35)] sm:h-36" />
+          <LogoMark className="h-32 drop-shadow-[0_14px_24px_rgba(14,74,59,0.28)] sm:h-36" />
         </div>
       </motion.div>
 

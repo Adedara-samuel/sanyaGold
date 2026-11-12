@@ -53,7 +53,7 @@ export function organizationJsonLd(firmId: FirmId = "sanyagold") {
     legalName: firm.name,
     description: firm.description,
     url: firmId === "sanyagold" ? absoluteUrl("/") : absoluteUrl(firmHref(firmId)),
-    ...(firmId === "sanyagold" ? { logo: absoluteUrl("/brand/sanyagold-logo.svg") } : {}),
+    logo: absoluteUrl(firmId === "sanyagold" ? "/brand/sanyagold-logo.svg" : "/brand/wo-oyebamiji-cpa-logo.svg"),
     image: absoluteUrl("/opengraph-image"),
     telephone: `+1-${contact.phone}`,
     email: contact.email,

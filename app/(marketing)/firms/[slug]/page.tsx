@@ -43,12 +43,12 @@ export default async function FirmPage({ params }: PageProps<"/firms/[slug]">) {
           aria-hidden="true"
           className={cn(
             "absolute -top-24 -left-24 size-96 rounded-full blur-3xl",
-            firm.id === "sanyagold" ? "bg-brand-mauve/20" : "bg-accent/25",
+            firm.id === "sanyagold" ? "bg-sg-ink/15" : "bg-wo-brass/25",
           )}
         />
         <div className="container-page relative grid gap-12 pt-12 pb-16 sm:pt-16 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
           <Reveal>
-            <FirmMark firm={firm.id} className={firm.id === "sanyagold" ? "h-16" : "size-16 rounded-2xl text-xl"} />
+            <FirmMark firm={firm.id} className="h-16" />
             <p className="eyebrow mt-8 first-letter:uppercase">{firm.focus}</p>
             <h1 className="mt-4 text-4xl leading-tight font-semibold sm:text-5xl">{displayName(firm)}</h1>
             <p className="text-lead mt-5 max-w-2xl">{firm.description}</p>
@@ -137,7 +137,7 @@ export default async function FirmPage({ params }: PageProps<"/firms/[slug]">) {
             )}
           >
             <div className="flex items-start gap-5">
-              <FirmMark firm={otherFirm.id} className={otherFirm.id === "sanyagold" ? "h-12" : "size-12"} />
+              <FirmMark firm={otherFirm.id} className="h-12" />
               <div>
                 <p className="eyebrow">A complementary, independent firm</p>
                 <h2 id="complement-title" className="mt-3 text-2xl font-semibold sm:text-3xl">

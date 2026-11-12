@@ -10,39 +10,66 @@ import { cn } from "@/lib/utils";
  */
 export const firmAccent: Record<FirmId, { bar: string; soft: string; border: string; ring: string }> = {
   sanyagold: {
-    bar: "bg-brand-mauve",
-    soft: "bg-brand-mauve/8",
-    border: "border-brand-mauve/35",
-    ring: "ring-brand-mauve/30",
+    bar: "bg-sg-ink",
+    soft: "bg-sg-ink/5",
+    border: "border-sg-ink/30",
+    ring: "ring-sg-ink/30",
   },
   "oyebamiji-cpa": {
-    bar: "bg-primary",
-    soft: "bg-primary/5",
-    border: "border-primary/25",
-    ring: "ring-primary/25",
+    bar: "bg-wo-ink",
+    soft: "bg-wo-ink/5",
+    border: "border-wo-ink/25",
+    ring: "ring-wo-ink/25",
   },
 };
 
 /**
- * Visual mark for each firm. Sanyagold uses its existing logo mark.
- * W O Oyebamiji CPA LLC uses a typographic monogram until an official logo is supplied.
- * TODO: replace the monogram with the firm's official logo when available.
+ * W O Oyebamiji CPA LLC: "The Assurance Crest" (approved Concept A, see
+ * logo-concepts-v2/W-O-Oyebamiji-CPA/Concept-A-Assurance-Crest).
+ * Navy shield keylines, geometric W, brass O and "CPA" on a brass rule.
+ * Colours come from --wo-ink / --wo-brass so dark mode uses the reversed version.
  */
-export function FirmMark({ firm, className }: { firm: FirmId; className?: string }) {
-  if (firm === "sanyagold") {
-    return <LogoMark className={cn("h-10 w-auto", className)} />;
-  }
+export function WoCrest({ className, title }: { className?: string; title?: string }) {
   return (
-    <span
-      aria-hidden="true"
-      className={cn(
-        "grid size-10 shrink-0 place-items-center rounded-xl bg-primary font-serif text-[0.95rem] font-semibold tracking-wide text-primary-foreground ring-1 ring-accent/60 ring-offset-2 ring-offset-background",
-        className,
-      )}
+    <svg
+      viewBox="-2 -2 88 104"
+      className={cn("h-10 w-auto shrink-0", className)}
+      role={title ? "img" : undefined}
+      aria-hidden={title ? undefined : true}
+      aria-label={title}
     >
-      {getFirm(firm).monogram}
-    </span>
+      <g className="fill-none stroke-wo-ink" strokeLinejoin="miter" strokeMiterlimit={10}>
+        <path strokeWidth={3.4} d="M0 0H84V50C84 76 63 92 42 100C21 92 0 76 0 50Z" />
+        <path
+          strokeWidth={0.9}
+          d="M5.88 0.84H78.12V43.84C78.12 66.2 60.06 91.44 42 98.32C23.94 91.44 5.88 66.2 5.88 43.84Z"
+        />
+      </g>
+      <g className="fill-wo-ink">
+        <path d="M9.95 24L15.55 24L22.8 49L17.2 49Z" />
+        <path d="M24.45 24L30.05 24L22.8 49L17.2 49Z" />
+        <path d="M24.45 24L30.05 24L37.3 49L31.7 49Z" />
+        <path d="M38.95 24L44.55 24L37.3 49L31.7 49Z" />
+        <path
+          transform="translate(29.344 62.5)"
+          d="M3.062 6.667L3.062 6.667Q2.102 6.667 1.418 6.247Q0.733 5.827 0.367 5.076Q0 4.324 0 3.333L0 3.333Q0 2.342 0.367 1.591Q0.733 0.840 1.418 0.420Q2.102 0 3.062 0L3.062 0Q4.169 0 4.907 0.553Q5.644 1.107 5.942 2.044L5.942 2.044L4.862 2.342Q4.676 1.716 4.227 1.362Q3.778 1.009 3.062 1.009L3.062 1.009Q2.418 1.009 1.989 1.298Q1.560 1.587 1.344 2.109Q1.129 2.631 1.124 3.333L1.124 3.333Q1.124 4.036 1.340 4.558Q1.556 5.080 1.987 5.369Q2.418 5.658 3.062 5.658L3.062 5.658Q3.778 5.658 4.227 5.302Q4.676 4.947 4.862 4.324L4.862 4.324L5.942 4.622Q5.644 5.560 4.907 6.113Q4.169 6.667 3.062 6.667ZM11.991 6.533L10.920 6.533L10.920 0.133L13.564 0.133Q13.658 0.133 13.804 0.140Q13.951 0.147 14.076 0.169L14.076 0.169Q14.631 0.253 14.993 0.538Q15.356 0.822 15.531 1.256Q15.707 1.689 15.707 2.218L15.707 2.218Q15.707 2.742 15.529 3.176Q15.351 3.609 14.989 3.893Q14.627 4.178 14.076 4.262L14.076 4.262Q13.951 4.280 13.802 4.289Q13.653 4.298 13.564 4.298L13.564 4.298L11.991 4.298L11.991 6.533ZM11.991 1.138L11.991 3.298L13.520 3.298Q13.609 3.298 13.720 3.289Q13.831 3.280 13.924 3.253L13.924 3.253Q14.191 3.187 14.344 3.018Q14.498 2.849 14.562 2.636Q14.627 2.422 14.627 2.218L14.627 2.218Q14.627 2.013 14.562 1.798Q14.498 1.582 14.344 1.413Q14.191 1.244 13.924 1.178L13.924 1.178Q13.831 1.151 13.720 1.144Q13.609 1.138 13.520 1.138L13.520 1.138L11.991 1.138ZM20.809 6.533L19.707 6.533L21.724 0.133L23.293 0.133L25.311 6.533L24.209 6.533L23.769 5.147L21.244 5.147L20.809 6.533ZM21.560 4.147L23.449 4.147L22.498 1.169L21.560 4.147Z"
+        />
+      </g>
+      <g className="fill-wo-brass">
+        <path
+          fillRule="evenodd"
+          d="M74.05 36.5A12.5 12.5 0 1 1 49.05 36.5A12.5 12.5 0 1 1 74.05 36.5ZM68.898 36.5A7.348 7.348 0 1 0 54.202 36.5A7.348 7.348 0 1 0 68.898 36.5Z"
+        />
+        <path d="M31 57.5H53V58.2H31Z" />
+      </g>
+    </svg>
   );
+}
+
+/** Visual mark for each firm: its approved logo symbol. Size it with a height class (e.g. h-11). */
+export function FirmMark({ firm, className }: { firm: FirmId; className?: string }) {
+  if (firm === "sanyagold") return <LogoMark className={cn("h-10", className)} />;
+  return <WoCrest className={cn("h-10", className)} />;
 }
 
 /** Mark + full firm name, with the firm's focus underneath. */
@@ -60,7 +87,7 @@ export function FirmLockup({
   const data = getFirm(firm);
   return (
     <div className={cn("flex items-center gap-4", className)}>
-      <FirmMark firm={firm} className={firm === "sanyagold" ? "h-11" : "size-11"} />
+      <FirmMark firm={firm} className="h-11" />
       <div className="min-w-0">
         <Heading className="text-xl leading-snug font-semibold text-balance">
           {link ? (
@@ -97,10 +124,7 @@ export function FirmBadge({
         className,
       )}
     >
-      <FirmMark
-        firm={firm}
-        className={firm === "sanyagold" ? "h-5" : "size-6 rounded-full text-[0.6rem] ring-0 ring-offset-0"}
-      />
+      <FirmMark firm={firm} className={firm === "sanyagold" ? "h-5" : "h-6"} />
       <span className="truncate">
         <span className="text-muted-foreground">{prefix} </span>
         {data.name}

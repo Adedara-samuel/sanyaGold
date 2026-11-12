@@ -159,7 +159,7 @@ export function ServiceDetail({ slug }: { slug: string }) {
             )}
           >
             <div className="flex items-start gap-4">
-              <FirmMark firm={otherFirm.id} className={otherFirm.id === "sanyagold" ? "h-10" : "size-10"} />
+              <FirmMark firm={otherFirm.id} className="h-10" />
               <div>
                 <h2 className="font-sans text-base font-semibold" id={related.length ? undefined : "related-title"}>
                   Also need help with {otherFirm.focus}?

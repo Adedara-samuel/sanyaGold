@@ -9,8 +9,8 @@ import { formattedAddress, siteConfig } from "@/lib/site-config";
 
 const colors = {
   navy: "#13213A",
-  gold: "#C9A227",
-  mauve: "#A4747F",
+  gold: "#C5A15A",
+  evergreen: "#0E4A3B",
   cream: "#FBF8F3",
   muted: "#5B6475",
   border: "#E8E1D3",
@@ -54,8 +54,7 @@ function layout({ preheader, heading, body }: { preheader: string; heading: stri
     <tr><td align="center">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background:#ffffff;border:1px solid ${colors.border};border-radius:16px;overflow:hidden;">
         <tr><td style="padding:24px 32px;border-bottom:3px solid ${colors.gold};">
-          <span style="font-family:Georgia,'Times New Roman',serif;font-size:24px;font-weight:700;color:${colors.mauve};">&#11042;</span>
-          <span style="font-family:Georgia,'Times New Roman',serif;font-size:22px;font-weight:700;color:#7E8A88;vertical-align:2px;">&nbsp;${escapeHtml(siteConfig.name)}</span>
+          <span style="font-family:Garamond,'EB Garamond',Georgia,'Times New Roman',serif;font-size:22px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:${colors.evergreen};">${escapeHtml(siteConfig.name)}</span>
         </td></tr>
         <tr><td style="padding:32px;">
           <h1 style="margin:0 0 16px;font-family:Georgia,'Times New Roman',serif;font-size:24px;line-height:1.3;color:${colors.navy};">${escapeHtml(heading)}</h1>
