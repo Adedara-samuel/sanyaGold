@@ -147,10 +147,14 @@ function HeroVisual() {
         <div className="absolute inset-0 overflow-hidden rounded-[2.5rem]">
           <div className="absolute inset-0 bg-gradient-to-br from-accent-soft via-transparent to-transparent" />
           <svg className="absolute inset-0 size-full text-border" viewBox="0 0 400 400" fill="none">
+            {/* Square keylines echo the Golden Line mark. */}
             {[60, 110, 160].map((r) => (
-              <polygon
+              <rect
                 key={r}
-                points={hexPoints(200, 200, r)}
+                x={200 - r}
+                y={200 - r}
+                width={r * 2}
+                height={r * 2}
                 stroke="currentColor"
                 strokeWidth="1.25"
                 strokeDasharray="4 6"
@@ -182,11 +186,4 @@ function HeroVisual() {
       ))}
     </div>
   );
-}
-
-function hexPoints(cx: number, cy: number, r: number) {
-  return Array.from({ length: 6 }, (_, i) => {
-    const angle = (Math.PI / 3) * i - Math.PI / 2;
-    return `${(cx + r * Math.cos(angle)).toFixed(1)},${(cy + r * Math.sin(angle)).toFixed(1)}`;
-  }).join(" ");
 }
