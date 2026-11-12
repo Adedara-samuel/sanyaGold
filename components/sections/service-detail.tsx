@@ -12,6 +12,7 @@ import { CtaButtons } from "@/components/shared";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useService, useServices } from "@/hooks/use-services";
 import { firmHref, firms, getFirm } from "@/content/firms";
+import { serviceDetails } from "@/content/service-details";
 import { icons } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 
@@ -37,6 +38,7 @@ export function ServiceDetail({ slug }: { slug: string }) {
   }
 
   const Icon = icons[service.icon];
+  const details = serviceDetails[service.slug];
   const firm = getFirm(service.firm);
   const otherFirm = firms.find((item) => item.id !== service.firm)!;
   // Related services come from the same firm first.
@@ -110,6 +112,37 @@ export function ServiceDetail({ slug }: { slug: string }) {
           </Stagger>
         </div>
       </section>
+
+      {details && details.entries.length > 0 && (
+        <section className="section pt-0" aria-labelledby="details-title">
+          <div className="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+            <div className="lg:sticky lg:top-28 lg:self-start">
+              <p className="eyebrow">In detail</p>
+              <h2 id="details-title" className="mt-3 text-3xl font-semibold">
+                More about our {service.shortTitle} services
+              </h2>
+              {details.intro.map((paragraph) => (
+                <p key={paragraph} className="mt-4 leading-relaxed text-muted-foreground">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+            <Stagger as="ul" className="space-y-5">
+              {details.entries.map((entry) => (
+                <StaggerItem as="li" key={entry.title} className="rounded-2xl border bg-card p-6 sm:p-7">
+                  <h3 className="font-sans text-lg font-semibold">{entry.title}</h3>
+                  {entry.subtitle && <p className="mt-0.5 text-sm font-medium text-gold-ink">{entry.subtitle}</p>}
+                  <div className="mt-3 space-y-2.5 text-sm leading-relaxed text-muted-foreground">
+                    {entry.paragraphs.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </div>
+        </section>
+      )}
 
       <section className="section border-y bg-secondary/40" aria-labelledby="process-title">
         <div className="container-page grid gap-12 lg:grid-cols-2">

@@ -1,12 +1,11 @@
 import type { Testimonial } from "@/lib/types";
 
 // Named testimonials carried over word for word from the previous sanyagold.com home page.
-// Maria Hernandez and David Kim are shown with the first sentence of their original quote.
 export const testimonials: Testimonial[] = [
   {
     id: "francesca-peters",
     name: "Francesca Peters",
-    role: "Client",
+    role: "",
     organization: "",
     quote: "Thank you Wura for your professional filing advice and amazing turn around in processing.",
     isPlaceholder: false,
@@ -14,17 +13,19 @@ export const testimonials: Testimonial[] = [
   {
     id: "maria-hernandez",
     name: "Maria Hernandez",
-    role: "Client",
+    role: "",
     organization: "",
-    quote: "Working with SanyaGold CPA's has been a game-changer for our financial management.",
+    quote:
+      "Working with SanyaGold CPA's has been a game-changer for our financial management. The team's expertise and personalized approach have truly made a difference.",
     isPlaceholder: false,
   },
   {
     id: "david-kim",
     name: "David Kim",
-    role: "Client",
+    role: "",
     organization: "",
-    quote: "I highly recommend Sanyagold CPAs for their professionalism and attention to detail.",
+    quote:
+      "I highly recommend Sanyagold CPAs for their professionalism and attention to detail. Their accounting solutions have streamlined our processes effectively.",
     isPlaceholder: false,
   },
   {
