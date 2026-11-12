@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Mail, MapPin, Phone, Star } from "lucide-react";
 import { CurrentYear } from "@/components/layout/current-year";
 import { FirmMark } from "@/components/firms/firm-mark";
+import { NewsletterSignup } from "@/components/forms/newsletter-signup";
 import { Logo } from "@/components/layout/logo";
 import { firmHref, firms, getFirm, independenceStatement } from "@/content/firms";
 import { formattedAddress, siteConfig } from "@/lib/site-config";
@@ -50,6 +51,9 @@ function FooterColumn({ title, links }: { title: string; links: readonly { label
 export function SiteFooter() {
   return (
     <footer className="border-t bg-secondary/50">
+      <div className="border-b">
+        <NewsletterSignup className="container-page py-12" />
+      </div>
       <div className="container-page grid gap-12 py-16 lg:grid-cols-[1.3fr_2fr]">
         <div className="max-w-sm space-y-5">
           <Logo descriptor />

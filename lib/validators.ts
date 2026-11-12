@@ -118,3 +118,14 @@ export function zodIssuesToRecord(error: z.ZodError): Record<string, string[]> {
   }
   return result;
 }
+
+/** Newsletter signup (footer). Shared by the client form AND /api/newsletter. */
+export const newsletterSchema = z.object({
+  email: z.email("Please enter a valid email address.").max(200),
+  /** Explicit opt-in, as on the previous site ("Yes, subscribe me to the newsletter"). */
+  consent: z.boolean().refine((value) => value, "Please tick the box to confirm you'd like our newsletter."),
+  /** Honeypot: hidden from people, often filled in by bots. Must stay empty. */
+  website: z.string().max(0),
+});
+
+export type NewsletterInput = z.infer<typeof newsletterSchema>;

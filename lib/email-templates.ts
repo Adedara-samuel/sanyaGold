@@ -214,3 +214,40 @@ export function bookingConfirmation(data: BookingEmailData) {
     }),
   };
 }
+
+/* ───────────────────── Newsletter signup ───────────────────── */
+
+export function newsletterNotification(email: string, when: string) {
+  const rows: Row[] = [
+    ["Email", email],
+    ["Signed up", when],
+    ["Opt-in", "Ticked “Yes, subscribe me to the newsletter”"],
+  ];
+  return {
+    subject: `New newsletter subscriber: ${oneLine(email)}`,
+    text: `New newsletter signup from the ${siteConfig.name} website\n\n${textRows(rows)}\n\nAdd this address to the newsletter mailing list.`,
+    html: layout({
+      preheader: `${email} subscribed to the newsletter`,
+      heading: "New newsletter subscriber",
+      body: `${paragraph("Someone subscribed to the newsletter from the website footer. Please add them to the mailing list.")}
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rowsHtml(rows)}</table>`,
+    }),
+  };
+}
+
+export function newsletterWelcome() {
+  const intro =
+    "Thank you for subscribing! You'll receive practical tips on book-keeping, payroll, tax and running your organization, plus occasional news from Sanyagold Accounting, Advisory and Consulting Services and W O Oyebamiji CPA LLC.";
+  const unsubscribe = 'Changed your mind? Just reply to this email with "unsubscribe" and we\'ll remove you.';
+  return {
+    subject: `Thank you for subscribing — ${siteConfig.name}`,
+    text: `Hi there,\n\n${intro}\n\n${unsubscribe}\n\nWarm regards,\nSanyagold and W O Oyebamiji CPA LLC`,
+    html: layout({
+      preheader: "You're subscribed. Practical tips and updates are on their way.",
+      heading: "Thank you for subscribing!",
+      body: `${paragraph(intro)}
+        ${paragraph(unsubscribe)}
+        <p style="margin:24px 0 0;font-size:15px;color:${colors.navy};">Warm regards,<br>Sanyagold and W O Oyebamiji CPA LLC</p>`,
+    }),
+  };
+}

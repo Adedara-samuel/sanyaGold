@@ -1,5 +1,5 @@
 import type { ApiError, FaqGroup, PortalDocument, Post, PostSummary, Service, Testimonial } from "@/lib/types";
-import type { BookingInput, ContactInput } from "@/lib/validators";
+import type { BookingInput, ContactInput, NewsletterInput } from "@/lib/validators";
 
 /** Error thrown by the typed fetch helpers; carries field-level issues when present. */
 export class ApiRequestError extends Error {
@@ -58,6 +58,10 @@ export const api = {
   },
   contact: {
     send: (data: ContactInput) => request<{ ok: true }>("/api/contact", { method: "POST", body: JSON.stringify(data) }),
+  },
+  newsletter: {
+    subscribe: (data: NewsletterInput) =>
+      request<{ ok: true }>("/api/newsletter", { method: "POST", body: JSON.stringify(data) }),
   },
   booking: {
     request: (data: BookingInput) =>
