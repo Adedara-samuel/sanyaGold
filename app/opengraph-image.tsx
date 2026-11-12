@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/site-config";
 
 /** Approved logo lockups (outlined SVGs, so no fonts are needed). */
 async function brandSvg(file: string) {
+  "use cache";
   const svg = await readFile(join(process.cwd(), "public", "brand", file), "utf8");
   return `data:image/svg+xml;base64,${Buffer.from(svg).toString("base64")}`;
 }
