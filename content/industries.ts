@@ -79,7 +79,6 @@ export const industryFocus: { name: string; icon: IconName; paragraphs: string[]
     icon: "briefcase",
     paragraphs: [
       "Professional services firms rely on accurate financial planning and strategy to ensure growth and success.",
-      "At Sanyagold, we offer specialized accounting, auditing, and business consultancy services to help streamline operations, improve profitability, and stay compliant with industry regulations, so you can focus on delivering exceptional services to your clients.",
     ],
   },
   {

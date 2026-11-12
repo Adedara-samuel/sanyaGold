@@ -563,10 +563,6 @@ export const posts: Post[] = [
       },
       {
         type: "p",
-        text: "Some of the financial services we offer at sanyagold include; goal setting, budgeting and debt management, retirement and estate planning, tax planning for individuals and businesses, education and mentorship",
-      },
-      {
-        type: "p",
         text: "The first step is to fill out the contact form and one of our advisors will reach out to you within 24 hours. You can also email us at info@sanyagold.com to get started.",
       },
     ],
@@ -703,10 +699,6 @@ export const posts: Post[] = [
         text: "By being proactive, small business owners can effectively manage their tax responsibilities and respond to evolving regulations.",
       },
       {
-        type: "callout",
-        text: "We are now taking new small business tax clients - No waitlists!",
-      },
-      {
         type: "h2",
         text: "Navigating Tax Regulations with Confidence",
       },
@@ -717,14 +709,6 @@ export const posts: Post[] = [
       {
         type: "p",
         text: "Taking control of your tax situation not only helps you avoid penalties but can also lead to significant savings. Equip yourself with the right resources, consult experts when necessary, and keep yourself updated to navigate the complex world of business taxes effectively.",
-      },
-      {
-        type: "p",
-        text: "Looking for a tax professional that actually works for you? Look no further!",
-      },
-      {
-        type: "p",
-        text: "At SanyaGold, we ensure adherence to tax regulations while maximizing deductions and optimizing your overall tax strategy.",
       },
     ],
   },

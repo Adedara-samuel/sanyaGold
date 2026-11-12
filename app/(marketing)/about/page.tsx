@@ -70,18 +70,6 @@ export default function AboutPage() {
               you navigate your financial challenges and achieve long-term success.
             </p>
           </div>
-          {/* Who We Are, word for word from the previous sanyagold.com home page. */}
-          <div className="mt-8 rounded-2xl border border-l-4 border-l-sg-gold bg-card p-6">
-            <h3 className="font-sans text-base font-semibold">Who We Are</h3>
-            <p className="mt-1 text-sm font-medium text-gold-ink">
-              Specialized Financial and Business Consultancy for Non Profits and Small Businesses
-            </p>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              At Sanyagold, we specialize in Assurance, Accounting, Taxation, Financial and Business consultancy
-              services. Whatever the scale of your company, we are committed to providing accurate, and reliable
-              solutions with a focus on integrity and client satisfaction, making us your trusted financial partner.
-            </p>
-          </div>
         </Reveal>
         <Reveal
           delay={0.1}

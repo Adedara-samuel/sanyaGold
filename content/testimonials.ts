@@ -11,24 +11,6 @@ export const testimonials: Testimonial[] = [
     isPlaceholder: false,
   },
   {
-    id: "maria-hernandez",
-    name: "Maria Hernandez",
-    role: "",
-    organization: "",
-    quote:
-      "Working with SanyaGold CPA's has been a game-changer for our financial management. The team's expertise and personalized approach have truly made a difference.",
-    isPlaceholder: false,
-  },
-  {
-    id: "david-kim",
-    name: "David Kim",
-    role: "",
-    organization: "",
-    quote:
-      "I highly recommend Sanyagold CPAs for their professionalism and attention to detail. Their accounting solutions have streamlined our processes effectively.",
-    isPlaceholder: false,
-  },
-  {
     id: "satisfied-clients",
     name: "Satisfied Clients",
     role: "",
