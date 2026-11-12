@@ -67,7 +67,7 @@ export const otherIndustries = industries.filter((industry) => !industry.feature
  */
 export const industryFocus: { name: string; icon: IconName; paragraphs: string[] }[] = [
   {
-    name: "Nonprofit",
+    name: "Non-profits",
     icon: "heart",
     paragraphs: [
       "At Sanyagold, we understand the unique challenges faced by non-profit organizations. Our services are designed to help you navigate the complexities of financial management, compliance, and reporting, allowing you to focus on your mission.",
