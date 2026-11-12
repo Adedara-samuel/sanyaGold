@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { EB_Garamond, Geist, Lora } from "next/font/google";
+import { EB_Garamond, Geist, Lora, Playfair_Display } from "next/font/google";
 import { Analytics } from "@/components/analytics";
 import { Providers } from "@/components/providers";
 import { SkipLink } from "@/components/layout/skip-link";
@@ -26,6 +26,14 @@ const garamond = EB_Garamond({
   variable: "--font-garamond",
   subsets: ["latin"],
   weight: ["500"],
+  display: "swap",
+});
+
+// Playfair Display is the typeface of the approved W O Oyebamiji CPA LLC wordmark.
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["600"],
   display: "swap",
 });
 
@@ -72,7 +80,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en-US"
-      className={`${geistSans.variable} ${lora.variable} ${garamond.variable}`}
+      className={`${geistSans.variable} ${lora.variable} ${garamond.variable} ${playfair.variable}`}
       suppressHydrationWarning
     >
       <head>

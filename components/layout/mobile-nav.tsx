@@ -4,7 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, Phone } from "lucide-react";
 import { Logo } from "@/components/layout/logo";
-import { groupNavChildren } from "@/lib/nav";
+import { WoLogo } from "@/components/layout/wo-logo";
+import { firmForPath, groupNavChildren } from "@/lib/nav";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -40,7 +41,11 @@ export function MobileNav({ pathname }: { pathname: string | null }) {
         <SheetHeader className="border-b">
           <SheetTitle asChild>
             <div>
-              <Logo href={null} markClassName="h-7" wordClassName="text-xl" />
+              {firmForPath(pathname) === "oyebamiji-cpa" ? (
+                <WoLogo href={null} markClassName="h-8" />
+              ) : (
+                <Logo href={null} markClassName="h-7" wordClassName="text-xl" />
+              )}
             </div>
           </SheetTitle>
           <SheetDescription className="sr-only">Site navigation</SheetDescription>

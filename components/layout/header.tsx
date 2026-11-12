@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { Logo } from "@/components/layout/logo";
+import { WoLogo } from "@/components/layout/wo-logo";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { Button } from "@/components/ui/button";
@@ -18,7 +19,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { groupNavChildren, type NavChild } from "@/lib/nav";
+import { firmForPath, groupNavChildren, type NavChild } from "@/lib/nav";
 import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
@@ -56,7 +57,12 @@ export function SiteHeader({ pathname }: { pathname: string | null }) {
           scrolled ? "h-16" : "h-20",
         )}
       >
-        <Logo markClassName={cn("transition-[height] duration-300", scrolled ? "h-7" : "h-8")} />
+        {/* Each firm's own pages carry that firm's logo. */}
+        {firmForPath(pathname) === "oyebamiji-cpa" ? (
+          <WoLogo markClassName={cn("transition-[height] duration-300", scrolled ? "h-8" : "h-9")} />
+        ) : (
+          <Logo markClassName={cn("transition-[height] duration-300", scrolled ? "h-7" : "h-8")} />
+        )}
 
         {/* Six top-level items need ~1100px; below that the mobile menu is used. */}
         <NavigationMenu className="hidden min-[1120px]:flex" aria-label="Main">
