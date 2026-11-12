@@ -8,7 +8,8 @@ export const team: TeamMember[] = [
     credentials: "",
     licenseNumber: "",
     bio: "",
-    photoUrl: "/about/wura-oyebamiji.jpg",
+    photoUrl: "/about/CEOpicture.jpeg",
+    photoPosition: "50% 32%",
   },
   {
     id: "fiyin-olusanya",

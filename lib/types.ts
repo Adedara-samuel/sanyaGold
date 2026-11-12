@@ -95,6 +95,8 @@ export interface TeamMember {
   licenseNumber: string;
   bio: string;
   photoUrl?: string;
+  /** CSS object-position for the photo crop, e.g. "50% 30%" to keep a face in frame. */
+  photoPosition?: string;
   linkedin?: string;
 }
 

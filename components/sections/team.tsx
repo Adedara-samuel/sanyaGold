@@ -40,6 +40,7 @@ function TeamPhoto({ member }: { member: TeamMember }) {
           alt={`Portrait of ${member.name}, ${member.title}`}
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          style={member.photoPosition ? { objectPosition: member.photoPosition } : undefined}
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
