@@ -14,6 +14,8 @@ function Block({ block }: { block: PostBlock }) {
   switch (block.type) {
     case "h2":
       return <h2 className="mt-12 text-2xl font-semibold">{block.text}</h2>;
+    case "h3":
+      return <h3 className="mt-8 font-sans text-lg font-semibold">{block.text}</h3>;
     case "p":
       return <p className="mt-5 leading-relaxed">{block.text}</p>;
     case "ul":
