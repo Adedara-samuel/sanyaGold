@@ -262,7 +262,7 @@ export const services: Service[] = [
     summary: "Year-round tax planning and accurate tax preparation, so there are no surprises in April.",
     description:
       "We prepare and file federal and Minnesota returns for small businesses, their owners and tax-exempt organizations, and we plan ahead with you during the year so you keep more of what you earn and stay in good standing with the IRS and the Minnesota Department of Revenue.",
-    announcement: "Now taking new small business tax clients, with no waitlist.",
+    announcement: "We are now taking new small business tax clients - No waitlists!",
     idealFor: [
       "Small business owners who want a proactive tax partner",
       "Nonprofits filing Form 990, 990-EZ or 990-N",
