@@ -9,7 +9,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Industries We Serve",
   description:
-    "Specialist accounting and tax support for Minnesota nonprofits, small businesses and professional services firms.",
+    "Industry-specific accounting, tax and audit support for Minnesota nonprofits, small businesses, professional services, government, education, healthcare, construction, real estate, manufacturing, retail, hospitality and logistics.",
   path: "/industries",
 });
 
@@ -19,7 +19,7 @@ export default function IndustriesPage() {
       <PageHero
         eyebrow="Industries"
         title="Focused expertise for the organizations we know best"
-        description="We specialize in three areas, so the advice you get is specific to your rules, your reporting and your goals."
+        description="We specialize in three areas and support organizations across many more, so the advice you get fits your rules, your reporting and your goals."
       >
         <CtaButtons secondary={null} />
       </PageHero>
@@ -35,19 +35,22 @@ export default function IndustriesPage() {
             title={<span id="also-title">Other industries we support</span>}
             description="Don't see your industry? Most of what we do applies to any well-run organization. Just ask."
           />
-          <Stagger as="ul" className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <Stagger as="ul" className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {otherIndustries.map((industry) => {
               const Icon = icons[industry.icon];
               return (
-                <StaggerItem
-                  as="li"
-                  key={industry.slug}
-                  className="flex items-center gap-4 rounded-2xl border bg-card p-5"
-                >
-                  <span className="grid size-10 place-items-center rounded-xl bg-accent-soft text-gold-ink">
+                <StaggerItem as="li" key={industry.slug} className="flex gap-4 rounded-2xl border bg-card p-5">
+                  <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-accent-soft text-gold-ink">
                     <Icon className="size-5" aria-hidden="true" />
                   </span>
-                  <span className="font-medium">{industry.name}</span>
+                  <span>
+                    <span className="block font-medium">{industry.name}</span>
+                    {industry.description && (
+                      <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">
+                        {industry.description}
+                      </span>
+                    )}
+                  </span>
                 </StaggerItem>
               );
             })}

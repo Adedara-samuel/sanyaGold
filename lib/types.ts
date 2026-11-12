@@ -31,6 +31,11 @@ export interface Firm {
 
 /** Icon names are strings so data stays serialisable across the API boundary. */
 export type IconName =
+  | "landmark"
+  | "factory"
+  | "shopping"
+  | "hotel"
+  | "truck"
   | "receipt"
   | "book"
   | "shield"
@@ -60,6 +65,8 @@ export interface Service {
   icon: IconName;
   summary: string;
   description: string;
+  /** Optional short announcement shown at the top of the service page. */
+  announcement?: string;
   idealFor: string[];
   offerings: { title: string; description: string }[];
   process: { step: string; description: string }[];

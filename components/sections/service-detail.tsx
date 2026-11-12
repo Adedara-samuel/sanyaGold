@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Check } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Sparkles } from "lucide-react";
 import { FirmBadge, FirmMark, firmAccent } from "@/components/firms/firm-mark";
 import { Reveal } from "@/components/motion/reveal";
 import { Stagger, StaggerItem } from "@/components/motion/stagger";
@@ -67,6 +67,12 @@ export function ServiceDetail({ slug }: { slug: string }) {
               <p className="eyebrow">Minnesota {service.shortTitle}</p>
             </div>
             <h1 className="mt-5 text-4xl leading-tight font-semibold sm:text-5xl">{service.title}</h1>
+            {service.announcement && (
+              <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-success/30 bg-success/8 px-3.5 py-1.5 text-sm font-medium">
+                <Sparkles className="size-4 text-success" aria-hidden="true" />
+                {service.announcement}
+              </p>
+            )}
             <FirmBadge firm={service.firm} className="mt-5" />
             <p className="text-lead mt-5 max-w-2xl">{service.description}</p>
             <CtaButtons className="mt-8" secondary={{ label: "Ask a question", href: "/contact" }} />
