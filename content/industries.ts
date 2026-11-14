@@ -3,7 +3,7 @@ import type { IconName, Industry } from "@/lib/types";
 export const industries: Industry[] = [
   {
     slug: "nonprofits",
-    name: "Nonprofits",
+    name: "Non-profits",
     icon: "heart",
     featured: true,
     headline: "More time for your mission, less time on compliance",

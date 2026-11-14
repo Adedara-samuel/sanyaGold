@@ -8,10 +8,10 @@ import type { Post } from "@/lib/types";
 export const posts: Post[] = [
   {
     slug: "form-990-basics-for-minnesota-nonprofits",
-    title: "Form 990 basics for Minnesota nonprofits",
+    title: "Form 990 basics for Minnesota non-profits",
     excerpt:
       "Which version of Form 990 your organization files, what goes into it, and how to make filing season less stressful.",
-    category: "Nonprofits",
+    category: "Non-profits",
     publishedAt: "2026-09-15",
     readingMinutes: 5,
     author: "Sanyagold Team",
@@ -108,7 +108,7 @@ export const posts: Post[] = [
       { type: "h2", text: "Audit" },
       {
         type: "p",
-        text: "An audit provides reasonable assurance and includes testing, confirmations and an evaluation of internal controls. It's often required for larger nonprofits and certain grants.",
+        text: "An audit provides reasonable assurance and includes testing, confirmations and an evaluation of internal controls. It's often required for larger non-profits and certain grants.",
       },
       {
         type: "callout",

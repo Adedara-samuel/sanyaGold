@@ -9,7 +9,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Industries We Serve",
   description:
-    "Specialist accounting and tax support for Minnesota nonprofits, small businesses and professional services firms.",
+    "Specialist accounting and tax support for Minnesota non-profits, small businesses and professional services firms.",
   path: "/industries",
 });
 

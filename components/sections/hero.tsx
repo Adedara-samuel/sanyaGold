@@ -10,7 +10,7 @@ import { displayName, firmHref, firms } from "@/content/firms";
 
 const headline = [
   "Accounting, tax and advisory",
-  "that helps Minnesota nonprofits",
+  "that helps Minnesota non-profits",
   "and small businesses grow with confidence.",
 ];
 
@@ -34,7 +34,7 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full border bg-card/70 px-3.5 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur"
           >
             <MapPin className="size-3.5 text-gold-ink" aria-hidden="true" />
-            Two independent Minnesota firms · Nonprofits &amp; small businesses
+            Two independent Minnesota firms · Non-profits &amp; small businesses
           </motion.p>
 
           <h1 id="hero-title" className="mt-6 text-4xl leading-[1.08] font-semibold sm:text-5xl lg:text-[3.6rem]">
@@ -126,7 +126,7 @@ function HeroVisual() {
   const reduce = useReducedMotion();
   const ease = [0.22, 1, 0.36, 1] as const;
   const cards = [
-    { icon: FileCheck2, title: "Form 990 filed", meta: "Nonprofit · on time", className: "top-6 -left-4 sm:-left-10" },
+    { icon: FileCheck2, title: "Form 990 filed", meta: "Non-profit · on time", className: "top-6 -left-4 sm:-left-10" },
     {
       icon: CalendarCheck,
       title: "Q3 estimates scheduled",

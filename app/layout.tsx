@@ -40,7 +40,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Accounting, Tax & Advisory for Minnesota Nonprofits & Small Businesses`,
+    default: `${siteConfig.name} | Accounting, Tax & Advisory for Minnesota Non-profits & Small Businesses`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -51,10 +51,10 @@ export const metadata: Metadata = {
     "Sanyagold Accounting, Advisory and Consulting Services",
     "payroll services Minnesota",
     "single audit Minnesota",
-    "nonprofit accountant Minnesota",
+    "non-profit accountant Minnesota",
     "small business accounting Minnesota",
     "Form 990 preparation",
-    "nonprofit audit Minnesota",
+    "non-profit audit Minnesota",
     "book-keeping Hanover MN",
     "tax planning Minnesota",
   ],

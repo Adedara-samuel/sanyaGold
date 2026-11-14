@@ -11,7 +11,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "About Us",
   description:
-    "Meet the team behind Sanyagold Accounting, Advisory and Consulting Services and W O Oyebamiji CPA LLC, two independent firms serving Minnesota nonprofits and small businesses.",
+    "Meet the team behind Sanyagold Accounting, Advisory and Consulting Services and W O Oyebamiji CPA LLC, two independent firms serving Minnesota non-profits and small businesses.",
   path: "/about",
 });
 

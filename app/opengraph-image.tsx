@@ -43,7 +43,7 @@ export default async function OpengraphImage() {
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
         <span style={{ fontSize: 60, lineHeight: 1.1, fontWeight: 700, maxWidth: 980 }}>
-          Accounting, tax and advisory for Minnesota nonprofits and small businesses.
+          Accounting, tax and advisory for Minnesota non-profits and small businesses.
         </span>
         <span style={{ fontSize: 26, color: "#4A5568", fontFamily: "sans-serif" }}>
           Sanyagold Accounting, Advisory and Consulting Services · W O Oyebamiji CPA LLC

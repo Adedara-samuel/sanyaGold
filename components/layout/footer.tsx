@@ -58,7 +58,7 @@ export function SiteFooter() {
         <div className="max-w-sm space-y-5">
           <Logo descriptor />
           <p className="text-sm leading-relaxed text-muted-foreground">
-            Two independent, complementary firms serving Minnesota nonprofits and small businesses.
+            Two independent, complementary firms serving Minnesota non-profits and small businesses.
           </p>
           <ul className="space-y-2.5 text-sm">
             {firms.map((firm) => (

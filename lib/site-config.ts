@@ -8,7 +8,7 @@ export const siteConfig = {
   // Website brand. The two independent firms are described in content/firms.ts.
   name: "Sanyagold",
   legalName: "Sanyagold Accounting, Advisory and Consulting Services",
-  tagline: "Accounting, tax and advisory for Minnesota nonprofits and small businesses",
+  tagline: "Accounting, tax and advisory for Minnesota non-profits and small businesses",
   description:
     "Two independent, complementary Minnesota firms: Sanyagold Accounting, Advisory and Consulting Services for book-keeping, payroll, HR and business advisory, and W O Oyebamiji CPA LLC for tax, audit, review and attestation.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sanyagold.com",
@@ -97,7 +97,7 @@ export const siteConfig = {
           group: "W O Oyebamiji CPA LLC",
           label: "Tax Services",
           href: "/services/tax",
-          description: "Tax planning and tax preparation for businesses and nonprofits.",
+          description: "Tax planning and tax preparation for businesses and non-profits.",
         },
         {
           group: "W O Oyebamiji CPA LLC",

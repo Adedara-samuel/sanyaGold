@@ -9,7 +9,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Our Firms",
   description:
-    "Sanyagold Accounting, Advisory and Consulting Services and W O Oyebamiji CPA LLC: two independent, complementary firms serving Minnesota nonprofits and small businesses.",
+    "Sanyagold Accounting, Advisory and Consulting Services and W O Oyebamiji CPA LLC: two independent, complementary firms serving Minnesota non-profits and small businesses.",
   path: "/firms",
 });
 

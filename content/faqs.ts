@@ -27,7 +27,7 @@ export const faqGroups: FaqGroup[] = [
       {
         question: "Who do you work with?",
         answer:
-          "We focus on Minnesota nonprofits, small businesses and professional services firms. We also support clients with activity in other states.",
+          "We focus on Minnesota non-profits, small businesses and professional services firms. We also support clients with activity in other states.",
       },
       {
         question: "Do we need to meet in person?",
@@ -56,7 +56,7 @@ export const faqGroups: FaqGroup[] = [
     ],
   },
   {
-    category: "Nonprofits",
+    category: "Non-profits",
     items: [
       {
         question: "Can you prepare our Form 990?",

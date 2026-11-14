@@ -17,7 +17,7 @@ const reasons = [
   {
     icon: Sparkles,
     title: "Specialists, not generalists",
-    description: "Deep experience with nonprofits, small businesses and professional services.",
+    description: "Deep experience with non-profits, small businesses and professional services.",
   },
   {
     icon: ShieldCheck,

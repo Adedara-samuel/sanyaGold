@@ -29,12 +29,12 @@ export const serviceDetails: Partial<Record<ServiceSlug, { intro: string[]; entr
         ],
       },
       {
-        title: "Nonprofit Accounting",
+        title: "Non-profit Accounting",
         subtitle: "Reporting and Compliance",
         paragraphs: [
-          "Our nonprofit accounting, reporting, and compliance services are tailored to meet the unique needs of charitable and tax-exempt organizations.",
+          "Our non-profit accounting, reporting, and compliance services are tailored to meet the unique needs of charitable and tax-exempt organizations.",
           "We ensure accurate financial reporting, compliance with regulatory requirements, and transparency for stakeholders.",
-          "Our services include preparing financial statements, managing grants and donations, tracking restricted funds, and ensuring adherence to nonprofit accounting standards.",
+          "Our services include preparing financial statements, managing grants and donations, tracking restricted funds, and ensuring adherence to non-profit accounting standards.",
           "With our expertise, your organization can focus on its mission while confidently meeting reporting and compliance obligations.",
         ],
       },

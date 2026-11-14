@@ -74,7 +74,7 @@ export const firmChoiceLabels: Record<BookingInput["firm"], string> = {
 
 export const organizationTypeLabels: Record<BookingInput["organizationType"], string> = {
   "small-business": "Small business",
-  nonprofit: "Nonprofit",
+  nonprofit: "Non-profit",
   "professional-services": "Professional services firm",
   individual: "Individual / business owner",
   other: "Other",

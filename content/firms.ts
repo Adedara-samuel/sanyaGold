@@ -76,10 +76,10 @@ export const firms: Firm[] = [
       {
         title: "Proactive tax planning",
         description:
-          "Year-round planning and accurate preparation for businesses, nonprofits and their owners, with notices handled on your behalf.",
+          "Year-round planning and accurate preparation for businesses, non-profits and their owners, with notices handled on your behalf.",
       },
       {
-        title: "Built for nonprofits",
+        title: "Built for non-profits",
         description:
           "Form 990s, financial statement audits and single audits for organizations with funder and federal-award requirements.",
       },

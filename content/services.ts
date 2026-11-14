@@ -19,7 +19,7 @@ export const services: Service[] = [
       "We keep your books accurate and current every month, reconcile your accounts and deliver simple financial reports, so you always know where your organization stands and are ready for tax time, lenders, boards and grantmakers.",
     idealFor: [
       "Growing businesses that have outgrown do-it-yourself book-keeping",
-      "Nonprofits that need fund and grant tracking",
+      "Non-profits that need fund and grant tracking",
       "Teams that want a reliable monthly close",
     ],
     offerings: [
@@ -32,7 +32,7 @@ export const services: Service[] = [
         description: "Profit and loss, balance sheet and cash flow reports in plain English.",
       },
       {
-        title: "Nonprofit fund accounting",
+        title: "Non-profit fund accounting",
         description: "Restricted and unrestricted funds tracked clearly for boards and grantors.",
       },
       {
@@ -77,7 +77,7 @@ export const services: Service[] = [
       "We run payroll on your schedule, handle withholding, deposits and payroll filings, and keep clear records, so paying your people is one less thing to worry about.",
     idealFor: [
       "Small businesses with hourly or salaried employees",
-      "Nonprofits managing staff across grants and programs",
+      "Non-profits managing staff across grants and programs",
       "Owners who want to stop running payroll themselves",
     ],
     offerings: [
@@ -134,7 +134,7 @@ export const services: Service[] = [
       "We help you build simple, organized HR practices: clear policies, smooth onboarding, well-kept employee records and day-to-day HR support as your team grows.",
     idealFor: [
       "Growing teams without a dedicated HR person",
-      "Nonprofits managing staff and volunteers",
+      "Non-profits managing staff and volunteers",
       "Owners who want consistent, well-documented HR practices",
     ],
     offerings: [
@@ -192,7 +192,7 @@ export const services: Service[] = [
       "Beyond the day-to-day, we help you understand your numbers and plan ahead, from budgets and cash flow forecasts to pricing, business structure and board-ready reporting, as an extension of your leadership team.",
     idealFor: [
       "Owners planning growth, hiring or a major purchase",
-      "Nonprofit executive directors working with boards",
+      "Non-profit executive directors working with boards",
       "Organizations that need part-time CFO-level support",
     ],
     offerings: [
@@ -265,7 +265,7 @@ export const services: Service[] = [
     announcement: "We are now taking new small business tax clients - No waitlists!",
     idealFor: [
       "Small business owners who want a proactive tax partner",
-      "Nonprofits filing Form 990, 990-EZ or 990-N",
+      "Non-profits filing Form 990, 990-EZ or 990-N",
       "Owners of S corporations, partnerships and LLCs",
     ],
     offerings: [
@@ -274,7 +274,7 @@ export const services: Service[] = [
         description: "Federal and Minnesota returns for S corps, C corps, partnerships and sole proprietors.",
       },
       {
-        title: "Nonprofit Form 990",
+        title: "Non-profit Form 990",
         description: "Accurate 990 filings that tell your mission's story to donors and regulators.",
       },
       {
@@ -333,7 +333,7 @@ export const services: Service[] = [
     description:
       "When a funder, lender or board needs independent assurance on your financial statements, we provide audits, single audits, reviews and other attestation services with clear communication at every step, so the process is predictable and your team is never left guessing.",
     idealFor: [
-      "Nonprofits with audit requirements from grantors or the state",
+      "Non-profits with audit requirements from grantors or the state",
       "Organizations that spend federal awards and need a single audit",
       "Businesses with lender or investor reporting requirements",
     ],
@@ -389,7 +389,7 @@ export const services: Service[] = [
           "Generally when an organization spends federal awards above the threshold set by the Uniform Guidance in a fiscal year. We can help you confirm whether it applies to you.",
       },
       {
-        question: "Does my nonprofit need an audit?",
+        question: "Does my non-profit need an audit?",
         answer:
           "It depends on your revenue, your funders' requirements and Minnesota's rules for charitable organizations. We can help you figure out what applies to you.",
       },

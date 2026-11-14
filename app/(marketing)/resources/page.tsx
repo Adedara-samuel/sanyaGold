@@ -21,7 +21,7 @@ const tools = [
   {
     icon: BookOpen,
     title: "Blog & guides",
-    description: "Plain-English articles on tax, nonprofits and small business finance.",
+    description: "Plain-English articles on tax, non-profits and small business finance.",
     href: "/blog",
   },
   {
