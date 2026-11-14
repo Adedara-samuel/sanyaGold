@@ -1,11 +1,8 @@
 import { stats } from "@/content/stats";
 import { CountUp } from "@/components/motion/count-up";
 import { Stagger, StaggerItem } from "@/components/motion/stagger";
-import { PlaceholderNote } from "@/components/shared";
 
 export function StatsBar() {
-  const hasPlaceholders = stats.some((stat) => stat.placeholder);
-
   return (
     <section aria-label="Sanyagold at a glance" className="container-page">
       <div className="relative overflow-hidden rounded-3xl bg-primary px-6 py-10 text-primary-foreground sm:px-10">
@@ -21,11 +18,6 @@ export function StatsBar() {
           ))}
         </Stagger>
       </div>
-      {hasPlaceholders && (
-        <PlaceholderNote className="mt-3 text-center">
-          Sample figures shown — replace with verified numbers before launch.
-        </PlaceholderNote>
-      )}
     </section>
   );
 }
