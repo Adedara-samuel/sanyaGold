@@ -85,7 +85,7 @@ export const firms: Firm[] = [
       },
     ],
     licensing: {
-      firmPermit: "[Minnesota CPA Firm Permit #]",
+      firmPermit: "",
       licensingBoard: "Minnesota Board of Accountancy",
       licensingBoardUrl: "https://boa.state.mn.us/",
     },

@@ -80,8 +80,12 @@ export default async function FirmPage({ params }: PageProps<"/firms/[slug]">) {
                       {firm.licensing.licensingBoard}
                       <span className="sr-only"> (opens in a new tab)</span>
                     </a>
-                    <br />
-                    {firm.licensing.firmPermit}
+                    {firm.licensing.firmPermit && (
+                      <>
+                        <br />
+                        {firm.licensing.firmPermit}
+                      </>
+                    )}
                   </p>
                 </div>
               )}

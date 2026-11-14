@@ -17,7 +17,7 @@ export default function PrivacyPolicyPage() {
   return (
     <LegalPage
       title="Privacy Policy"
-      updated="[Month Day, Year]"
+      updated="November 14, 2026"
       intro={`This policy explains what information is collected through this website, which is shared by Sanyagold Accounting, Advisory and Consulting Services and W O Oyebamiji CPA LLC, how it is used and the choices you have.`}
     >
       <h2>Information we collect</h2>
@@ -27,12 +27,12 @@ export default function PrivacyPolicyPage() {
           use our contact or consultation request forms.
         </li>
         <li>
-          <strong>Documents you upload:</strong> files you share through the client portal once it is available, used
+          <strong>Documents you share:</strong> files you send us securely, used
           only to provide the services you engage us for.
         </li>
         <li>
           <strong>Usage information:</strong> if analytics is enabled, basic, aggregated information such as pages
-          visited and device type. [Update to name your analytics provider, if any.]
+          visited and device type.
         </li>
       </ul>
 

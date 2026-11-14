@@ -42,7 +42,7 @@ export const faqGroups: FaqGroup[] = [
       {
         question: "How do I send you my documents?",
         answer:
-          "Through our client portal's document upload, or another method we agree on during onboarding. Please don't send Social Security numbers or bank details by regular email.",
+          "Through a secure method we agree on during onboarding. Please don't send Social Security numbers or bank details by regular email.",
       },
       {
         question: "How do you price your services?",
@@ -51,7 +51,7 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         question: "How quickly will you respond?",
-        answer: "We aim to reply to client messages within one business day. [Confirm response-time commitment]",
+        answer: "We aim to reply to client messages within one business day.",
       },
     ],
   },

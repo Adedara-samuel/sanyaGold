@@ -147,7 +147,7 @@ export function SiteFooter() {
             <p>
               {independenceStatement}
               {cpaFirm.licensing &&
-                ` ${cpaFirm.name} is licensed by the ${cpaFirm.licensing.licensingBoard}. ${cpaFirm.licensing.firmPermit}`}
+                ` ${cpaFirm.name} is licensed by the ${cpaFirm.licensing.licensingBoard}.${cpaFirm.licensing.firmPermit ? ` ${cpaFirm.licensing.firmPermit}` : ""}`}
             </p>
           </div>
           <div className="flex shrink-0 flex-col gap-2 sm:items-end">

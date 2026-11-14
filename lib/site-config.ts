@@ -29,8 +29,8 @@ export const siteConfig = {
   },
 
   hours: [
-    { days: "Monday – Friday", time: "[9:00 AM – 5:00 PM]" },
-    { days: "Saturday – Sunday", time: "[By appointment]" },
+    { days: "Monday – Friday", time: "9:00 AM – 5:00 PM" },
+    { days: "Saturday – Sunday", time: "By appointment" },
   ],
   // Machine-readable hours for JSON-LD — keep in sync with `hours` above.
   openingHoursSpec: [
@@ -133,7 +133,6 @@ export const siteConfig = {
         { label: "FAQs", href: "/resources#faqs", description: "Answers to the questions we hear most." },
       ],
     },
-    { label: "Client Portal", href: "/portal/login" },
   ],
 
   footer: {
@@ -168,8 +167,6 @@ export const siteConfig = {
     resources: [
       { label: "Blog", href: "/blog" },
       { label: "FAQs", href: "/resources#faqs" },
-      { label: "Client Portal", href: "/portal/login" },
-      { label: "Secure Upload", href: "/portal/documents" },
     ],
     legal: [
       { label: "Privacy Policy", href: "/privacy-policy" },

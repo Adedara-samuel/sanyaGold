@@ -12,7 +12,7 @@ export default function AccessibilityPage() {
   return (
     <LegalPage
       title="Accessibility Statement"
-      updated="[Month Day, Year]"
+      updated="November 14, 2026"
       intro={`${siteConfig.name} wants everyone to be able to use this website, including people with disabilities.`}
     >
       <h2>Our commitment</h2>

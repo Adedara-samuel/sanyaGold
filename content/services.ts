@@ -58,7 +58,7 @@ export const services: Service[] = [
       {
         question: "Which accounting software do you work with?",
         answer:
-          "We most often work in QuickBooks Online, and we can work with other common platforms. [Confirm supported software]",
+          "We most often work in QuickBooks Online, and we can work with other common platforms.",
       },
       {
         question: "Can you help if my books are months behind?",
@@ -115,7 +115,7 @@ export const services: Service[] = [
     faqs: [
       {
         question: "Which payroll platform do you use?",
-        answer: "We can work with the platform you already use or recommend one that fits. [Confirm payroll platform]",
+        answer: "We can work with the platform you already use or recommend one that fits.",
       },
       {
         question: "Can you take over payroll partway through the year?",
@@ -247,7 +247,7 @@ export const services: Service[] = [
       {
         question: "How is consulting priced?",
         answer:
-          "Most projects are priced at a fixed fee after a free consultation, so you know the cost up front. [Confirm pricing approach]",
+          "Most projects are priced at a fixed fee after a free consultation, so you know the cost up front.",
       },
     ],
   },
@@ -302,7 +302,7 @@ export const services: Service[] = [
       { step: "Free consultation", description: "We learn about your situation and what you need from a tax partner." },
       {
         step: "Secure document collection",
-        description: "You share documents through the client portal or a guided checklist.",
+        description: "You share documents with us securely, using a guided checklist.",
       },
       {
         step: "Preparation and review",

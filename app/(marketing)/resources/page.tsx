@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { HydrationBoundary } from "@tanstack/react-query";
-import { ArrowRight, BookOpen, CalendarCheck, Lock, Upload } from "lucide-react";
+import { ArrowRight, BookOpen, CalendarCheck } from "lucide-react";
 import { allFaqs } from "@/content/faqs";
 import { Reveal } from "@/components/motion/reveal";
 import { Stagger, StaggerItem } from "@/components/motion/stagger";
@@ -13,7 +13,7 @@ import { faqJsonLd, pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Resources & FAQs",
   description:
-    "Answers to common questions, plain-English guides and client tools from Sanyagold and W O Oyebamiji CPA LLC.",
+    "Answers to common questions and plain-English guides from Sanyagold and W O Oyebamiji CPA LLC.",
   path: "/resources",
 });
 
@@ -23,18 +23,6 @@ const tools = [
     title: "Blog & guides",
     description: "Plain-English articles on tax, nonprofits and small business finance.",
     href: "/blog",
-  },
-  {
-    icon: Upload,
-    title: "Send documents",
-    description: "Upload files for your accountant through the client portal.",
-    href: "/portal/documents",
-  },
-  {
-    icon: Lock,
-    title: "Client portal",
-    description: "Sign in to see your documents and requests.",
-    href: "/portal/login",
   },
   {
     icon: CalendarCheck,
@@ -51,12 +39,12 @@ export default async function ResourcesPage() {
     <HydrationBoundary state={state}>
       <PageHero
         eyebrow="Resources"
-        title="Helpful answers and client tools"
-        description="Quick answers to common questions, guides you can read in five minutes and the tools you need to work with us."
+        title="Helpful answers and guides"
+        description="Quick answers to common questions and guides you can read in five minutes."
       />
 
       <section className="container-page pb-20" aria-label="Client resources">
-        <Stagger as="ul" className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <Stagger as="ul" className="grid gap-5 sm:grid-cols-2">
           {tools.map((tool) => (
             <StaggerItem
               as="li"
